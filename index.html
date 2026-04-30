@@ -460,6 +460,11 @@ footer{background:var(--volt);padding:40px 5vw;color:rgba(255,255,255,.4)}
 @media(min-width:641px){
   .mob-br{display:none}
 }
+
+/* Comparison section mobile fix */
+@media(max-width:768px){
+  .comparison-grid{grid-template-columns:1fr !important}
+}
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-F4ZWWXGTQP"></script>
@@ -579,7 +584,7 @@ footer{background:var(--volt);padding:40px 5vw;color:rgba(255,255,255,.4)}
             <path d="M10 2L6 9H9.5L7.5 18L14 9H10.5L10 2Z" fill="#1D9E75"/>
           </svg>
         </div>
-        <h3>KI-gestützte Analyse</h3>
+        <h3>Mehr als Fahrzeughistorie</h3>
         <p>Wir analysieren tausende Datenpunkte: Fahrzeugdaten, Marktdaten, Branchenstatistiken, Community-Erfahrungen. Das Ergebnis ist ein verlässlicher Score.</p>
       </div>
       <div class="value-item fade-up">
@@ -589,7 +594,7 @@ footer{background:var(--volt);padding:40px 5vw;color:rgba(255,255,255,.4)}
             <path d="M7 10L9 12L13 8" stroke="#1D9E75" stroke-width="1.5" stroke-linecap="round"/>
           </svg>
         </div>
-        <h3>Transparente Bewertung</h3>
+        <h3>Kein Batterie-Zertifikat. Ein Gesamtbild.</h3>
         <p>Jedes Fahrzeug erhält einen amperillo Score basierend auf über 150 Faktoren, bewertet auf einer Skala von 0 bis 100 Punkten. Nachvollziehbar, objektiv und transparent.</p>
       </div>
       <div class="value-item fade-up">
@@ -740,7 +745,7 @@ footer{background:var(--volt);padding:40px 5vw;color:rgba(255,255,255,.4)}
   <div class="section-inner">
     <div class="section-eyebrow" style="color:var(--glight)">Warum amperillo</div>
     <h2 class="section-title fade-up" style="color:var(--white)">Was uns von anderen unterscheidet.</h2>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:2.5rem">
+    <div class="comparison-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:2.5rem">
 
       <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:1.5rem">
         <div style="font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:.75rem">Fahrzeughistorie</div>
