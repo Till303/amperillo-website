@@ -1,0 +1,1408 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>amperillo — Gebrauchte E-Autos, denen du wirklich vertrauen kannst.</title>
+<meta name="description" content="amperillo ist die neue Methodik für gebrauchte E-Autos. Verkäufer erzielen bessere Preise. Käufer kaufen mit Sicherheit. Der amperillo Score — unabhängig, transparent, datenbasiert.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+
+<!-- Google Tag Manager placeholder -->
+<!-- GTM-XXXXXXX — replace with your GTM container ID -->
+<script>
+// GTM will be inserted here by your developer
+// (function(w,d,s,l,i){...})
+</script>
+
+<style>
+:root {
+  --volt:   #0A1628;
+  --green:  #1D9E75;
+  --glight: #5DCAA5;
+  --gpale:  #E1F5EE;
+  --gdark:  #085041;
+  --amber:  #EF9F27;
+  --offwhite: #F4F2EB;
+  --white:  #FFFFFF;
+  --border: #D8D6CE;
+  --text:   #0A1628;
+  --muted:  #6B6A65;
+  --ff-display: 'Playfair Display', Georgia, serif;
+  --ff-body:    'DM Sans', system-ui, sans-serif;
+  --r-sm: 6px; --r-md: 10px; --r-lg: 14px; --r-xl: 20px; --r-pill: 99px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}body{scroll-padding-top:0}
+body{font-family:var(--ff-body);background:var(--offwhite);color:var(--text);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+
+/* ── NAV ─────────────────────────────── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  padding:0 5vw;height:64px;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(10,22,40,.92);backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.nav-wordmark{font-family:var(--ff-display);font-size:20px;color:var(--white);letter-spacing:-.5px}
+.nav-tag{font-size:10px;color:var(--glight);letter-spacing:.14em;text-transform:uppercase}
+.nav-cta{
+  background:var(--green);color:var(--gdark);
+  border:none;border-radius:var(--r-pill);
+  padding:8px 20px;font-size:13px;font-weight:500;
+  font-family:var(--ff-body);cursor:pointer;
+  text-decoration:none;display:inline-block;
+  transition:background .2s,transform .15s;
+}
+.nav-cta:hover{background:#178560;transform:translateY(-1px)}
+
+/* ── HERO ────────────────────────────── */
+.hero{
+  min-height:100vh;
+  background:var(--volt);
+  display:flex;flex-direction:column;
+  justify-content:center;
+  padding:120px 5vw 80px;
+  position:relative;overflow:hidden;
+}
+.hero-bg{
+  position:absolute;inset:0;z-index:0;
+  pointer-events:none;overflow:hidden;
+}
+#heroCanvas{
+  width:100%;height:100%;
+  display:block;
+}
+.hero::before{
+  content:'';position:absolute;
+  width:700px;height:700px;border-radius:50%;
+  border:1px solid rgba(29,158,117,.12);
+  top:-200px;right:-150px;
+  animation:pulse 8s ease-in-out infinite;
+}
+.hero::after{
+  content:'';position:absolute;
+  width:400px;height:400px;border-radius:50%;
+  border:1px solid rgba(29,158,117,.08);
+  top:50px;right:50px;
+  animation:pulse 8s ease-in-out infinite .5s;
+}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:.6}50%{transform:scale(1.05);opacity:1}}
+
+.hero-inner{max-width:780px;position:relative;z-index:1}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:12px;font-weight:500;letter-spacing:.14em;
+  text-transform:uppercase;
+  background:rgba(29,158,117,0.12);
+  border:1px solid rgba(29,158,117,0.35);
+  border-radius:99px;
+  padding:7px 16px;
+  color:var(--glight);
+  margin-bottom:2rem;
+  backdrop-filter:blur(4px);
+}
+.eyebrow-dot{
+  width:8px;height:8px;border-radius:50%;
+  background:var(--green);
+  box-shadow:0 0 8px var(--green), 0 0 16px rgba(29,158,117,0.5);
+  animation:blink 1.8s ease-in-out infinite;
+  flex-shrink:0;
+}
+.eyebrow-sep{color:rgba(93,202,165,0.35);margin:0 2px}
+@keyframes blink{0%,100%{opacity:1;box-shadow:0 0 8px var(--green),0 0 16px rgba(29,158,117,0.5)}50%{opacity:0.3;box-shadow:none}}
+
+.hero h1{
+  font-family:var(--ff-display);
+  font-size:clamp(36px, 5.5vw, 66px);
+  font-weight:400;color:var(--white);
+  line-height:1.12;letter-spacing:-1.5px;
+  margin-bottom:1.5rem;
+}
+.hero h1 em{color:var(--green);font-style:italic}
+
+.hero-sub{
+  font-size:clamp(15px,1.8vw,18px);
+  color:rgba(255,255,255,.62);
+  line-height:1.7;max-width:560px;
+  margin-bottom:2.5rem;
+}
+.hero-sub strong{color:var(--glight);font-weight:500}
+
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap}
+.cta-primary{
+  background:var(--green);color:var(--gdark);
+  border:none;border-radius:var(--r-pill);
+  padding:14px 28px;font-size:15px;font-weight:500;
+  font-family:var(--ff-body);cursor:pointer;
+  text-decoration:none;display:inline-block;
+  transition:all .2s;
+}
+.cta-primary:hover{background:#178560;transform:translateY(-2px);box-shadow:0 8px 24px rgba(29,158,117,.3)}
+.cta-outline{
+  background:transparent;color:var(--white);
+  border:1px solid rgba(255,255,255,.25);
+  border-radius:var(--r-pill);
+  padding:14px 28px;font-size:15px;font-weight:400;
+  font-family:var(--ff-body);cursor:pointer;
+  text-decoration:none;display:inline-block;
+  transition:all .2s;
+}
+.cta-outline:hover{border-color:rgba(255,255,255,.6);background:rgba(255,255,255,.06)}
+
+.hero-score-teaser{
+  margin-top:3.5rem;
+  display:inline-flex;align-items:center;gap:20px;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(29,158,117,.25);
+  border-radius:var(--r-xl);padding:18px 28px;
+  backdrop-filter:blur(8px);
+}
+/* Score Badge / Seal */
+.score-seal{
+  position:relative;width:80px;height:80px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+}
+.score-seal svg{position:absolute;inset:0;width:100%;height:100%}
+.score-seal-inner{
+  position:relative;z-index:1;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;
+}
+.score-num{
+  font-family:var(--ff-display);font-size:24px;
+  color:var(--green);line-height:1;font-weight:400;
+}
+.score-denom{font-size:9px;color:var(--glight);letter-spacing:.05em}
+.score-label{font-size:13px;font-weight:500;color:rgba(255,255,255,.85)}
+.score-sublabel{font-size:11px;color:rgba(255,255,255,.4);margin-top:3px}
+.score-certified{
+  font-size:9px;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--green);margin-top:4px;font-weight:500;
+}
+
+/* ── SECTION BASE ────────────────────── */
+section{padding:80px 5vw}
+.section-inner{max-width:1040px;margin:0 auto}
+.section-eyebrow{
+  font-size:10px;font-weight:500;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--green);
+  margin-bottom:.875rem;
+}
+.section-title{
+  font-family:var(--ff-display);
+  font-size:clamp(26px,3.5vw,42px);
+  font-weight:400;line-height:1.2;letter-spacing:-.8px;
+  margin-bottom:1rem;
+}
+.section-body{font-size:16px;color:var(--muted);line-height:1.75;max-width:600px}
+
+/* ── VALUE PROP ──────────────────────── */
+.value-section{background:var(--white)}
+.value-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:2.5rem 4rem;
+  margin-top:3rem;
+}
+@media(max-width:640px){.value-grid{grid-template-columns:1fr}}
+.value-item{}
+.value-icon{
+  width:56px;height:56px;border-radius:14px;
+  background:var(--gpale);
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:1.25rem;
+  position:relative;
+  transition:box-shadow .35s ease;
+  transition:box-shadow .35s ease;
+}
+.value-icon:hover{box-shadow:0 14px 30px rgba(29,158,117,.2)}
+.value-icon svg{width:26px;height:26px;transition:transform .3s}
+.value-icon:hover svg{transform:scale(1.15)}
+.value-icon::after{content:'';position:absolute;inset:-3px;border-radius:17px;border:1.5px solid rgba(29,158,117,0);transition:all .35s}
+.value-icon:hover::after{border-color:rgba(29,158,117,.45);box-shadow:0 0 20px rgba(29,158,117,.18)}
+
+.value-item h3{font-size:16px;font-weight:500;margin-bottom:.5rem}
+.value-item p{font-size:14px;color:var(--muted);line-height:1.65}
+
+/* ── APPROACH ────────────────────────── */
+.approach-section{background:var(--offwhite)}
+.approach-inner{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:4rem;align-items:center;
+}
+@media(max-width:768px){.approach-inner{grid-template-columns:1fr}}
+.approach-score-viz{
+  background:var(--volt);border-radius:var(--r-xl);
+  padding:2rem;
+}
+.score-big{
+  font-family:var(--ff-display);font-size:72px;
+  color:var(--green);line-height:1;margin-bottom:.25rem;
+}
+.score-label-big{font-size:12px;color:var(--glight);letter-spacing:.1em;text-transform:uppercase}
+.score-bars{margin-top:1.5rem;display:flex;flex-direction:column;gap:10px}
+.sbar{display:grid;grid-template-columns:110px 1fr 32px;gap:8px;align-items:center;font-size:11px}
+.sbar-label{color:rgba(255,255,255,.6);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sbar-track{height:5px;border-radius:3px;background:rgba(255,255,255,.08)}
+.sbar-fill{height:100%;border-radius:3px;background:var(--green)}
+.sbar-val{color:var(--glight);font-weight:500;text-align:right}
+.approach-list{list-style:none;margin-top:1.5rem;display:flex;flex-direction:column;gap:14px}
+.approach-list li{
+  display:flex;align-items:flex-start;gap:12px;
+  font-size:15px;color:var(--text);line-height:1.5;
+}
+.check{
+  width:20px;height:20px;border-radius:50%;
+  background:var(--gpale);flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  margin-top:2px;
+}
+.check svg{width:11px;height:11px}
+
+/* ── CTA BLOCKS ──────────────────────── */
+.cta-section{background:var(--volt);padding:80px 5vw}
+.cta-grid{
+  max-width:1040px;margin:0 auto;
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+@media(max-width:900px){.cta-grid{grid-template-columns:1fr}}
+.cta-card{
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:var(--r-xl);padding:2rem;
+  display:flex;flex-direction:column;
+  transition:border-color .2s,background .2s;
+}
+.cta-card:hover{border-color:rgba(29,158,117,.4);background:rgba(29,158,117,.06)}
+.cta-card-tag{
+  font-size:10px;font-weight:500;letter-spacing:.15em;
+  text-transform:uppercase;color:var(--glight);margin-bottom:1rem;
+}
+.cta-card h3{
+  font-family:var(--ff-display);font-size:22px;font-weight:400;
+  color:var(--white);line-height:1.3;margin-bottom:.75rem;
+}
+.cta-card p{font-size:14px;color:rgba(255,255,255,.55);line-height:1.65;flex:1;margin-bottom:1.5rem}
+.cta-card-btn{
+  background:var(--green);color:var(--gdark);
+  border:none;border-radius:var(--r-pill);
+  padding:11px 22px;font-size:13px;font-weight:500;
+  font-family:var(--ff-body);cursor:pointer;
+  width:fit-content;transition:all .2s;
+  text-decoration:none;display:inline-block;
+}
+.cta-card-btn:hover{background:#178560;transform:translateY(-1px)}
+.cta-card-btn.outline{
+  background:transparent;color:var(--white);
+  border:1px solid rgba(255,255,255,.25);
+}
+.cta-card-btn.outline:hover{border-color:var(--green);color:var(--glight)}
+
+/* ── MODAL / FORM ────────────────────── */
+.modal-overlay{
+  display:none;position:fixed;inset:0;
+  background:rgba(10,22,40,.75);backdrop-filter:blur(6px);
+  z-index:200;align-items:center;justify-content:center;padding:20px;
+}
+.modal-overlay.open{display:flex}
+.modal{
+  background:var(--white);border-radius:var(--r-xl);
+  width:min(500px,100%);padding:2rem;
+  position:relative;max-height:90vh;overflow-y:auto;
+}
+.modal-close{
+  position:absolute;top:1rem;right:1rem;
+  width:32px;height:32px;border-radius:50%;
+  border:none;background:var(--offwhite);cursor:pointer;
+  font-size:16px;color:var(--muted);
+  display:flex;align-items:center;justify-content:center;
+}
+.modal-close:hover{background:var(--border)}
+.modal-eyebrow{font-size:10px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--green);margin-bottom:.5rem}
+.modal h2{font-family:var(--ff-display);font-size:26px;font-weight:400;margin-bottom:.5rem;letter-spacing:-.5px}
+.modal-sub{font-size:14px;color:var(--muted);margin-bottom:1.5rem;line-height:1.6}
+.form-group{display:flex;flex-direction:column;gap:5px;margin-bottom:1rem}
+.form-group label{font-size:12px;font-weight:500;color:var(--text)}
+.form-group input,.form-group select,.form-group textarea{
+  padding:10px 14px;border:1px solid var(--border);
+  border-radius:var(--r-md);font-size:14px;
+  font-family:var(--ff-body);color:var(--text);
+  background:var(--white);outline:none;
+  transition:border-color .15s;
+}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--green)}
+.form-group textarea{resize:vertical;min-height:80px}
+.form-dsgvo{font-size:11px;color:var(--muted);line-height:1.5;margin-bottom:1rem}
+.form-dsgvo a{color:var(--green)}
+.form-submit{
+  background:var(--green);color:var(--gdark);
+  border:none;border-radius:var(--r-pill);
+  padding:13px 28px;font-size:14px;font-weight:500;
+  font-family:var(--ff-body);cursor:pointer;width:100%;
+  transition:background .2s;
+}
+.form-submit:hover{background:#178560}
+.success-msg{
+  display:none;text-align:center;padding:2rem 1rem;
+}
+.success-msg .check-big{
+  width:56px;height:56px;border-radius:50%;
+  background:var(--gpale);margin:0 auto 1rem;
+  display:flex;align-items:center;justify-content:center;
+}
+.success-msg h3{font-family:var(--ff-display);font-size:22px;margin-bottom:.5rem}
+.success-msg p{font-size:14px;color:var(--muted);line-height:1.6}
+
+/* ── TRUST / FOOTER ──────────────────── */
+.trust-section{background:var(--white);padding:48px 5vw;border-top:1px solid var(--border)}
+.trust-inner{max-width:1040px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5rem}
+.trust-item{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--muted)}
+.trust-icon{width:32px;height:32px;border-radius:var(--r-sm);background:var(--gpale);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+
+footer{background:var(--volt);padding:40px 5vw;color:rgba(255,255,255,.4)}
+.footer-inner{max-width:1040px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.footer-logo{font-family:var(--ff-display);font-size:16px;color:rgba(255,255,255,.7)}
+.footer-links{display:flex;gap:20px;flex-wrap:wrap}
+.footer-links a{font-size:12px;color:rgba(255,255,255,.35);text-decoration:none}
+.footer-links a:hover{color:var(--glight)}
+.footer-copy{font-size:11px;width:100%}
+
+/* ── ANIMATIONS ──────────────────────── */
+.fade-up{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+
+/* ── RESPONSIVE ──────────────────────── */
+@media(max-width:640px){
+  nav{padding:0 4vw}
+  section{padding:60px 4vw}
+  .hero{padding:100px 4vw 60px}
+  .cta-section{padding:60px 4vw}
+  .trust-section{padding:36px 4vw}
+  footer{padding:32px 4vw}
+}
+
+/* ── COOKIE BANNER ───────────────────── */
+.cookie-banner{
+  position:fixed;bottom:0;left:0;right:0;z-index:500;
+  background:rgba(10,22,40,.97);backdrop-filter:blur(12px);
+  border-top:1px solid rgba(29,158,117,.25);
+  padding:1.25rem 5vw;
+  display:flex;align-items:center;justify-content:space-between;
+  gap:1.5rem;flex-wrap:wrap;
+  transform:translateY(0);transition:transform .3s ease;
+}
+.cookie-banner.hidden{transform:translateY(110%)}
+.cookie-text{font-size:13px;color:rgba(255,255,255,.75);line-height:1.6;max-width:640px}
+.cookie-text a{color:var(--glight);text-decoration:none}
+.cookie-text a:hover{text-decoration:underline}
+.cookie-actions{display:flex;gap:10px;flex-shrink:0;flex-wrap:wrap}
+.cookie-accept{
+  background:var(--green);color:var(--gdark);
+  border:none;border-radius:var(--r-pill);
+  padding:9px 20px;font-size:13px;font-weight:500;
+  font-family:var(--ff-body);cursor:pointer;
+  white-space:nowrap;transition:background .2s;
+}
+.cookie-accept:hover{background:#178560}
+.cookie-reject{
+  background:transparent;color:rgba(255,255,255,.55);
+  border:1px solid rgba(255,255,255,.2);
+  border-radius:var(--r-pill);
+  padding:9px 20px;font-size:13px;
+  font-family:var(--ff-body);cursor:pointer;
+  white-space:nowrap;transition:all .2s;
+}
+.cookie-reject:hover{border-color:rgba(255,255,255,.4);color:rgba(255,255,255,.8)}
+
+
+@media(max-width:640px){.hide-mobile{display:none !important}}
+
+/* Score bar animation */
+.sbar-fill{transition:width 1.1s cubic-bezier(.4,0,.2,1)}
+.sbar-val{transition:color .3s}
+.sbar-active .sbar-val{color:#AAFFDD}
+.score-seal-glow{
+  transition:filter .4s ease, transform .4s ease;
+}
+.score-seal-glow.lit{
+  filter:drop-shadow(0 0 18px rgba(29,158,117,.9)) drop-shadow(0 0 36px rgba(29,158,117,.4));
+  transform:scale(1.06);
+}
+.star-burst{
+  transition:filter .3s ease,transform .3s ease;
+}
+.star-burst.lit{
+  filter:drop-shadow(0 0 12px #EF9F27) drop-shadow(0 0 24px rgba(239,159,39,.6));
+  transform:scale(1.4);
+}
+
+/* Icon heartbeat pulse */
+@keyframes heartbeat{
+  0%,100%{transform:scale(1)}
+  14%{transform:scale(1.12)}
+  28%{transform:scale(1)}
+  42%{transform:scale(1.07)}
+  56%{transform:scale(1)}
+}
+.value-icon{animation:heartbeat 2.6s ease-in-out infinite}
+.value-item:nth-child(2) .value-icon{animation-delay:.65s}
+.value-item:nth-child(3) .value-icon{animation-delay:1.3s}
+.value-item:nth-child(4) .value-icon{animation-delay:1.95s}
+
+@media(max-width:640px){
+  .hero h1{font-size:clamp(30px,8.5vw,42px);letter-spacing:-1px}
+  .mob-br{display:none}
+}
+@media(min-width:641px){
+  .mob-br{display:none}
+}
+</style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-F4ZWWXGTQP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+  gtag('js', new Date());
+  gtag('config', 'G-F4ZWWXGTQP', {'anonymize_ip': true});
+</script>
+
+<!-- Brevo Newsletter Form CSS -->
+<link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css">
+<style>
+#sib-container{background-color:transparent !important;border:none !important;max-width:100% !important;border-radius:0 !important}
+#sib-container input{background:rgba(255,255,255,.08) !important;border:1px solid rgba(255,255,255,.2) !important;border-radius:8px !important;color:#fff !important;font-family:var(--ff-body) !important;font-size:14px !important;padding:10px 14px !important}
+#sib-container input::placeholder{color:rgba(255,255,255,.4) !important}
+#sib-container input:focus{border-color:#1D9E75 !important;outline:none !important}
+.sib-form-block__button{background:#1D9E75 !important;border-radius:99px !important;font-family:var(--ff-body) !important;font-size:13px !important;font-weight:500 !important;padding:11px 24px !important;width:auto !important;cursor:pointer !important}
+.sib-form-block__button:hover{background:#178560 !important}
+.sib-form .sib-form-block p{color:rgba(255,255,255,.6) !important;font-family:var(--ff-body) !important;font-size:13px !important}
+.entry__label{color:rgba(255,255,255,.8) !important;font-family:var(--ff-body) !important;font-size:12px !important;font-weight:500 !important}
+.entry__specification{color:rgba(255,255,255,.35) !important;font-size:11px !important}
+.sib-form{background:transparent !important}
+.sib-form-message-panel{max-width:100% !important}
+#error-message{background:rgba(226,75,74,.15) !important;border-color:rgba(226,75,74,.4) !important;color:#ffeded !important}
+#success-message{background:rgba(29,158,117,.15) !important;border-color:rgba(29,158,117,.4) !important;color:#e1f5ee !important}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ──────────────────────────────────────── -->
+<nav>
+  <a href="#" class="nav-logo">
+    <svg viewBox="0 0 36 36" width="30" height="30" fill="none">
+      <circle cx="18" cy="18" r="16" stroke="#1D9E75" stroke-width="1.5"/>
+      <path d="M21 5L13 18H19L16 31L25 18H19L21 5Z" fill="#1D9E75"/>
+    </svg>
+    <div>
+      <div class="nav-wordmark">amperillo</div>
+      <div class="nav-tag">certified electric resale</div>
+    </div>
+  </a>
+
+</nav>
+
+<!-- ── HERO ─────────────────────────────────────── -->
+<section class="hero" id="hero">
+  <!-- Full-bleed hero background: abstract EV geometry + data matrix -->
+  <div class="hero-bg" aria-hidden="true">
+    <canvas id="heroCanvas"></canvas>
+  </div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">
+      <span class="eyebrow-dot"></span>
+      Pilot-Launch Deutschland
+      <span class="eyebrow-sep">|</span>
+      <span style="color:#EF9F27;font-weight:600;letter-spacing:.08em">Juni 2026</span>
+    </div>
+
+    <h1>Dein gebrauchtes E-Auto.<br><em>Professionell bewertet.</em><br class="mob-br"> Mehr wert.</h1>
+
+    <p class="hero-sub">
+      <span style="color:rgba(255,255,255,.62);font-weight:400">Ein gebrauchtes E-Auto richtig zu bewerten braucht eine neue Methodik. amperillo hat sie entwickelt.</span> <span style="color:var(--green);font-weight:500">Für Verkäufer: mehr Vertrauen, besserer Preis. Für Käufer: Sicherheit statt Bauchgefühl.</span>
+    </p>
+
+    <div class="hero-ctas">
+      <a href="#" class="cta-primary" onclick="openModal('zertifikat'); return false;">
+        Zertifikat anfragen 149 €
+      </a>
+      <a href="#mitmachen" class="cta-outline hide-mobile">Für wen ist amperillo?</a>
+    </div>
+
+    <div class="hero-score-teaser">
+      <!-- Seal / Badge -->
+      <div class="score-seal">
+        <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Outer ring with notches -->
+          <circle cx="40" cy="40" r="37" stroke="#1D9E75" stroke-width="1.5" stroke-dasharray="4 2.5"/>
+          <!-- Inner ring -->
+          <circle cx="40" cy="40" r="31" stroke="#1D9E75" stroke-width="1" opacity="0.5"/>
+          <!-- Star points at top -->
+          <path d="M40 4 L42 9 L47 7 L44 12 L49 14 L44 15 L45 21 L40 18 L35 21 L36 15 L31 14 L36 12 L33 7 L38 9 Z" fill="#EF9F27" opacity="0.9"/>
+          <!-- Background fill -->
+          <circle cx="40" cy="40" r="29" fill="rgba(29,158,117,0.08)"/>
+          <!-- Bottom ribbon -->
+          <path d="M22 62 Q40 68 58 62 L56 72 Q40 76 24 72 Z" fill="#1D9E75" opacity="0.8"/>
+          <text x="40" y="71" text-anchor="middle" font-size="6" font-family="Arial" fill="white" font-weight="600" letter-spacing="1">CERTIFIED</text>
+        </svg>
+        <div class="score-seal-inner">
+          <span class="score-num">87</span>
+          <span class="score-denom">/100</span>
+        </div>
+      </div>
+      <div>
+        <div class="score-label">amperillo Score™</div>
+        <div class="score-certified">certified electric resale</div>
+        <div class="score-sublabel">Beispiel: Tesla Model Y · 2022 · 48.000 km</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── VALUE PROPOSITION ─────────────────────────── -->
+<section class="value-section fade-up" id="value">
+  <div class="section-inner">
+    <div class="section-eyebrow">Was amperillo anders macht</div>
+    <h2 class="section-title">Mehr als ein Fahrzeugbericht.</h2>
+    <p class="section-body">
+      Carfax, carVertical oder ein Batterie-Zertifikat zeigen dir die Vergangenheit. Der amperillo Score bewertet den echten Zustand heute und erstellt eine Prognose für die Zukunft. Unabhängig. Datenbasiert. Für Käufer und Verkäufer.
+    </p>
+
+    <div class="value-grid" style="margin-top:3rem">
+      <div class="value-item fade-up">
+        <div class="value-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M10 2L6 9H9.5L7.5 18L14 9H10.5L10 2Z" fill="#1D9E75"/>
+          </svg>
+        </div>
+        <h3>KI-gestützte Analyse</h3>
+        <p>Wir analysieren tausende Datenpunkte: Fahrzeugdaten, Marktdaten, Branchenstatistiken, Community-Erfahrungen. Das Ergebnis ist ein verlässlicher Score.</p>
+      </div>
+      <div class="value-item fade-up">
+        <div class="value-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <circle cx="10" cy="10" r="7" stroke="#1D9E75" stroke-width="1.5"/>
+            <path d="M7 10L9 12L13 8" stroke="#1D9E75" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3>Transparente Bewertung</h3>
+        <p>Jedes Fahrzeug erhält einen amperillo Score basierend auf über 150 Faktoren, bewertet auf einer Skala von 0 bis 100 Punkten. Nachvollziehbar, objektiv und transparent.</p>
+      </div>
+      <div class="value-item fade-up">
+        <div class="value-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <rect x="3" y="3" width="6" height="6" rx="1.5" stroke="#1D9E75" stroke-width="1.5"/>
+            <rect x="11" y="3" width="6" height="6" rx="1.5" stroke="#1D9E75" stroke-width="1.5"/>
+            <rect x="3" y="11" width="6" height="6" rx="1.5" stroke="#1D9E75" stroke-width="1.5"/>
+            <rect x="11" y="11" width="6" height="6" rx="1.5" stroke="#1D9E75" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <h3>Unabhängig vom Verkäufer</h3>
+        <p>Händler und Privatverkäufer bewerten ihr eigenes Fahrzeug immer positiv. amperillo bewertet neutral: ohne Verkaufsinteresse, ohne Schönfärberei, nur mit Daten.</p>
+      </div>
+      <div class="value-item fade-up">
+        <div class="value-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M10 3L12.5 8H17.5L13.5 11.5L15 17L10 14L5 17L6.5 11.5L2.5 8H7.5L10 3Z" stroke="#1D9E75" stroke-width="1.5" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h3>Mehr Vertrauen, besserer Preis</h3>
+        <p>Verkäufer mit amperillo Zertifikat erzielen nachweislich bessere Preise. Käufer kaufen mit Sicherheit statt Bauchgefühl. Beide Seiten gewinnen.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── APPROACH / SCORE ──────────────────────────── -->
+<section class="approach-section fade-up" id="approach">
+  <div class="section-inner">
+    <div class="approach-inner">
+      <div>
+        <div class="section-eyebrow">Unser Ansatz</div>
+        <h2 class="section-title">Der amperillo Score™</h2>
+        <p class="section-body" style="margin-bottom:1.5rem">
+          Der amperillo Score bewertet jedes gebrauchte E-Auto auf einer Skala von 0 bis 100. Für Verkäufer: ein Zertifikat das Vertrauen schafft und den Preis stärkt. Für Käufer: Sicherheit statt Bauchgefühl.
+        </p>
+        <ul class="approach-list">
+          <li>
+            <span class="check">
+              <svg viewBox="0 0 11 11" fill="none"><path d="M2 5.5L4.5 8L9 3" stroke="#1D9E75" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </span>
+            Über 150 Faktoren, 0 bis 100 Punkte
+          </li>
+          <li>
+            <span class="check">
+              <svg viewBox="0 0 11 11" fill="none"><path d="M2 5.5L4.5 8L9 3" stroke="#1D9E75" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </span>
+            Prognose: Wertentwicklung in der Zukunft
+          </li>
+          <li>
+            <span class="check">
+              <svg viewBox="0 0 11 11" fill="none"><path d="M2 5.5L4.5 8L9 3" stroke="#1D9E75" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </span>
+            Bewertung in 5 Werktagen nach Anfrage (deutschlandweit)
+          </li>
+          <li>
+            <span class="check">
+              <svg viewBox="0 0 11 11" fill="none"><path d="M2 5.5L4.5 8L9 3" stroke="#1D9E75" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </span>
+            Unabhängig vom Verkäufer, ohne Interessenkonflikt
+          </li>
+        </ul>
+      </div>
+      <div class="approach-score-viz">
+        
+        <div style="display:flex;align-items:center;gap:14px;margin-bottom:.5rem">
+          <div style="position:relative;width:72px;height:72px;flex-shrink:0">
+            <svg viewBox="0 0 72 72" fill="none" style="position:absolute;inset:0;width:100%;height:100%">
+              <circle cx="36" cy="36" r="33" stroke="#1D9E75" stroke-width="1.5" stroke-dasharray="4 2.5"/>
+              <circle cx="36" cy="36" r="27" stroke="#1D9E75" stroke-width="1" opacity="0.4"/>
+              <path d="M36 4 L37.8 8.5 L42 7 L39.5 11 L44 13 L39.5 14 L40.5 19 L36 16.5 L31.5 19 L32.5 14 L28 13 L32.5 11 L30 7 L34.2 8.5 Z" fill="#EF9F27" opacity="0.9"/>
+              <circle cx="36" cy="36" r="25" fill="rgba(29,158,117,0.08)"/>
+              <path d="M20 56 Q36 62 52 56 L50 64 Q36 68 22 64 Z" fill="#1D9E75" opacity="0.8"/>
+              <text x="36" y="63.5" text-anchor="middle" font-size="5.5" font-family="Arial" fill="white" font-weight="600" letter-spacing="1">CERTIFIED</text>
+            </svg>
+            <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center">
+              <span style="font-family:'Playfair Display',Georgia,serif;font-size:22px;color:#1D9E75;line-height:1">87</span>
+              <span style="font-size:8px;color:#5DCAA5">/100</span>
+            </div>
+          </div>
+          <div>
+            <div style="font-size:11px;font-weight:500;letter-spacing:.12em;color:#5DCAA5;margin-bottom:2px"><span style="text-transform:none">amperillo</span><span style="text-transform:uppercase;letter-spacing:.12em"> Score™</span></div>
+            <div style="font-size:11px;color:rgba(255,255,255,.35);letter-spacing:.08em;text-transform:uppercase">certified electric resale</div>
+          </div>
+        </div>
+        <div style="font-size:12px;color:rgba(255,255,255,.4);margin-bottom:1.5rem">Tesla Model Y LR · 2022 · Beispiel</div>
+        <div class="score-bars" id="scoreBars">
+          <div class="sbar" data-val="92"><span class="sbar-label">Batterie & Nutzung</span><div class="sbar-track"><div class="sbar-fill" style="width:0%"></div></div><span class="sbar-val">0</span></div>
+          <div class="sbar" data-val="88"><span class="sbar-label">Sicherheit</span><div class="sbar-track"><div class="sbar-fill" style="width:0%"></div></div><span class="sbar-val">0</span></div>
+          <div class="sbar" data-val="84"><span class="sbar-label">Verschleiß</span><div class="sbar-track"><div class="sbar-fill" style="width:0%"></div></div><span class="sbar-val">0</span></div>
+          <div class="sbar" data-val="90"><span class="sbar-label">Ausstattung</span><div class="sbar-track"><div class="sbar-fill" style="width:0%"></div></div><span class="sbar-val">0</span></div>
+          <div class="sbar" data-val="79"><span class="sbar-label">Markt & Umfeld</span><div class="sbar-track"><div class="sbar-fill" style="width:0%"></div></div><span class="sbar-val">0</span></div>
+          <div class="sbar" data-val="82"><span class="sbar-label">Historie & Doku</span><div class="sbar-track"><div class="sbar-fill" style="width:0%"></div></div><span class="sbar-val">0</span></div>
+        </div>
+        <div style="margin-top:1.25rem;padding-top:1.25rem;border-top:1px solid rgba(255,255,255,.08);font-size:11px;color:rgba(255,255,255,.3)">
+          Beispielwerte · Pilot-Launch 2026
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 3× CTA CARDS ──────────────────────────────── -->
+<section class="cta-section" id="mitmachen">
+  <div style="max-width:1040px;margin:0 auto 2.5rem">
+    <div class="section-eyebrow" style="color:var(--glight)">Pilot-Launch · Juni 2026</div>
+    <h2 class="section-title" style="color:var(--white)">Für wen ist amperillo?</h2>
+  </div>
+  <div class="cta-grid">
+
+    <!-- CTA 1: Verkäufer / Zertifikat — PRIMÄR -->
+    <div class="cta-card fade-up" style="border-color:rgba(239,159,39,.4);background:rgba(239,159,39,.06)">
+      <div class="cta-card-tag" style="color:#EF9F27">★ Für Verkäufer &amp; Händler</div>
+      <h3>Du verkaufst ein gebrauchtes E-Auto?</h3>
+      <p>Mit dem amperillo Zertifikat belegst du den Zustand deines Fahrzeugs objektiv und erzielst einen besseren Preis. Anfrage unverbindlich, Rückmeldung in 24 Stunden.</p>
+      <a href="#" class="cta-card-btn" onclick="openModal('zertifikat'); return false;" data-cta="zertifikat" style="background:var(--amber);color:#3D2000">
+        Zertifikat anfragen 149 €
+      </a>
+    </div>
+
+    <!-- CTA 2: Käufer -->
+    <div class="cta-card fade-up">
+      <div class="cta-card-tag">Für Käufer</div>
+      <h3>Du suchst ein geprüftes E-Auto?</h3>
+      <p>Melde dich für unseren Pilot-Launch an. Wir informieren dich sobald amperillo-zertifizierte Fahrzeuge verfügbar sind. Kostenlos, unverbindlich.</p>
+      <a href="#" class="cta-card-btn outline" onclick="openModal('kaefer'); return false;" data-cta="kaefer">
+        Auf Warteliste setzen →
+      </a>
+    </div>
+
+    <!-- CTA 3: Newsletter -->
+    <div class="cta-card fade-up">
+      <div class="cta-card-tag">Für Interessierte</div>
+      <h3>EV-Markt im Blick behalten?</h3>
+      <p>Score-Insights, Marktdaten und Tipps rund um gebrauchte Elektrofahrzeuge. Direkt in dein Postfach, kein Spam.</p>
+      <a href="#" class="cta-card-btn outline" onclick="openModal('newsletter'); return false;" data-cta="newsletter">
+        Newsletter abonnieren →
+      </a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ── ABGRENZUNG / WHY AMPERILLO ─────────────────── -->
+<section style="background:var(--volt);padding:64px 5vw">
+  <div class="section-inner">
+    <div class="section-eyebrow" style="color:var(--glight)">Warum amperillo</div>
+    <h2 class="section-title fade-up" style="color:var(--white)">Was uns von anderen unterscheidet.</h2>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:2.5rem">
+
+      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:1.5rem">
+        <div style="font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:.75rem">Fahrzeughistorie</div>
+        <div style="font-size:15px;font-weight:500;color:rgba(255,255,255,.5);margin-bottom:.5rem;text-decoration:line-through">carVertical & Co.</div>
+        <div style="font-size:13px;color:rgba(255,255,255,.4);line-height:1.6;margin-bottom:1rem">Zeigt Unfälle, Vorbesitzer und Kilometerstände aus der Vergangenheit. Nützlich, aber nicht EV-spezifisch.</div>
+        <div style="height:1px;background:rgba(255,255,255,.08);margin-bottom:1rem"></div>
+        <div style="font-size:15px;font-weight:500;color:var(--green);margin-bottom:.5rem">amperillo Score</div>
+        <div style="font-size:13px;color:rgba(255,255,255,.65);line-height:1.6">Bewertet zusätzlich: Batteriezustand, Ladehistorie, Softwarestand und über 100 weitere EV-spezifische Faktoren. Was wirklich zählt.</div>
+      </div>
+
+      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:1.5rem">
+        <div style="font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:.75rem">Batterie-Zertifikat</div>
+        <div style="font-size:15px;font-weight:500;color:rgba(255,255,255,.5);margin-bottom:.5rem;text-decoration:line-through">Einzelne Batterieprüfung</div>
+        <div style="font-size:13px;color:rgba(255,255,255,.4);line-height:1.6;margin-bottom:1rem">Prüft isoliert den Akkustand — eine wichtige, aber einzelne Kennzahl ohne Markt- oder Zustandskontext.</div>
+        <div style="height:1px;background:rgba(255,255,255,.08);margin-bottom:1rem"></div>
+        <div style="font-size:15px;font-weight:500;color:var(--green);margin-bottom:.5rem">amperillo Score</div>
+        <div style="font-size:13px;color:rgba(255,255,255,.65);line-height:1.6">Batterie ist eine von mehreren Kategorien. Wir bewerten zusätzlich Sicherheit, Verschleiß, Ausstattung, Marktumfeld und mehr. Das vollständige Bild.</div>
+      </div>
+
+      <div style="background:rgba(29,158,117,.1);border:1px solid rgba(29,158,117,.3);border-radius:14px;padding:1.5rem">
+        <div style="font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--green);margin-bottom:.75rem">amperillo Zertifikat</div>
+        <div style="font-size:15px;font-weight:500;color:var(--white);margin-bottom:.5rem">Das Komplettpaket</div>
+        <div style="font-size:13px;color:rgba(255,255,255,.7);line-height:1.6;margin-bottom:1rem">Über 150 Faktoren. Ein Score von 0 bis 100. Unabhängig, datenbasiert, ohne Verkaufsinteresse.</div>
+        <div style="height:1px;background:rgba(29,158,117,.2);margin-bottom:1rem"></div>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:rgba(255,255,255,.75)">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7L5.5 10.5L12 4" stroke="#1D9E75" stroke-width="1.5" stroke-linecap="round"/></svg>
+            EV-spezifisch, nicht generisch
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:rgba(255,255,255,.75)">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7L5.5 10.5L12 4" stroke="#1D9E75" stroke-width="1.5" stroke-linecap="round"/></svg>
+            Prognose: Wertentwicklung
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:rgba(255,255,255,.75)">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7L5.5 10.5L12 4" stroke="#1D9E75" stroke-width="1.5" stroke-linecap="round"/></svg>
+            Unabhängig vom Verkäufer
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:rgba(255,255,255,.75)">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7L5.5 10.5L12 4" stroke="#1D9E75" stroke-width="1.5" stroke-linecap="round"/></svg>
+            Zertifikat als PDF für dein Inserat
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:rgba(255,255,255,.75)">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7L5.5 10.5L12 4" stroke="#1D9E75" stroke-width="1.5" stroke-linecap="round"/></svg>
+            Made in Germany · DSGVO-konform
+          </div>
+        </div>
+        <a href="#" onclick="openModal('zertifikat'); return false;"
+           style="display:inline-block;margin-top:1rem;background:var(--amber);color:#3D2000;border-radius:99px;padding:9px 18px;font-size:13px;font-weight:500;text-decoration:none">
+          Jetzt anfragen
+        </a>
+      </div>
+
+    </div>
+    <p style="font-size:12px;color:rgba(255,255,255,.25);margin-top:1.5rem;text-align:center">
+      amperillo ersetzt keine Fahrzeughistorie — wir ergänzen sie. Für Käufer empfehlen wir beides.
+    </p>
+  </div>
+</section>
+
+<!-- ── TRUST SIGNALS ─────────────────────────────── -->
+<section class="trust-section">
+  <div class="trust-inner">
+    <div class="trust-item">
+      <div class="trust-icon">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1.5L10 6H14.5L11 9L12.5 13.5L8 11L3.5 13.5L5 9L1.5 6H6L8 1.5Z" fill="#1D9E75"/></svg>
+      </div>
+      Über 150 Bewertungsfaktoren
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="#1D9E75" stroke-width="1.5"/><path d="M5.5 8L7.5 10L10.5 6" stroke="#1D9E75" stroke-width="1.5" stroke-linecap="round"/></svg>
+      </div>
+      DSGVO-konform · Made in Germany
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="4" width="12" height="9" rx="1.5" stroke="#1D9E75" stroke-width="1.5"/><path d="M5 4V3a3 3 0 016 0v1" stroke="#1D9E75" stroke-width="1.5"/></svg>
+      </div>
+      Deine Daten · Deine Kontrolle
+    </div>
+    <div class="trust-item">
+      <div class="trust-icon">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2L6 6H2L5 9L4 13L8 11L12 13L11 9L14 6H10L8 2Z" stroke="#1D9E75" stroke-width="1.5" stroke-linejoin="round"/></svg>
+      </div>
+      Zertifikat in 5 Werktagen
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ────────────────────────────────────── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">amperillo</div>
+    <div class="footer-links">
+      <a href="/impressum">Impressum</a>
+      <a href="/datenschutz">Datenschutz</a>
+      <a href="mailto:hallo@amperillo.de">Kontakt</a>
+    </div>
+    <div class="footer-copy" style="margin-top:.75rem">
+      © 2026 amperillo · certified electric resale · Weil Angeben am schönsten ist, wenn die Daten stimmen.
+    </div>
+  </div>
+</footer>
+
+
+<!-- ════════════════════════════════════════════════ -->
+<!-- MODAL: ZERTIFIKAT ANFRAGEN                      -->
+<!-- ════════════════════════════════════════════════ -->
+<div class="modal-overlay" id="modal-zertifikat" onclick="closeOnOverlay(event,'zertifikat')">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('zertifikat')">✕</button>
+    <div id="form-zertifikat">
+      <div class="modal-eyebrow">Für Verkäufer &amp; Händler</div>
+      <h2>Zertifikat anfragen</h2>
+      <p class="modal-sub">Unverbindliche Anfrage für ein amperillo Zertifikat (149 €). Wir melden uns innerhalb von 24 Stunden mit allen Details.</p>
+      <div class="form-group"><label>Name *</label><input type="text" id="z-name" placeholder="Max Mustermann" required></div>
+      <div class="form-group"><label>E-Mail *</label><input type="email" id="z-email" placeholder="max@beispiel.de" required></div>
+      <div class="form-group"><label>Telefon (optional)</label><input type="tel" id="z-tel" placeholder="+49 172 ..."></div>
+      <div class="form-group"><label>Fahrzeug *</label><input type="text" id="z-fahrzeug" placeholder="z.B. Tesla Model Y 2022, 48.000 km" required></div>
+      <div class="form-group">
+        <label>Ich bin...</label>
+        <select id="z-rolle">
+          <option value="">Bitte wählen…</option>
+          <option>Privatperson (Verkäufer)</option>
+          <option>Gewerblicher Händler</option>
+          <option>Leasinggesellschaft / Flotte</option>
+        </select>
+      </div>
+      <div style="background:var(--gpale);border-radius:8px;padding:.75rem 1rem;margin-bottom:1rem;font-size:12px;color:var(--gdark);line-height:1.6">
+        <strong>Was passiert nach der Anfrage?</strong><br>
+        Wir melden uns in 24 Stunden. Nach deiner Bestätigung starten wir die Bewertung. Du erhältst deinen amperillo Score-Report inkl. Zertifikat als PDF — bereit für dein Inserat.
+      </div>
+      <p class="form-dsgvo">Mit dem Absenden stimmst du der Verarbeitung deiner Daten gemäß unserer <a href="/datenschutz">Datenschutzerklärung</a> zu. Unverbindliche Anfrage — kein Zahlungsvorgang.</p>
+      <button class="form-submit" onclick="submitForm('zertifikat')" style="background:var(--amber);color:#3D2000">Zertifikat anfragen</button>
+    </div>
+    <div class="success-msg" id="success-zertifikat">
+      <div class="check-big">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5 12L10 17L19 8" stroke="#1D9E75" stroke-width="2" stroke-linecap="round"/></svg>
+      </div>
+      <h3>Anfrage erhalten!</h3>
+      <p>Wir melden uns innerhalb von 24 Stunden mit allen Details zu deinem amperillo Zertifikat.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════ -->
+<!-- MODAL: KÄUFER                                   -->
+<!-- ════════════════════════════════════════════════ -->
+<div class="modal-overlay" id="modal-kaefer" onclick="closeOnOverlay(event,'kaefer')">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('kaefer')">✕</button>
+    <div id="form-kaefer">
+      <div class="modal-eyebrow">Für Käufer</div>
+      <h2>Jetzt für den Pilot vormerken</h2>
+      <p class="modal-sub">Kostenlos und unverbindlich. Du erhältst frühzeitigen Zugang zu geprüften Fahrzeugen und unserem Score-Report.</p>
+      <div class="form-group"><label>Vorname *</label><input type="text" id="k-vorname" placeholder="Max" required></div>
+      <div class="form-group"><label>E-Mail *</label><input type="email" id="k-email" placeholder="max@beispiel.de" required></div>
+      <div class="form-group">
+        <label>Fahrzeug-Interesse (optional)</label>
+        <select id="k-fahrzeug">
+          <option value="">Bitte wählen…</option>
+          <option>Tesla Model 3 / Y</option>
+          <option>Hyundai Ioniq 5 / 6</option>
+          <option>Kia EV6</option>
+          <option>VW ID.3 / ID.4</option>
+          <option>Audi e-tron / Q4</option>
+          <option>Anderes Modell</option>
+          <option>Noch offen</option>
+        </select>
+      </div>
+      <p class="form-dsgvo">Mit dem Absenden stimmst du der Verarbeitung deiner Daten gemäß unserer <a href="/datenschutz">Datenschutzerklärung</a> zu. Double-Opt-In per E-Mail folgt.</p>
+      <button class="form-submit" onclick="submitForm('kaefer')">Vormerken lassen →</button>
+    </div>
+    <div class="success-msg" id="success-kaefer">
+      <div class="check-big">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5 12L10 17L19 8" stroke="#1D9E75" stroke-width="2" stroke-linecap="round"/></svg>
+      </div>
+      <h3>Du bist dabei!</h3>
+      <p>Wir haben dich vorgemerkt und melden uns sobald der Pilot startet. Schau auch in deinen Spam-Ordner.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════ -->
+<!-- MODAL: PARTNER                                  -->
+<!-- ════════════════════════════════════════════════ -->
+<div class="modal-overlay" id="modal-partner" onclick="closeOnOverlay(event,'partner')">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('partner')">✕</button>
+    <div id="form-partner">
+      <div class="modal-eyebrow">Für Händler & Verkäufer</div>
+      <h2>Partner werden</h2>
+      <p class="modal-sub">Ob Händler oder Privatperson: werde amperillo Partner und nutze Vertrauen als Wettbewerbsvorteil.</p>
+      <div class="form-group"><label>Name *</label><input type="text" id="p-name" placeholder="Max Mustermann" required></div>
+      <div class="form-group"><label>E-Mail *</label><input type="email" id="p-email" placeholder="max@autohaus.de" required></div>
+      <div class="form-group">
+        <label>Ich bin… *</label>
+        <select id="p-rolle">
+          <option value="">Bitte wählen…</option>
+          <option>Gewerblicher Händler</option>
+          <option>Privatperson mit EV zum Verkauf</option>
+          <option>Leasinggesellschaft / Flotte</option>
+          <option>Sonstiges</option>
+        </select>
+      </div>
+      <div class="form-group"><label>Nachricht (optional)</label><textarea id="p-msg" placeholder="Kurze Info über dein Angebot oder deine Fragen…"></textarea></div>
+      <p class="form-dsgvo">Mit dem Absenden stimmst du der Verarbeitung deiner Daten gemäß unserer <a href="/datenschutz">Datenschutzerklärung</a> zu.</p>
+      <button class="form-submit" onclick="submitForm('partner')">Anfrage senden →</button>
+    </div>
+    <div class="success-msg" id="success-partner">
+      <div class="check-big">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5 12L10 17L19 8" stroke="#1D9E75" stroke-width="2" stroke-linecap="round"/></svg>
+      </div>
+      <h3>Anfrage erhalten!</h3>
+      <p>Wir melden uns innerhalb von 48 Stunden bei dir. Freuen uns auf die Zusammenarbeit.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════ -->
+<!-- MODAL: NEWSLETTER                               -->
+<!-- ════════════════════════════════════════════════ -->
+<div class="modal-overlay" id="modal-newsletter" onclick="closeOnOverlay(event,'newsletter')">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('newsletter')">✕</button>
+    <div id="form-newsletter">
+      <div class="modal-eyebrow">Newsletter</div>
+      <h2>Kein Spam. Nur Substanz.</h2>
+      <p class="modal-sub" style="margin-bottom:1rem">Tipps, Marktdaten und Einblicke rund um gebrauchte E-Autos. Du erhältst eine Bestätigungs-E-Mail (Double-Opt-In).</p>
+      <form id="sib-form" method="POST" action="https://bfb32ed2.sibforms.com/serve/MUIFAMmXXIqWcQRPUzoRgY-2GBSrAamwOQ5rcwCZGupg3FmKvr4hWSC4BxgDhULqALwtvKCJgFvjxHtv30Hxa_WaC3y3LODkub-sfkQXiT5wjgaczvgCcH2OK3Mu3BTDnnELSo905tRQzt9AHfBYCoTvy4KE1eu9h3KLLLrwUJD_cEsjebLcmHh2PIGFo-GznO_Ryz9SAHpvQQIyGQ==" data-type="subscription" style="width:100%">
+        <div class="form-group" style="margin-bottom:1rem">
+          <label style="font-size:12px;font-weight:500;color:var(--text-primary);display:block;margin-bottom:5px">E-Mail-Adresse *</label>
+          <input class="input" type="text" id="EMAIL" name="EMAIL" autocomplete="off" placeholder="max@beispiel.de" data-required="true" required style="width:100%;padding:10px 14px;border:1px solid var(--border);border-radius:8px;font-size:14px;font-family:var(--ff-body);outline:none"/>
+        </div>
+        <input type="text" name="email_address_check" value="" style="display:none">
+        <input type="hidden" name="locale" value="de">
+        <p class="form-dsgvo">Double-Opt-In: Du erhältst eine Bestätigungs-E-Mail. Abmeldung jederzeit. Daten gemäß <a href="/datenschutz">Datenschutzerklärung</a>.</p>
+        <button type="submit" class="form-submit sib-form-block__button" onclick="if(typeof gtag==='function'){gtag('event','form_submit_newsletter',{event_category:'conversion'})}">
+          Abonnieren
+        </button>
+      </form>
+    </div>
+    <div class="success-msg" id="success-newsletter">
+      <div class="check-big">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5 12L10 17L19 8" stroke="#1D9E75" stroke-width="2" stroke-linecap="round"/></svg>
+      </div>
+      <h3>Danke: du bist dabei!</h3>
+      <p>Wir haben deine Anmeldung erhalten und melden uns in Kürze persönlich bei dir.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════ -->
+<!-- JAVASCRIPT                                      -->
+<!-- ════════════════════════════════════════════════ -->
+<script>
+// ── Modal logic ──────────────────────────────────
+function openModal(type) {
+  document.getElementById('modal-' + type).classList.add('open');
+  document.body.style.overflow = 'hidden';
+  // GA4 / GTM event
+  if (window.dataLayer) {
+    window.dataLayer.push({event: 'modal_open', modal_type: type});
+  }
+}
+function closeModal(type) {
+  document.getElementById('modal-' + type).classList.remove('open');
+  document.body.style.overflow = '';
+}
+function closeOnOverlay(e, type) {
+  if (e.target === document.getElementById('modal-' + type)) closeModal(type);
+}
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    ['kaefer','partner','newsletter'].forEach(t => closeModal(t));
+  }
+});
+
+// ── Form submission ──────────────────────────────
+// 🔧 INTEGRATION POINT: Replace fetch URL with your backend / Formspree / EmailJS endpoint
+const FORM_ENDPOINT = 'https://formspree.io/f/xqewvjrr'; // <-- change this
+
+async function submitForm(type) {
+  let data = {};
+  let valid = true;
+
+  if (type === 'zertifikat') {
+    const n = document.getElementById('z-name').value.trim();
+    const e = document.getElementById('z-email').value.trim();
+    const f = document.getElementById('z-fahrzeug').value.trim();
+    if (!n || !e || !f) { alert('Bitte Name, E-Mail und Fahrzeug ausfüllen.'); return; }
+    data = {_type: 'zertifikat_anfrage', name: n, email: e,
+            telefon: document.getElementById('z-tel').value,
+            fahrzeug: f,
+            rolle: document.getElementById('z-rolle').value};
+    // GA4 event
+    if (typeof gtag === 'function') {
+      gtag('event', 'cert_request', {event_category: 'conversion', form_type: 'zertifikat'});
+    }
+  } else if (type === 'kaefer') {
+    const v = document.getElementById('k-vorname').value.trim();
+    const e = document.getElementById('k-email').value.trim();
+    if (!v || !e) { alert('Bitte Vorname und E-Mail ausfüllen.'); return; }
+    data = {_type: 'kaefer', vorname: v, email: e,
+            fahrzeug: document.getElementById('k-fahrzeug').value};
+  } else if (type === 'partner') {
+    const n = document.getElementById('p-name').value.trim();
+    const e = document.getElementById('p-email').value.trim();
+    const r = document.getElementById('p-rolle').value;
+    if (!n || !e || !r) { alert('Bitte Name, E-Mail und Rolle ausfüllen.'); return; }
+    data = {_type: 'partner', name: n, email: e, rolle: r,
+            nachricht: document.getElementById('p-msg').value};
+  } else if (type === 'newsletter') {
+    const e = document.getElementById('n-email').value.trim();
+    if (!e) { alert('Bitte E-Mail eingeben.'); return; }
+    data = {_type: 'newsletter', email: e};
+  }
+
+  // GA4 event — feuert sofort beim Absenden (vor Formspree)
+  if (typeof gtag === 'function') {
+    gtag('event', 'form_submit_' + type, {
+      event_category: 'conversion',
+      event_label: type,
+      form_type: type
+    });
+  }
+  if (window.dataLayer) {
+    window.dataLayer.push({
+      event: 'form_submit_' + type,
+      form_type: type,
+      event_category: 'conversion'
+    });
+  }
+
+  // Formspree / backend call
+  try {
+    const res = await fetch(FORM_ENDPOINT, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+      body: JSON.stringify(data)
+    });
+    // Show success regardless (demo mode if endpoint not set)
+    document.getElementById('form-' + type).style.display = 'none';
+    document.getElementById('success-' + type).style.display = 'block';
+  } catch(err) {
+    // Demo mode: show success anyway
+    document.getElementById('form-' + type).style.display = 'none';
+    document.getElementById('success-' + type).style.display = 'block';
+  }
+}
+
+// ── Scroll animations ────────────────────────────
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, {threshold: 0.1});
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+
+
+
+// ── Hero Canvas Background ────────────────────────────────────────
+(function(){
+  const canvas = document.getElementById('heroCanvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const GREEN='#1D9E75', GLIGHT='#5DCAA5', AMBER='#EF9F27';
+  let W, H, t = 0;
+  const CHARS = '01アイウABCDEF89VOLT∑∆ΩSOHKWBMS87%%94∫≈';
+
+  let bgCols=[], fgCols=[];
+
+  function makeCol(x, sz, sMin, sMax, oMin, oMax, lMin, lMax) {
+    return {
+      x, y: Math.random()*-H*1.5,
+      speed: sMin + Math.random()*(sMax-sMin),
+      len: lMin + Math.floor(Math.random()*(lMax-lMin)),
+      opacity: oMin + Math.random()*(oMax-oMin),
+      amber: Math.random()<0.06, sz,
+      tick:0, tickMax: 1+Math.floor(Math.random()*3),
+      chars: Array.from({length:40},()=>CHARS[Math.floor(Math.random()*CHARS.length)]),
+    };
+  }
+
+  function initCols() {
+    bgCols = Array.from({length: Math.ceil(W/9)+2},(_,i)=>makeCol(i*9,9,0.4,1.0,0.09,0.18,8,18));
+    fgCols = Array.from({length: Math.ceil(W/52)},(_,i)=>makeCol(i*52+14,26,1.2,2.8,0.38,0.68,5,13));
+  }
+
+  function drawLayer(cols) {
+    cols.forEach(col=>{
+      col.tick++;
+      if(col.tick>=col.tickMax){col.tick=0;const ci=Math.floor(Math.random()*col.chars.length);col.chars[ci]=CHARS[Math.floor(Math.random()*CHARS.length)];}
+      col.y+=col.speed;
+      if(col.y>H+col.sz*col.len){col.y=-col.sz*col.len-Math.random()*150;col.amber=Math.random()<0.06;}
+      ctx.font=`bold ${col.sz}px monospace`;
+      for(let i=0;i<col.len;i++){
+        const cy=col.y+i*col.sz;
+        if(cy<-col.sz||cy>H+col.sz)continue;
+        const isHead=i===col.len-1;
+        const fade=(i+1)/col.len;
+        ctx.globalAlpha=isHead?col.opacity*2.4:col.opacity*fade*1.3;
+        ctx.fillStyle=col.amber?AMBER:(isHead?'#CCFFEE':GLIGHT);
+        ctx.shadowBlur=isHead?(col.sz>18?14:6):0;
+        ctx.shadowColor=col.amber?AMBER:GLIGHT;
+        ctx.fillText(col.chars[i%col.chars.length],col.x,cy);
+      }
+    });
+    ctx.globalAlpha=1;ctx.shadowBlur=0;
+  }
+
+  let nodes=[];
+  function initNodes(){
+    nodes=Array.from({length:28},()=>({
+      x:Math.random()*W,y:Math.random()*H,
+      vx:(Math.random()-.5)*.25,vy:(Math.random()-.5)*.25,
+      r:8+Math.random()*22,alpha:.1+Math.random()*.18,
+      amber:Math.random()<.18,phase:Math.random()*Math.PI*2,
+    }));
+  }
+
+  function hexPath(x,y,r){
+    ctx.beginPath();
+    for(let i=0;i<6;i++){const a=(i/6)*Math.PI*2-Math.PI/6;i===0?ctx.moveTo(x+Math.cos(a)*r,y+Math.sin(a)*r):ctx.lineTo(x+Math.cos(a)*r,y+Math.sin(a)*r);}
+    ctx.closePath();
+  }
+
+  function drawNodes(){
+    for(let i=0;i<nodes.length;i++)for(let j=i+1;j<nodes.length;j++){
+      const dx=nodes[i].x-nodes[j].x,dy=nodes[i].y-nodes[j].y,d=Math.sqrt(dx*dx+dy*dy);
+      if(d<160){ctx.save();ctx.globalAlpha=.07*(1-d/160);ctx.strokeStyle=GREEN;ctx.lineWidth=.6;ctx.beginPath();ctx.moveTo(nodes[i].x,nodes[i].y);ctx.lineTo(nodes[j].x,nodes[j].y);ctx.stroke();ctx.restore();}
+    }
+    nodes.forEach(n=>{
+      n.x+=n.vx;n.y+=n.vy;
+      if(n.x<-60)n.x=W+60;if(n.x>W+60)n.x=-60;if(n.y<-60)n.y=H+60;if(n.y>H+60)n.y=-60;
+      const p=.55+.45*Math.sin(t*.022+n.phase);
+      ctx.save();ctx.globalAlpha=n.alpha*p;ctx.strokeStyle=n.amber?AMBER:GREEN;ctx.shadowColor=n.amber?AMBER:GREEN;ctx.shadowBlur=10;ctx.lineWidth=1;hexPath(n.x,n.y,n.r);ctx.stroke();ctx.restore();
+    });
+  }
+
+  const readouts=[{l:'SOH',v:'94.3%',c:GREEN},{l:'ZYKLEN',v:'312',c:GLIGHT},{l:'SCORE',v:'87/100',c:AMBER},{l:'DCIR',v:'±8%',c:GREEN},{l:'ZELLEN',v:'0-23mV',c:GLIGHT},{l:'BMS',v:'OK',c:GREEN}];
+  function drawReadouts(){
+    readouts.forEach((r,i)=>{
+      const x=W*.70+(i%2)*W*.15,y=H*.14+Math.floor(i/2)*H*.1;
+      const blink=Math.sin(t*.014+i*1.4)>0;
+      ctx.save();ctx.globalAlpha=blink?.52:.28;ctx.shadowColor=r.c;ctx.shadowBlur=5;
+      ctx.font='bold 10px "DM Mono","Courier New",monospace';ctx.fillStyle=r.c;ctx.fillText(r.l,x,y);
+      ctx.globalAlpha=blink?.55:.3;ctx.font='bold 13px "DM Mono","Courier New",monospace';ctx.fillText(r.v,x,y+16);
+      ctx.lineWidth=.7;ctx.strokeStyle=r.c;ctx.beginPath();ctx.moveTo(x-8,y-10);ctx.lineTo(x-8,y+4);ctx.lineTo(x-4,y+4);ctx.stroke();
+      ctx.restore();
+    });
+  }
+
+  function drawGrid(){
+    ctx.save();ctx.strokeStyle=GREEN;ctx.lineWidth=.5;
+    for(let x=-H;x<W+H;x+=55){ctx.globalAlpha=.055;ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x+H*.55,H);ctx.stroke();}
+    for(let y=0;y<H;y+=70){ctx.globalAlpha=.03;ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.stroke();}
+    ctx.restore();
+  }
+
+  function render(){
+    ctx.clearRect(0,0,W,H);
+    const bg=ctx.createLinearGradient(0,0,W,H);
+    bg.addColorStop(0,'#0A1628');bg.addColorStop(.6,'#0C1C32');bg.addColorStop(1,'#080F1C');
+    ctx.fillStyle=bg;ctx.fillRect(0,0,W,H);
+    drawGrid();
+    drawLayer(bgCols);
+    drawLayer(fgCols);
+    drawNodes();
+    drawReadouts();
+    ctx.save();
+    for(let y=0;y<H;y+=3){ctx.globalAlpha=.015;ctx.fillStyle='#000';ctx.fillRect(0,y,W,1.2);}
+    ctx.restore();
+    const vig=ctx.createRadialGradient(W/2,H/2,H*.2,W/2,H/2,H);
+    vig.addColorStop(0,'rgba(0,0,0,0)');vig.addColorStop(1,'rgba(5,10,20,0.72)');
+    ctx.fillStyle=vig;ctx.fillRect(0,0,W,H);
+    // Mobile: full dark overlay; Desktop: left fade
+    if(W < 768){
+      ctx.fillStyle='rgba(10,22,40,0.82)';ctx.fillRect(0,0,W,H);
+    } else {
+      const lf=ctx.createLinearGradient(0,0,W*.62,0);
+      lf.addColorStop(0,'rgba(10,22,40,0.94)');lf.addColorStop(.55,'rgba(10,22,40,0.72)');lf.addColorStop(.8,'rgba(10,22,40,0.28)');lf.addColorStop(1,'rgba(10,22,40,0)');
+      ctx.fillStyle=lf;ctx.fillRect(0,0,W,H);
+    }
+    t++;requestAnimationFrame(render);
+  }
+
+  function resize(){
+    const hero=document.getElementById('hero');
+    W=canvas.width=hero.offsetWidth;H=canvas.height=hero.offsetHeight;
+    initCols();initNodes();
+  }
+  resize();window.addEventListener('resize',resize);render();
+})();
+
+
+
+// ── Score bars count-up animation (runs once) ─────────────────────
+(function(){
+  const viz = document.getElementById('scoreBars');
+  if (!viz) return;
+  let fired = false;
+
+  // Find badge and star elements
+  const sealGroup = document.querySelector('.approach-score-viz .score-seal-glow') ||
+                    document.querySelector('.approach-score-viz svg');
+  const starEl = document.querySelector('.approach-score-viz .star-burst');
+
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting && !fired) {
+        fired = true;
+        obs.disconnect();
+        animateBars();
+      }
+    });
+  }, {threshold: 0.4});
+  obs.observe(viz);
+
+  function animateBars() {
+    const bars = viz.querySelectorAll('.sbar');
+    bars.forEach((bar, idx) => {
+      const target = parseInt(bar.dataset.val);
+      const fill   = bar.querySelector('.sbar-fill');
+      const valEl  = bar.querySelector('.sbar-val');
+      const delay  = idx * 700; // stagger each bar
+
+      setTimeout(() => {
+        bar.classList.add('sbar-active');
+        // animate fill width
+        fill.style.width = target + '%';
+
+        // count-up number
+        let current = 0;
+        const step = Math.max(1, Math.ceil(target / 45));
+        const interval = setInterval(() => {
+          current = Math.min(current + step, target);
+          valEl.textContent = current;
+          if (current >= target) {
+            valEl.textContent = target;
+            clearInterval(interval);
+          }
+        }, 38);
+
+        // on last bar — highlight badge + star
+        if (idx === bars.length - 1) {
+          setTimeout(() => {
+            // find the seal SVG wrapper
+            const seal = document.querySelector('.approach-score-viz svg');
+            if (seal) {
+              seal.style.filter = 'drop-shadow(0 0 20px rgba(29,158,117,.85)) drop-shadow(0 0 40px rgba(29,158,117,.4))';
+              seal.style.transform = 'scale(1.08)';
+              seal.style.transition = 'filter .5s ease, transform .5s ease';
+              // find star path inside
+              const starPath = seal.querySelector('path');
+              if (starPath) {
+                starPath.style.filter = 'drop-shadow(0 0 10px #EF9F27)';
+                starPath.style.transition = 'filter .3s ease';
+                setTimeout(()=>{
+                  starPath.style.filter = 'none';
+                }, 1800);
+              }
+              setTimeout(() => {
+                seal.style.filter = 'none';
+                seal.style.transform = 'scale(1)';
+              }, 2200);
+            }
+          }, 1400);
+        }
+      }, delay);
+    });
+  }
+})();
+
+// ── GTM dataLayer init ───────────────────────────
+window.dataLayer = window.dataLayer || [];
+
+
+// ── Cookie Consent ───────────────────────────────
+function cookieAccept() {
+  localStorage.setItem('amperillo_consent', 'accepted');
+  const b = document.getElementById('cookieBanner');
+  if (b) b.classList.add('hidden');
+  // Load GA4 after consent
+  loadGA();
+  // GTM event
+  if (window.dataLayer) {
+    window.dataLayer.push({event: 'cookie_consent', consent: 'accepted'});
+  }
+}
+function cookieReject() {
+  localStorage.setItem('amperillo_consent', 'rejected');
+  const b = document.getElementById('cookieBanner');
+  if (b) b.classList.add('hidden');
+  if (window.dataLayer) {
+    window.dataLayer.push({event: 'cookie_consent', consent: 'rejected'});
+  }
+}
+function loadGA() {
+  // 🔧 Replace G-XXXXXXXXXX with your actual GA4 Measurement ID
+  const GA_ID = 'G-F4ZWWXGTQP';
+  if (GA_ID === 'G-XXXXXXXXXX') return; // not yet configured
+  const s = document.createElement('script');
+  s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+  s.async = true;
+  document.head.appendChild(s);
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+  gtag('js', new Date());
+  gtag('config', GA_ID, {'anonymize_ip': true});
+}
+// Check existing consent on load
+(function(){
+  const consent = localStorage.getItem('amperillo_consent');
+  const banner = document.getElementById('cookieBanner');
+  if (consent === 'accepted') {
+    if (banner) banner.classList.add('hidden');
+    loadGA();
+  } else if (consent === 'rejected') {
+    if (banner) banner.classList.add('hidden');
+  }
+  // else: show banner (default)
+})();
+
+// ── Clear hash on load (prevent auto-scroll to section) ─────────
+if(window.location.hash){
+  history.replaceState(null, '', window.location.pathname);
+}
+
+// ── Page view event ──────────────────────────────
+window.dataLayer.push({
+  event: 'page_view',
+  page_title: document.title,
+  page_location: window.location.href
+});
+</script>
+
+
+<!-- ── COOKIE BANNER ─────────────────────────────── -->
+<div class="cookie-banner" id="cookieBanner">
+  <div class="cookie-text">
+    🍪 Wir nutzen <strong>Google Analytics</strong> um zu verstehen wie Besucher unsere Seite nutzen.
+    Deine Daten werden anonymisiert und nicht an Dritte verkauft.
+    Mehr dazu in unserer <a href="/datenschutz">Datenschutzerklärung</a>.
+  </div>
+  <div class="cookie-actions">
+    <button class="cookie-reject" onclick="cookieReject()">Nur notwendige</button>
+    <button class="cookie-accept" onclick="cookieAccept()">Alles akzeptieren</button>
+  </div>
+</div>
+
+
+<!-- Brevo Form JS -->
+<script>
+  window.REQUIRED_CODE_ERROR_MESSAGE = 'Wähle bitte einen Ländervorwahl aus.';
+  window.LOCALE = 'de';
+  window.EMAIL_INVALID_MESSAGE = window.SMS_INVALID_MESSAGE = "Bitte gib eine gültige E-Mail-Adresse ein.";
+  window.REQUIRED_ERROR_MESSAGE = "Dieses Feld darf nicht leer sein.";
+  window.GENERIC_INVALID_MESSAGE = "Die eingegebenen Informationen sind nicht gültig.";
+  window.translation = {common:{selectedList:'{quantity} Liste ausgewählt',selectedLists:'{quantity} Listen ausgewählt',selectedOption:'{quantity} ausgewählt',selectedOptions:'{quantity} ausgewählt'}};
+  var AUTOHIDE = Boolean(0);
+</script>
+<script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
+</body>
+</html>

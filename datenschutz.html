@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Datenschutzerklärung — amperillo</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400&family=DM+Sans:opsz,wght@9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --volt:#0A1628; --green:#1D9E75; --glight:#5DCAA5;
+  --gpale:#E1F5EE; --gdark:#085041; --offwhite:#F4F2EB;
+  --white:#FFFFFF; --border:#D8D6CE; --text:#0A1628; --muted:#6B6A65;
+  --ff-display:'Playfair Display',Georgia,serif;
+  --ff-body:'DM Sans',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--ff-body);background:var(--offwhite);color:var(--text);-webkit-font-smoothing:antialiased}
+
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  padding:0 5vw;height:64px;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(10,22,40,.95);backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.nav-wordmark{font-family:var(--ff-display);font-size:20px;color:var(--white);letter-spacing:-.5px}
+.nav-tag{font-size:10px;color:var(--glight);letter-spacing:.14em;text-transform:uppercase}
+.back-link{font-size:13px;color:rgba(255,255,255,.5);text-decoration:none;display:flex;align-items:center;gap:6px;transition:color .2s}
+.back-link:hover{color:var(--glight)}
+
+.page-wrap{max-width:740px;margin:0 auto;padding:100px 5vw 80px}
+.page-eyebrow{font-size:10px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--green);margin-bottom:.75rem}
+
+h1{font-family:var(--ff-display);font-size:38px;font-weight:400;letter-spacing:-.8px;line-height:1.15;margin-bottom:2rem;padding-bottom:1.5rem;border-bottom:1px solid var(--border)}
+
+/* TOC */
+.toc{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:2.5rem}
+.toc-title{font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:.75rem}
+.toc ul{list-style:none;display:flex;flex-direction:column;gap:4px}
+.toc ul li a{font-size:13px;color:var(--green);text-decoration:none}
+.toc ul li a:hover{text-decoration:underline}
+
+/* Content */
+.dse-section{margin-bottom:2.5rem;scroll-margin-top:80px}
+.dse-section h2{font-family:var(--ff-display);font-size:22px;font-weight:400;letter-spacing:-.4px;margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)}
+.dse-section h3{font-size:15px;font-weight:500;margin:1.25rem 0 .5rem}
+.dse-section p{font-size:14px;line-height:1.8;color:var(--text);margin-bottom:.875rem}
+.dse-section ul{margin:.5rem 0 .875rem 1.25rem;display:flex;flex-direction:column;gap:.375rem}
+.dse-section ul li{font-size:14px;line-height:1.7;color:var(--text)}
+.dse-section a{color:var(--green);text-decoration:none;word-break:break-word}
+.dse-section a:hover{text-decoration:underline}
+.dse-section strong{font-weight:500}
+
+.meta-box{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:1rem 1.25rem;margin-bottom:.875rem;font-size:13px;line-height:1.7}
+.meta-box li{color:var(--muted);font-size:13px}
+
+.highlight{background:var(--gpale);border-left:3px solid var(--green);border-radius:0 8px 8px 0;padding:.875rem 1.125rem;margin:.875rem 0;font-size:13px;line-height:1.7;color:var(--gdark)}
+
+.stand{font-size:12px;color:var(--muted);margin-bottom:2rem}
+.seal{font-size:12px;color:var(--muted);margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--border)}
+.seal a{color:var(--green)}
+
+footer{background:var(--volt);padding:32px 5vw;text-align:center;margin-top:4rem}
+.footer-logo{font-family:var(--ff-display);font-size:16px;color:rgba(255,255,255,.6);margin-bottom:.5rem}
+.footer-links{display:flex;gap:20px;justify-content:center;margin-bottom:.75rem;flex-wrap:wrap}
+.footer-links a{font-size:12px;color:rgba(255,255,255,.35);text-decoration:none}
+.footer-links a:hover{color:var(--glight)}
+.footer-copy{font-size:11px;color:rgba(255,255,255,.3)}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">
+    <svg viewBox="0 0 36 36" width="28" height="28" fill="none">
+      <circle cx="18" cy="18" r="16" stroke="#1D9E75" stroke-width="1.5"/>
+      <path d="M21 5L13 18H19L16 31L25 18H19L21 5Z" fill="#1D9E75"/>
+    </svg>
+    <div>
+      <div class="nav-wordmark">amperillo</div>
+      <div class="nav-tag">certified electric resale</div>
+    </div>
+  </a>
+  <a href="/" class="back-link">← Zurück zur Startseite</a>
+</nav>
+
+<div class="page-wrap">
+
+  <div class="page-eyebrow">Rechtliches</div>
+  <h1>Datenschutzerklärung</h1>
+  <div class="stand">Stand: 28. April 2026</div>
+
+  <!-- INHALTSÜBERSICHT -->
+  <div class="toc">
+    <div class="toc-title">Inhaltsübersicht</div>
+    <ul>
+      <li><a href="#m716">Präambel</a></li>
+      <li><a href="#m3">Verantwortlicher</a></li>
+      <li><a href="#mOverview">Übersicht der Verarbeitungen</a></li>
+      <li><a href="#m2427">Maßgebliche Rechtsgrundlagen</a></li>
+      <li><a href="#m27">Sicherheitsmaßnahmen</a></li>
+      <li><a href="#m25">Übermittlung von personenbezogenen Daten</a></li>
+      <li><a href="#m24">Internationale Datentransfers</a></li>
+      <li><a href="#m12">Datenspeicherung und Löschung</a></li>
+      <li><a href="#m10">Rechte der betroffenen Personen</a></li>
+      <li><a href="#m225">Webhosting</a></li>
+      <li><a href="#m134">Einsatz von Cookies</a></li>
+      <li><a href="#m182">Kontakt- und Anfrageverwaltung</a></li>
+      <li><a href="#m17">Newsletter</a></li>
+      <li><a href="#m263">Google Analytics</a></li>
+      <li><a href="#m15">Änderung und Aktualisierung</a></li>
+      <li><a href="#m42">Begriffsdefinitionen</a></li>
+    </ul>
+  </div>
+
+  <!-- PRÄAMBEL -->
+  <div class="dse-section" id="m716">
+    <h2>Präambel</h2>
+    <p>Mit der folgenden Datenschutzerklärung möchten wir Sie darüber aufklären, welche Arten Ihrer personenbezogenen Daten (nachfolgend auch kurz als „Daten" bezeichnet) wir zu welchen Zwecken und in welchem Umfang verarbeiten. Die Datenschutzerklärung gilt für alle von uns durchgeführten Verarbeitungen personenbezogener Daten, sowohl im Rahmen der Erbringung unserer Leistungen als auch insbesondere auf unseren Webseiten und externen Onlinepräsenzen.</p>
+    <p>Die verwendeten Begriffe sind nicht geschlechtsspezifisch.</p>
+  </div>
+
+  <!-- VERANTWORTLICHER -->
+  <div class="dse-section" id="m3">
+    <h2>Verantwortlicher</h2>
+    <p>
+      <strong>Till Hohenberger</strong><br>
+      Beratender Betriebswirt<br>
+      handelnd unter der Bezeichnung <strong>amperillo</strong><br>
+      Martin-Buber-Str. 87<br>
+      64287 Darmstadt<br>
+      Deutschland
+    </p>
+    <p style="margin-top:.75rem">
+      E-Mail: <a href="mailto:hallo@amperillo.de">hallo@amperillo.de</a><br>
+      Telefon: 0172 6255093
+    </p>
+  </div>
+
+  <!-- ÜBERSICHT -->
+  <div class="dse-section" id="mOverview">
+    <h2>Übersicht der Verarbeitungen</h2>
+    <h3>Arten der verarbeiteten Daten</h3>
+    <ul>
+      <li>Bestandsdaten (Name, Kontaktinformationen)</li>
+      <li>Kontaktdaten (E-Mail-Adressen, Telefonnummern)</li>
+      <li>Inhaltsdaten (Textnachrichten aus Formularen)</li>
+      <li>Nutzungsdaten (Seitenaufrufe, Verweildauer, Klickpfade)</li>
+      <li>Meta-, Kommunikations- und Verfahrensdaten (IP-Adressen, Zeitangaben)</li>
+      <li>Protokolldaten (Server-Logfiles)</li>
+    </ul>
+    <h3>Kategorien betroffener Personen</h3>
+    <ul>
+      <li>Kommunikationspartner (Kontaktformular-Nutzer)</li>
+      <li>Newsletter-Abonnenten</li>
+      <li>Webseitenbesucher</li>
+    </ul>
+    <h3>Zwecke der Verarbeitung</h3>
+    <ul>
+      <li>Kommunikation und Bearbeitung von Anfragen</li>
+      <li>Direktmarketing (Newsletter)</li>
+      <li>Reichweitenmessung und Webanalyse (Google Analytics)</li>
+      <li>Bereitstellung des Onlineangebots</li>
+      <li>Sicherheitsmaßnahmen</li>
+    </ul>
+  </div>
+
+  <!-- RECHTSGRUNDLAGEN -->
+  <div class="dse-section" id="m2427">
+    <h2>Maßgebliche Rechtsgrundlagen</h2>
+    <p>Im Folgenden erhalten Sie eine Übersicht der Rechtsgrundlagen der DSGVO, auf deren Basis wir personenbezogene Daten verarbeiten:</p>
+    <ul>
+      <li><strong>Einwilligung (Art. 6 Abs. 1 S. 1 lit. a DSGVO)</strong> – z.B. Newsletter-Anmeldung, Google Analytics</li>
+      <li><strong>Vertragserfüllung und vorvertragliche Anfragen (Art. 6 Abs. 1 S. 1 lit. b DSGVO)</strong> – z.B. Bearbeitung von Kontaktanfragen</li>
+      <li><strong>Berechtigte Interessen (Art. 6 Abs. 1 S. 1 lit. f DSGVO)</strong> – z.B. Webhosting, Sicherheit, Serverlogs</li>
+    </ul>
+    <p>Zusätzlich gelten nationale Regelungen, insbesondere das Bundesdatenschutzgesetz (BDSG).</p>
+  </div>
+
+  <!-- SICHERHEIT -->
+  <div class="dse-section" id="m27">
+    <h2>Sicherheitsmaßnahmen</h2>
+    <p>Wir treffen nach Maßgabe der gesetzlichen Vorgaben geeignete technische und organisatorische Maßnahmen, um ein dem Risiko angemessenes Schutzniveau zu gewährleisten. Dazu gehört insbesondere die Sicherung der Vertraulichkeit, Integrität und Verfügbarkeit von Daten.</p>
+    <div class="highlight">
+      <strong>TLS/SSL-Verschlüsselung (HTTPS):</strong> Alle Daten, die zwischen Ihrem Browser und unserer Website übertragen werden, sind durch HTTPS verschlüsselt. Dies wird durch das Schlosssymbol in Ihrem Browser und das „https://" in der Adresszeile signalisiert.
+    </div>
+  </div>
+
+  <!-- ÜBERMITTLUNG -->
+  <div class="dse-section" id="m25">
+    <h2>Übermittlung von personenbezogenen Daten</h2>
+    <p>Im Rahmen unserer Verarbeitung werden personenbezogene Daten an folgende Dritte übermittelt:</p>
+    <ul>
+      <li><strong>Formspree Inc.</strong> (Kontaktformular-Dienst) – Verarbeitung von Formulareingaben</li>
+      <li><strong>Google Ireland Limited</strong> (Google Analytics) – Webanalyse</li>
+      <li><strong>Netlify Inc.</strong> (Webhosting) – Bereitstellung der Website</li>
+    </ul>
+    <p>Mit diesen Anbietern bestehen Auftragsverarbeitungsverträge gemäß Art. 28 DSGVO.</p>
+  </div>
+
+  <!-- INTERNATIONALE TRANSFERS -->
+  <div class="dse-section" id="m24">
+    <h2>Internationale Datentransfers</h2>
+    <p>Einige der von uns eingesetzten Dienste (Google Analytics, Formspree, Netlify) verarbeiten Daten in den USA. Für diese Datenübermittlungen stützen wir uns auf das EU-US Data Privacy Framework (Angemessenheitsbeschluss der EU-Kommission vom 10.07.2023) sowie auf Standardvertragsklauseln der EU-Kommission.</p>
+    <p>Weitere Informationen zum Data Privacy Framework: <a href="https://www.dataprivacyframework.gov/" target="_blank" rel="noopener">dataprivacyframework.gov</a></p>
+  </div>
+
+  <!-- DATENSPEICHERUNG -->
+  <div class="dse-section" id="m12">
+    <h2>Allgemeine Informationen zur Datenspeicherung und Löschung</h2>
+    <p>Wir löschen personenbezogene Daten, sobald die zugrundeliegenden Einwilligungen widerrufen werden oder keine weiteren rechtlichen Grundlagen für die Verarbeitung bestehen.</p>
+    <p>Gesetzliche Aufbewahrungsfristen nach deutschem Recht:</p>
+    <ul>
+      <li><strong>10 Jahre</strong> – Bücher, Aufzeichnungen, Jahresabschlüsse (§ 147 AO, § 257 HGB)</li>
+      <li><strong>8 Jahre</strong> – Buchungsbelege, Rechnungen (§ 147 AO)</li>
+      <li><strong>6 Jahre</strong> – Geschäftsbriefe und sonstige steuerrelevante Unterlagen (§ 147 AO)</li>
+      <li><strong>3 Jahre</strong> – Allgemeine Vertragsunterlagen (§§ 195, 199 BGB)</li>
+    </ul>
+  </div>
+
+  <!-- BETROFFENENRECHTE -->
+  <div class="dse-section" id="m10">
+    <h2>Rechte der betroffenen Personen</h2>
+    <p>Sie haben nach der DSGVO folgende Rechte:</p>
+    <ul>
+      <li><strong>Auskunftsrecht (Art. 15 DSGVO)</strong> – Bestätigung und Kopie Ihrer verarbeiteten Daten</li>
+      <li><strong>Recht auf Berichtigung (Art. 16 DSGVO)</strong> – Korrektur unrichtiger Daten</li>
+      <li><strong>Recht auf Löschung (Art. 17 DSGVO)</strong> – Löschung Ihrer Daten</li>
+      <li><strong>Recht auf Einschränkung (Art. 18 DSGVO)</strong> – Einschränkung der Verarbeitung</li>
+      <li><strong>Recht auf Datenübertragbarkeit (Art. 20 DSGVO)</strong> – Übertragung Ihrer Daten</li>
+      <li><strong>Widerspruchsrecht (Art. 21 DSGVO)</strong> – Widerspruch gegen die Verarbeitung</li>
+      <li><strong>Widerrufsrecht</strong> – Widerruf erteilter Einwilligungen jederzeit möglich</li>
+      <li><strong>Beschwerderecht</strong> – Beschwerde bei der zuständigen Aufsichtsbehörde</li>
+    </ul>
+    <div class="highlight">
+      Zuständige Aufsichtsbehörde für Hessen: <strong>Der Hessische Beauftragte für Datenschutz und Informationsfreiheit</strong>, Gustav-Stresemann-Ring 1, 65189 Wiesbaden, <a href="https://datenschutz.hessen.de" target="_blank" rel="noopener">datenschutz.hessen.de</a>
+    </div>
+    <p>Zur Ausübung Ihrer Rechte wenden Sie sich an: <a href="mailto:hallo@amperillo.de">hallo@amperillo.de</a></p>
+  </div>
+
+  <!-- WEBHOSTING -->
+  <div class="dse-section" id="m225">
+    <h2>Bereitstellung des Onlineangebots und Webhosting</h2>
+    <p>Unser Onlineangebot wird bei <strong>Netlify Inc.</strong> (44 Montgomery Street, Suite 300, San Francisco, CA 94104, USA) gehostet. Beim Aufruf unserer Website werden automatisch folgende Daten in Server-Logfiles gespeichert:</p>
+    <div class="meta-box">
+      <ul>
+        <li>IP-Adresse (anonymisiert)</li>
+        <li>Datum und Uhrzeit des Abrufs</li>
+        <li>Aufgerufene URL</li>
+        <li>Browsertyp und -version</li>
+        <li>Betriebssystem</li>
+        <li>Referrer-URL</li>
+      </ul>
+    </div>
+    <p>Logfile-Informationen werden für maximal 30 Tage gespeichert und danach gelöscht.</p>
+    <p><strong>Rechtsgrundlage:</strong> Berechtigte Interessen (Art. 6 Abs. 1 S. 1 lit. f DSGVO)</p>
+    <p>Datenschutzerklärung Netlify: <a href="https://www.netlify.com/privacy/" target="_blank" rel="noopener">netlify.com/privacy</a></p>
+  </div>
+
+  <!-- COOKIES -->
+  <div class="dse-section" id="m134">
+    <h2>Einsatz von Cookies</h2>
+    <p>Wir setzen Cookies ein, um die Funktionsfähigkeit unserer Website sicherzustellen und Nutzungsanalysen durchzuführen (Google Analytics). Für nicht technisch notwendige Cookies holen wir Ihre Einwilligung ein.</p>
+    <p><strong>Technisch notwendige Cookies</strong> werden ohne Einwilligung gesetzt (berechtigte Interessen, Art. 6 Abs. 1 lit. f DSGVO).</p>
+    <p><strong>Analyse-Cookies</strong> (Google Analytics) werden nur nach Ihrer Einwilligung gesetzt (Art. 6 Abs. 1 lit. a DSGVO). Sie können Ihre Einwilligung jederzeit über Ihre Browser-Einstellungen widerrufen.</p>
+  </div>
+
+  <!-- KONTAKTFORMULAR -->
+  <div class="dse-section" id="m182">
+    <h2>Kontakt- und Anfrageverwaltung</h2>
+    <p>Wenn Sie uns über unsere Kontaktformulare kontaktieren, verarbeiten wir die von Ihnen angegebenen Daten zur Bearbeitung Ihrer Anfrage. Dies umfasst Name, E-Mail-Adresse und den Inhalt Ihrer Nachricht.</p>
+    <p>Wir nutzen den Dienst <strong>Formspree</strong> (Formspree Inc., USA) zur Verarbeitung von Formulardaten. Mit Formspree besteht ein Auftragsverarbeitungsvertrag. Datenschutzerklärung Formspree: <a href="https://formspree.io/legal/privacy-policy" target="_blank" rel="noopener">formspree.io/legal/privacy-policy</a></p>
+    <div class="meta-box">
+      <ul>
+        <li><strong>Verarbeitete Daten:</strong> Name, E-Mail, Nachrichteninhalt, optional: Fahrzeuginteresse / Rolle</li>
+        <li><strong>Zweck:</strong> Bearbeitung von Anfragen, Aufnahme in Pilot-Warteliste</li>
+        <li><strong>Speicherdauer:</strong> Bis zur vollständigen Bearbeitung, danach gemäß gesetzlichen Fristen</li>
+        <li><strong>Rechtsgrundlage:</strong> Vertragserfüllung / vorvertragliche Maßnahmen (Art. 6 Abs. 1 lit. b DSGVO), berechtigte Interessen (Art. 6 Abs. 1 lit. f DSGVO)</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- NEWSLETTER -->
+  <div class="dse-section" id="m17">
+    <h2>Newsletter und elektronische Benachrichtigungen</h2>
+    <p>Wir versenden Newsletter ausschließlich mit Ihrer ausdrücklichen Einwilligung (Double-Opt-In-Verfahren). Nach Ihrer Anmeldung erhalten Sie eine Bestätigungs-E-Mail. Der Newsletter wird erst nach Bestätigung versendet.</p>
+    <div class="meta-box">
+      <ul>
+        <li><strong>Verarbeitete Daten:</strong> E-Mail-Adresse, optional: Name</li>
+        <li><strong>Zweck:</strong> Versand von Informationen zu amperillo, gebrauchten EVs, Marktdaten</li>
+        <li><strong>Abmeldung:</strong> Jederzeit über den Abmeldelink im Newsletter oder per E-Mail an <a href="mailto:hallo@amperillo.de">hallo@amperillo.de</a></li>
+        <li><strong>Speicherdauer nach Abmeldung:</strong> Bis zu 3 Jahre zum Nachweis der Einwilligung</li>
+        <li><strong>Rechtsgrundlage:</strong> Einwilligung (Art. 6 Abs. 1 lit. a DSGVO)</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- GOOGLE ANALYTICS -->
+  <div class="dse-section" id="m263">
+    <h2>Webanalyse mit Google Analytics</h2>
+    <p>Wir verwenden <strong>Google Analytics</strong> zur Messung und Analyse der Nutzung unseres Onlineangebots. Google Analytics verwendet Cookies und erstellt pseudonyme Nutzerprofile.</p>
+    <div class="meta-box">
+      <ul>
+        <li><strong>Anbieter:</strong> Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland</li>
+        <li><strong>Verarbeitete Daten:</strong> Seitenaufrufe, Klickpfade, Verweildauer, Geräteinformationen, anonymisierte IP-Adresse</li>
+        <li><strong>IP-Adressen:</strong> Werden von Google nicht vollständig gespeichert (IP-Masking)</li>
+        <li><strong>Zweck:</strong> Reichweitenmessung, Optimierung des Onlineangebots</li>
+        <li><strong>Speicherdauer:</strong> Cookies bis zu 2 Jahre; Rohdaten bis zu 14 Monate</li>
+        <li><strong>Drittlandtransfer:</strong> USA – auf Basis des EU-US Data Privacy Framework und Standardvertragsklauseln</li>
+        <li><strong>Rechtsgrundlage:</strong> Einwilligung (Art. 6 Abs. 1 lit. a DSGVO)</li>
+      </ul>
+    </div>
+    <p><strong>Opt-Out:</strong> Sie können die Erfassung durch Google Analytics verhindern durch:</p>
+    <ul>
+      <li>Browser-Add-on zur Deaktivierung: <a href="https://tools.google.com/dlpage/gaoptout?hl=de" target="_blank" rel="noopener">tools.google.com/dlpage/gaoptout</a></li>
+      <li>Anpassen Ihrer Cookie-Einstellungen in Ihrem Browser</li>
+    </ul>
+    <p>Datenschutzerklärung Google: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></p>
+  </div>
+
+  <!-- ÄNDERUNGEN -->
+  <div class="dse-section" id="m15">
+    <h2>Änderung und Aktualisierung</h2>
+    <p>Wir bitten Sie, sich regelmäßig über den Inhalt unserer Datenschutzerklärung zu informieren. Wir passen die Datenschutzerklärung an, sobald Änderungen der von uns durchgeführten Datenverarbeitungen dies erforderlich machen.</p>
+  </div>
+
+  <!-- BEGRIFFE -->
+  <div class="dse-section" id="m42">
+    <h2>Begriffsdefinitionen</h2>
+    <ul>
+      <li><strong>Personenbezogene Daten:</strong> Alle Informationen, die sich auf eine identifizierte oder identifizierbare natürliche Person beziehen.</li>
+      <li><strong>Verarbeitung:</strong> Jeder Vorgang im Zusammenhang mit personenbezogenen Daten (Erheben, Speichern, Übermitteln, Löschen etc.).</li>
+      <li><strong>Verantwortlicher:</strong> Die natürliche oder juristische Person, die über Zwecke und Mittel der Verarbeitung entscheidet.</li>
+      <li><strong>Nutzungsdaten:</strong> Informationen über die Nutzung digitaler Dienste (Seitenaufrufe, Klickpfade, Verweildauer etc.).</li>
+      <li><strong>Reichweitenmessung:</strong> Auswertung der Besucherströme eines Onlineangebots (Web Analytics).</li>
+    </ul>
+  </div>
+
+  <div class="seal">
+    Erstellt mit dem <a href="https://datenschutz-generator.de/" target="_blank" rel="noopener nofollow">Datenschutz-Generator.de von Dr. Thomas Schwenke</a> · Angepasst für amperillo.
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-logo">amperillo</div>
+  <div class="footer-links">
+    <a href="/">Startseite</a>
+    <a href="/impressum">Impressum</a>
+    <a href="/datenschutz">Datenschutz</a>
+    <a href="mailto:hallo@amperillo.de">Kontakt</a>
+  </div>
+  <div class="footer-copy">© 2026 amperillo · certified electric resale</div>
+</footer>
+
+</body>
+</html>
