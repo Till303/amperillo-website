@@ -1,18 +1,4 @@
 {
-  "cleanUrls": true,
-  "trailingSlash": false,
-  "redirects": [
-    {
-      "source": "/impressum",
-      "destination": "/impressum.html",
-      "permanent": true
-    },
-    {
-      "source": "/datenschutz",
-      "destination": "/datenschutz.html",
-      "permanent": true
-    }
-  ],
   "headers": [
     {
       "source": "/(.*)",
