@@ -466,14 +466,11 @@ footer{background:var(--volt);padding:40px 5vw;color:rgba(255,255,255,.4)}
   .comparison-grid{grid-template-columns:1fr !important}
 }
 </style>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-F4ZWWXGTQP"></script>
+<!-- GA4 wird nur nach Cookie-Zustimmung geladen (DSGVO-konform) -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   window.gtag = gtag;
-  gtag('js', new Date());
-  gtag('config', 'G-F4ZWWXGTQP', {'anonymize_ip': true});
 </script>
 
 <!-- Brevo Newsletter Form CSS -->
@@ -840,8 +837,8 @@ footer{background:var(--volt);padding:40px 5vw;color:rgba(255,255,255,.4)}
   <div class="footer-inner">
     <div class="footer-logo">amperillo</div>
     <div class="footer-links">
-      <a href="/impressum">Impressum</a>
-      <a href="/datenschutz">Datenschutz</a>
+      <a href="/impressum.html">Impressum</a>
+      <a href="/datenschutz.html">Datenschutz</a>
       <a href="mailto:hallo@amperillo.de">Kontakt</a>
     </div>
     <div class="footer-copy" style="margin-top:.75rem">
@@ -878,7 +875,7 @@ footer{background:var(--volt);padding:40px 5vw;color:rgba(255,255,255,.4)}
         <strong>Was passiert nach der Anfrage?</strong><br>
         Wir melden uns in 24 Stunden. Nach deiner Bestätigung starten wir die Bewertung. Du erhältst deinen amperillo Score-Report inkl. Zertifikat als PDF — bereit für dein Inserat.
       </div>
-      <p class="form-dsgvo">Mit dem Absenden stimmst du der Verarbeitung deiner Daten gemäß unserer <a href="/datenschutz">Datenschutzerklärung</a> zu. Unverbindliche Anfrage — kein Zahlungsvorgang.</p>
+      <p class="form-dsgvo">Mit dem Absenden stimmst du der Verarbeitung deiner Daten gemäß unserer <a href="/datenschutz.html">Datenschutzerklärung</a> zu. Unverbindliche Anfrage — kein Zahlungsvorgang.</p>
       <button class="form-submit" onclick="submitForm('zertifikat')" style="background:var(--amber);color:#3D2000">Zertifikat anfragen</button>
     </div>
     <div class="success-msg" id="success-zertifikat">
@@ -916,7 +913,7 @@ footer{background:var(--volt);padding:40px 5vw;color:rgba(255,255,255,.4)}
           <option>Noch offen</option>
         </select>
       </div>
-      <p class="form-dsgvo">Mit dem Absenden stimmst du der Verarbeitung deiner Daten gemäß unserer <a href="/datenschutz">Datenschutzerklärung</a> zu. Double-Opt-In per E-Mail folgt.</p>
+      <p class="form-dsgvo">Mit dem Absenden stimmst du der Verarbeitung deiner Daten gemäß unserer <a href="/datenschutz.html">Datenschutzerklärung</a> zu. Wir melden uns persönlich bei dir.</p>
       <button class="form-submit" onclick="submitForm('kaefer')">Vormerken lassen →</button>
     </div>
     <div class="success-msg" id="success-kaefer">
@@ -952,7 +949,7 @@ footer{background:var(--volt);padding:40px 5vw;color:rgba(255,255,255,.4)}
         </select>
       </div>
       <div class="form-group"><label>Nachricht (optional)</label><textarea id="p-msg" placeholder="Kurze Info über dein Angebot oder deine Fragen…"></textarea></div>
-      <p class="form-dsgvo">Mit dem Absenden stimmst du der Verarbeitung deiner Daten gemäß unserer <a href="/datenschutz">Datenschutzerklärung</a> zu.</p>
+      <p class="form-dsgvo">Mit dem Absenden stimmst du der Verarbeitung deiner Daten gemäß unserer <a href="/datenschutz.html">Datenschutzerklärung</a> zu.</p>
       <button class="form-submit" onclick="submitForm('partner')">Anfrage senden →</button>
     </div>
     <div class="success-msg" id="success-partner">
@@ -982,7 +979,7 @@ footer{background:var(--volt);padding:40px 5vw;color:rgba(255,255,255,.4)}
         </div>
         <input type="text" name="email_address_check" value="" style="display:none">
         <input type="hidden" name="locale" value="de">
-        <p class="form-dsgvo">Double-Opt-In: Du erhältst eine Bestätigungs-E-Mail. Abmeldung jederzeit. Daten gemäß <a href="/datenschutz">Datenschutzerklärung</a>.</p>
+        <p class="form-dsgvo">Double-Opt-In: Du erhältst eine Bestätigungs-E-Mail. Abmeldung jederzeit. Daten gemäß <a href="/datenschutz.html">Datenschutzerklärung</a>.</p>
         <button type="submit" class="form-submit sib-form-block__button" onclick="if(typeof gtag==='function'){gtag('event','form_submit_newsletter',{event_category:'conversion'})}">
           Abonnieren
         </button>
@@ -1027,6 +1024,15 @@ document.addEventListener('keydown', e => {
 // ── Form submission ──────────────────────────────
 // 🔧 INTEGRATION POINT: Replace fetch URL with your backend / Formspree / EmailJS endpoint
 const FORM_ENDPOINT = 'https://formspree.io/f/xqewvjrr'; // <-- change this
+
+async function submitFormWithConsent(type) {
+  const checkbox = document.getElementById('z-consent');
+  if (checkbox && !checkbox.checked) {
+    alert('Bitte stimme der Datenschutzerklärung zu.');
+    return;
+  }
+  submitForm(type);
+}
 
 async function submitForm(type) {
   let data = {};
@@ -1389,7 +1395,7 @@ window.dataLayer.push({
   <div class="cookie-text">
     🍪 Wir nutzen <strong>Google Analytics</strong> um zu verstehen wie Besucher unsere Seite nutzen.
     Deine Daten werden anonymisiert und nicht an Dritte verkauft.
-    Mehr dazu in unserer <a href="/datenschutz">Datenschutzerklärung</a>.
+    Mehr dazu in unserer <a href="/datenschutz.html">Datenschutzerklärung</a>.
   </div>
   <div class="cookie-actions">
     <button class="cookie-reject" onclick="cookieReject()">Nur notwendige</button>
