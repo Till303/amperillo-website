@@ -4,8 +4,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>E-Auto als Firmenwagen absetzen: bis 75 % im 1. Jahr | amperillo</title>
-<meta name="description" content="Selbstständig? Rechne in 30 Sekunden aus, was dich ein gebrauchtes Premium-E-Auto als Firmenwagen wirklich kostet. 75 % Abschreibung, 0,25 %-Regel, geprüft & vermittelt von amperillo. Befristet bis 2027.">
+<title>Gebrauchte E-Autos unabhängig prüfen &amp; kaufen | amperillo Hamburg</title>
+<meta name="description" content="amperillo prüft gebrauchte E-Autos unabhängig: über 150 Faktoren, amperillo Score™ und Zertifikat. Check ab 700 € in Hamburg &amp; Umland. Plus Firmenwagen-Rechner: bis 75 % Abschreibung.">
 <meta name="robots" content="index, follow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
@@ -32,7 +32,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 5vw;height:64px;di
 .nav-cta:hover{background:#d4891f;transform:translateY(-1px)}
 
 /* HERO */
-.hero{min-height:100vh;background:var(--volt);display:flex;flex-direction:column;justify-content:center;padding:120px 5vw 80px;position:relative;overflow:hidden}
+.hero{height:90vh;min-height:600px;background:var(--volt);display:flex;flex-direction:column;justify-content:center;padding:110px 5vw 90px;position:relative;overflow:hidden}
+.scroll-cue{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px;color:rgba(255,255,255,.4);font-size:10px;letter-spacing:.15em;text-transform:uppercase;animation:cueFloat 2s ease-in-out infinite;pointer-events:none}
+.scroll-cue svg{width:18px;height:18px}
+@keyframes cueFloat{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(5px)}}
 .hero-bg{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}
 #heroCanvas{width:100%;height:100%;display:block}
 .hero::before{content:'';position:absolute;width:700px;height:700px;border-radius:50%;border:1px solid rgba(29,158,117,.12);top:-200px;right:-150px;animation:pulse 8s ease-in-out infinite}
@@ -194,8 +197,8 @@ section{padding:80px 5vw}
 .steuer-card{background:var(--white);border-radius:var(--r-xl);padding:2rem;border:1px solid var(--border);position:relative}
 .steuer-num{font-family:var(--ff-display);font-size:42px;color:var(--green);opacity:.15;position:absolute;top:1.25rem;right:1.5rem;line-height:1}
 .steuer-card h3{font-size:16px;font-weight:500;margin-bottom:.75rem;padding-right:3rem}
-.steuer-card p{font-size:14px;color:var(--muted);line-height:1.7}
-.steuer-card span.law{font-size:11px;color:var(--green);font-weight:500;display:block;margin-top:.5rem;letter-spacing:.04em}
+.steuer-card p{font-size:15px;color:var(--muted);line-height:1.7}
+.steuer-card span.law{font-size:13.5px;color:var(--green);font-weight:500;display:block;margin-top:.75rem;letter-spacing:.03em;line-height:1.55}
 
 /* KÄUFER-REISE */
 .journey-section{background:var(--offwhite)}
@@ -253,13 +256,14 @@ section{padding:80px 5vw}
 .inspektion-section{background:var(--white)}
 .pakete-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
 @media(max-width:768px){.pakete-grid{grid-template-columns:1fr}}
-.paket-card{background:var(--offwhite);border:1px solid var(--border);border-radius:var(--r-xl);padding:2rem;position:relative;transition:border-color .2s}
+.paket-card{background:var(--offwhite);border:1px solid var(--border);border-radius:var(--r-xl);padding:2rem;position:relative;transition:border-color .2s;display:flex;flex-direction:column}
 .paket-card:hover{border-color:var(--green)}
 .paket-card.featured{background:var(--volt);border-color:var(--green)}
 .paket-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--green);color:var(--white);font-size:10px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;padding:4px 14px;border-radius:99px}
+.paket-ort{align-self:flex-start;background:var(--gpale);color:var(--gdark);font-size:11.5px;font-weight:500;padding:4px 12px;border-radius:var(--r-pill);margin-bottom:.9rem}
 .paket-name{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--green);margin-bottom:.5rem}
 .paket-price{font-family:var(--ff-display);font-size:44px;font-weight:400;letter-spacing:-1px;margin-bottom:.25rem}
-.paket-price span{font-size:18px;vertical-align:top;margin-top:8px;display:inline-block}
+.paket-price span{font-size:24px;color:var(--muted)}
 .paket-card.featured .paket-price,.paket-card.featured h3{color:var(--white)}
 .paket-card.featured .paket-leistung{color:rgba(255,255,255,.6)}
 .paket-leistung{font-size:14px;color:var(--muted);line-height:1.65;margin-bottom:1.5rem;min-height:60px}
@@ -323,27 +327,163 @@ footer{background:var(--volt);padding:40px 5vw;color:rgba(255,255,255,.4)}
 
 .fade-up{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
 .fade-up.visible{opacity:1;transform:translateY(0)}
-@media(max-width:640px){nav{padding:0 4vw}section{padding:60px 4vw}.hero{padding:100px 4vw 60px}.hide-mobile{display:none !important}}
+@media(max-width:640px){nav{padding:0 4vw}section{padding:60px 4vw}.hero{min-height:82vh;padding:100px 4vw 56px}.hide-mobile{display:none !important}}
 
 /* Accessibility: focus visibility, contrast helpers */
 a:focus-visible,button:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+
+/* ── BUCHUNGS-OVERLAY ── */
+.bk-overlay{position:fixed;inset:0;background:var(--offwhite);z-index:200;display:none;overflow-y:auto;-webkit-overflow-scrolling:touch}
+.bk-overlay.open{display:block}
+.bk-head{position:sticky;top:0;background:var(--white);border-bottom:1px solid var(--border);padding:14px 5vw;display:flex;align-items:center;justify-content:space-between;z-index:5}
+.bk-brand{font-family:var(--ff-display);font-size:20px;color:var(--volt)}
+.bk-brand small{display:block;font-family:var(--ff-body);font-size:8px;letter-spacing:.18em;text-transform:uppercase;color:var(--green);margin-top:1px}
+.bk-close{background:none;border:1px solid var(--border);border-radius:var(--r-pill);padding:8px 18px;font-size:13px;font-family:var(--ff-body);color:var(--muted);cursor:pointer}
+.bk-close:hover{border-color:var(--muted)}
+.bk-progress{padding:18px 5vw 0;max-width:860px;margin:0 auto;width:100%}
+.bk-progress-top{display:flex;justify-content:space-between;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.bk-progress-top b{color:var(--gdark);font-weight:600}
+.bk-bar{height:4px;background:var(--border);border-radius:99px;overflow:hidden}
+.bk-bar-fill{height:100%;background:var(--green);border-radius:99px;transition:width .4s ease}
+.bk-body{max-width:860px;margin:0 auto;padding:28px 5vw 80px}
+.bk-title{font-family:var(--ff-display);font-size:clamp(24px,3.5vw,32px);color:var(--volt);margin-bottom:.5rem}
+.bk-sub{font-size:14px;color:var(--muted);margin-bottom:1.75rem;line-height:1.6}
+.bk-step{display:none}
+.bk-step.active{display:block}
+.bk-pakete{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+@media(max-width:768px){.bk-pakete{grid-template-columns:1fr}}
+.bk-paket{background:var(--white);border:1.5px solid var(--border);border-radius:var(--r-xl);padding:1.5rem;cursor:pointer;position:relative;transition:border-color .2s,box-shadow .2s;display:flex;flex-direction:column}
+.bk-paket:hover{border-color:var(--glight)}
+.bk-paket.selected{border-color:var(--green);box-shadow:0 8px 24px rgba(29,158,117,.14)}
+.bk-paket .bp-badge{position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:var(--green);color:var(--white);font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:4px 14px;border-radius:99px}
+.bp-ort{display:inline-block;background:var(--gpale);color:var(--gdark);font-size:11px;font-weight:500;padding:3px 10px;border-radius:99px;margin-bottom:.7rem;align-self:flex-start}
+.bp-name{font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--green)}
+.bp-price{font-family:var(--ff-display);font-size:30px;color:var(--volt);margin:.3rem 0 .2rem}
+.bp-price small{font-size:12px;color:var(--muted);font-family:var(--ff-body)}
+.bp-desc{font-size:12.5px;color:var(--muted);line-height:1.55;margin-bottom:1rem;flex:1}
+.bp-feats{list-style:none;margin:0 0 1rem;padding:0;display:flex;flex-direction:column;gap:5px}
+.bp-feats li{font-size:12px;color:var(--text);padding-left:20px;position:relative}
+.bp-feats li::before{content:'\2713';position:absolute;left:0;color:var(--green);font-weight:600}
+.bp-feats li.bp-na{color:#B4B2AA}
+.bp-feats li.bp-na::before{content:'\2013';color:#B4B2AA}
+.bk-paket .bp-pick{border:1.5px solid var(--green);color:var(--green);background:transparent;border-radius:var(--r-pill);padding:9px;font-size:13px;font-weight:500;font-family:var(--ff-body);cursor:pointer;width:100%;transition:all .2s}
+.bk-paket.selected .bp-pick,.bk-paket .bp-pick:hover{background:var(--green);color:var(--white)}
+.bk-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r-xl);padding:1.75rem;margin-bottom:1.25rem}
+.bk-card h3{font-size:16px;font-weight:600;color:var(--volt);margin-bottom:1.1rem;display:flex;align-items:center;gap:8px}
+.bk-grid2{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+@media(max-width:600px){.bk-grid2{grid-template-columns:1fr}}
+.bk-field label{display:block;font-size:12px;font-weight:500;color:var(--muted);margin-bottom:5px}
+.bk-field input,.bk-field select{width:100%;border:1px solid var(--border);border-radius:var(--r-md);padding:11px 13px;font-size:14px;font-family:var(--ff-body);color:var(--text);background:var(--white)}
+.bk-field input:focus,.bk-field select:focus{outline:2px solid var(--glight);border-color:var(--green)}
+.bk-hint{font-size:11.5px;color:#8B897F;margin-top:4px}
+.bk-days{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:8px;margin-bottom:1.25rem}
+.bk-day{border:1.5px solid var(--border);background:var(--white);border-radius:var(--r-md);padding:10px 6px;text-align:center;cursor:pointer;font-family:var(--ff-body);transition:border-color .15s}
+.bk-day .d-wd{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.bk-day .d-num{font-size:16px;font-weight:600;color:var(--volt);margin-top:2px}
+.bk-day:hover{border-color:var(--glight)}
+.bk-day.selected{border-color:var(--green);background:var(--gpale)}
+.bk-slots{display:flex;flex-wrap:wrap;gap:8px}
+.bk-slot{border:1.5px solid var(--border);background:var(--white);border-radius:var(--r-pill);padding:9px 20px;font-size:13.5px;font-family:'DM Mono',monospace;cursor:pointer;transition:all .15s}
+.bk-slot:hover{border-color:var(--glight)}
+.bk-slot.selected{border-color:var(--green);background:var(--green);color:var(--white)}
+.bk-sum-line{display:flex;justify-content:space-between;gap:12px;padding:.65rem 0;border-bottom:1px solid var(--offwhite);font-size:14px}
+.bk-sum-line:last-child{border-bottom:none}
+.bk-sum-line .l{color:var(--muted)}
+.bk-sum-line .v{font-weight:500;color:var(--text);text-align:right}
+.bk-total{display:flex;justify-content:space-between;align-items:baseline;padding-top:1rem;margin-top:.5rem;border-top:2px solid var(--gpale)}
+.bk-total .tl{font-size:14px;color:var(--muted)}
+.bk-total .tv{font-family:var(--ff-display);font-size:28px;color:var(--volt)}
+.bk-total .tv small{font-size:12px;font-family:var(--ff-body);color:var(--muted)}
+.bk-pay{display:flex;flex-direction:column;gap:8px}
+.bk-pay-opt{display:flex;align-items:center;gap:12px;border:1.5px solid var(--border);border-radius:var(--r-lg);padding:13px 16px;cursor:pointer;transition:border-color .15s;background:var(--white)}
+.bk-pay-opt:hover{border-color:var(--glight)}
+.bk-pay-opt.selected{border-color:var(--green);background:var(--gpale)}
+.bk-pay-opt input{accent-color:var(--green)}
+.bk-pay-opt .po-t{font-size:14px;font-weight:500;color:var(--text)}
+.bk-pay-opt .po-s{font-size:11.5px;color:var(--muted)}
+.bk-nav{display:flex;justify-content:space-between;align-items:center;margin-top:1.75rem;gap:1rem}
+.bk-back{background:none;border:none;color:var(--muted);font-size:14px;font-family:var(--ff-body);cursor:pointer;padding:10px 0;display:inline-flex;align-items:center;gap:6px}
+.bk-back:hover{color:var(--text)}
+.bk-next{background:var(--green);color:var(--white);border:none;border-radius:var(--r-pill);padding:13px 32px;font-size:15px;font-weight:500;font-family:var(--ff-body);cursor:pointer;transition:background .2s}
+.bk-next:hover{background:var(--gdark)}
+.bk-next:disabled{background:var(--border);color:#9B998F;cursor:not-allowed}
+.bk-err{display:none;background:#FCEBEB;border:1px solid rgba(226,75,74,.35);color:#791F1F;border-radius:var(--r-md);padding:10px 14px;font-size:13px;margin-top:1rem}
+.bk-err.show{display:block}
+.bk-success{text-align:center;padding:3rem 1rem}
+.bk-success .ok-ring{width:72px;height:72px;border-radius:50%;background:var(--gpale);display:flex;align-items:center;justify-content:center;margin:0 auto 1.25rem}
+.bk-success h3{font-family:var(--ff-display);font-size:26px;color:var(--volt);margin-bottom:.6rem}
+.bk-success p{font-size:14px;color:var(--muted);max-width:460px;margin:0 auto .5rem;line-height:1.65}
+
+@media(max-width:820px){.ueber-grid{grid-template-columns:1fr !important;gap:2rem !important}}
 @media(prefers-reduced-motion:reduce){*{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}}
 
 /* Brevo overrides */
 #sib-container{background-color:transparent !important;border:none !important;max-width:100% !important}
 #sib-container input{background:rgba(255,255,255,.08) !important;border:1px solid rgba(255,255,255,.2) !important;border-radius:8px !important;color:#fff !important;font-family:var(--ff-body) !important;font-size:14px !important;padding:10px 14px !important}
 .sib-form-block__button{background:#1D9E75 !important;border-radius:99px !important;font-family:var(--ff-body) !important;font-size:13px !important;font-weight:500 !important;padding:11px 24px !important}
+
+/* WEICHE */
+.weiche{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:2rem;max-width:720px}
+@media(max-width:820px){.weiche{grid-template-columns:1fr;max-width:420px}}
+.weiche-card{position:relative;display:block;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);border-radius:var(--r-lg);padding:1.1rem 1.2rem;text-decoration:none;transition:border-color .2s,background .2s}
+.weiche-card:hover{border-color:var(--glight);background:rgba(255,255,255,.09)}
+.weiche-icon{font-size:20px;margin-bottom:.5rem}
+.weiche-t{font-size:14px;font-weight:600;color:var(--white);line-height:1.35;margin-bottom:.25rem}
+.weiche-s{font-size:12px;color:rgba(255,255,255,.55);line-height:1.4}
+.weiche-arrow{position:absolute;top:1rem;right:1.1rem;color:var(--glight);font-size:14px}
+/* COUNTDOWN STRIP im Rechner */
+.cd-strip{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;background:rgba(239,159,39,.08);border:1px solid rgba(239,159,39,.25);border-radius:var(--r-md);padding:.7rem 1rem;margin-top:1.25rem}
+.cd-strip-label{font-size:14px;color:#FFC470;line-height:1.5;flex:1;min-width:240px}
+.cd-strip .urgency-countdown{gap:6px}
+.cd-strip .count-box{background:rgba(61,32,0,.3);min-width:44px;padding:5px 8px}
+.cd-strip .count-num{font-size:16px}
+.cd-strip .count-label{font-size:8px}
+@media(max-width:640px){.cd-strip .urgency-countdown{display:flex}}
+/* FAQ */
+.faq-item{background:var(--white);border:1px solid var(--border);border-radius:var(--r-lg);margin-bottom:.75rem;overflow:hidden}
+.faq-item summary{cursor:pointer;padding:1rem 1.25rem;font-size:15px;font-weight:500;color:var(--text);list-style:none;position:relative;padding-right:2.5rem}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{content:'+';position:absolute;right:1.25rem;top:50%;transform:translateY(-50%);color:var(--green);font-size:20px;font-weight:400}
+.faq-item[open] summary::after{content:'−'}
+.faq-item p{padding:0 1.25rem 1.1rem;font-size:14px;color:var(--muted);line-height:1.7}
+/* NAV LINKS */
+.nav-link{font-size:13.5px;color:rgba(255,255,255,.65);text-decoration:none;transition:color .2s}
+.nav-link:hover{color:var(--glight)}
 </style>
+<link rel="canonical" href="https://amperillo.de/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://amperillo.de/">
+<meta property="og:site_name" content="amperillo">
+<meta property="og:locale" content="de_DE">
+<meta property="og:title" content="Gebrauchte E-Autos unabhängig prüfen &amp; kaufen | amperillo">
+<meta property="og:description" content="Unabhängige Prüfung mit über 150 Faktoren, amperillo Score™ und Zertifikat. Check ab 700 € in Hamburg &amp; Umland.">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"LocalBusiness","name":"amperillo","description":"Unabhängige Prüfung, Bewertung und Vermittlung gebrauchter Elektrofahrzeuge mit dem amperillo Score™.","url":"https://amperillo.de/","email":"hallo@amperillo.de","areaServed":{"@type":"City","name":"Hamburg"},"priceRange":"700€-1000€","makesOffer":[{"@type":"Offer","name":"amperillo Check","price":"700","priceCurrency":"EUR","description":"Unabhängige Fahrzeugprüfung vor Ort inkl. amperillo Score™ und Zertifikat"},{"@type":"Offer","name":"amperillo Check Plus","price":"800","priceCurrency":"EUR","description":"Fahrzeugprüfung in der Partner-Prüfstelle mit Hebebühnen-Tiefenprüfung"},{"@type":"Offer","name":"amperillo Concierge","price":"1000","priceCurrency":"EUR","description":"Fahrzeugprüfung mit Abholung und Rücklieferung"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Was kostet ein amperillo Check?","acceptedAnswer":{"@type":"Answer","text":"Der amperillo Check kostet 700 € (vor Ort), der Check Plus 800 € (Partner-Prüfstelle mit Hebebühne), der Concierge 1.000 € (mit Abholung und Rücklieferung), jeweils inkl. MwSt. 50 % Anzahlung nach Terminbestätigung, Rest nach der Prüfung."}},
+{"@type":"Question","name":"Wo ist amperillo verfügbar?","acceptedAnswer":{"@type":"Answer","text":"In der Pilotregion Hamburg und Umland. Andere Regionen auf Anfrage."}},
+{"@type":"Question","name":"Was ist der amperillo Score™?","acceptedAnswer":{"@type":"Answer","text":"Eine datenbasierte Fahrzeugbewertung mit über 150 Faktoren auf einer Skala von 0 bis 100, unabhängig geprüft durch Sachverständige, mit Zertifikat als PDF."}},
+{"@type":"Question","name":"Lohnt sich ein gebrauchtes E-Auto als Firmenwagen?","acceptedAnswer":{"@type":"Answer","text":"Bis Ende 2027 gilt die 75-%-Sofortabschreibung nach § 7 Abs. 2a EStG auch für Gebrauchte, dazu die 0,25-%-Regel bis 100.000 € Bruttolistenpreis. Keine Steuerberatung."}}
+]}
+</script>
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
-  <a href="#" class="nav-logo">
-    <svg viewBox="0 0 36 36" width="30" height="30" fill="none"><circle cx="18" cy="18" r="16" stroke="#1D9E75" stroke-width="1.5"/><path d="M21 5L13 18H19L16 31L25 18H19L21 5Z" fill="#1D9E75"/></svg>
+  <a href="#" class="nav-logo" aria-label="Zur Startseite" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">
+    <div class="nav-logo-mark"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M11 2L4 11H9L8 18L15 9H10L11 2Z" fill="#1D9E75" stroke="#5DCAA5" stroke-width=".5"/></svg></div>
     <div><div class="nav-wordmark">amperillo</div><div class="nav-tag">certified electric resale</div></div>
   </a>
-  <a href="#rechner" class="nav-cta hide-mobile">Firmenwagen-Rechner</a>
+  <div style="display:flex;align-items:center;gap:1.5rem">
+    <a href="#kaeufer" class="nav-link hide-mobile">Private Käufer</a>
+    <a href="#firmenwagen" class="nav-link hide-mobile">Firmenwagen</a>
+    <a href="#b2b" class="nav-link hide-mobile">Händler &amp; Partner</a>
+    <a href="#" class="nav-cta" onclick="openBooking(); return false;">Check buchen</a>
+  </div>
 </nav>
 
 <!-- HERO -->
@@ -352,16 +492,13 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--amber);outline-offs
   <div class="hero-inner">
     <div class="hero-eyebrow">
       <span class="eyebrow-dot"></span>
-      Pilot-Launch Deutschland Juli 2026
+      Pilot-Launch Deutschland August 2026
     </div>
-    <h1>Der Vertrauensbeweis für<br>gebrauchte <em>Premium-E-Autos</em>.</h1>
+    <h1>Der Vertrauensbeweis für<br>gebrauchte <em>E-Autos</em>.</h1>
     <p class="hero-sub">
-      amperillo bewertet, zertifiziert und vermittelt gebrauchte Premium-Elektrofahrzeuge. Unabhängig, datenbasiert und transparent: mit dem amperillo Score™ erhält jedes Fahrzeug eine objektive Bewertung, die Käufern Sicherheit und Verkäufern den passenden Preis verschafft.
+      amperillo bewertet, zertifiziert und vermittelt gebrauchte Elektrofahrzeuge. Unabhängig, datenbasiert und transparent: mit dem amperillo Score™ erhält jedes Fahrzeug eine objektive Bewertung, die Käufern Sicherheit und Verkäufern den passenden Preis verschafft. Premium ist unser Prüfanspruch, nicht die Eintrittskarte des Autos.
     </p>
-    <div class="hero-ctas">
-      <a href="#score" class="cta-primary">amperillo Score entdecken →</a>
-      <a href="#wunschauto" class="cta-outline hide-mobile">Was bietet amperillo?</a>
-    </div>
+
     <div class="hero-score-teaser">
       <div class="score-seal">
         <svg viewBox="0 0 80 80" fill="none"><circle cx="40" cy="40" r="37" stroke="#1D9E75" stroke-width="1.5" stroke-dasharray="4 2.5"/><circle cx="40" cy="40" r="31" stroke="#1D9E75" stroke-width="1" opacity="0.5"/><path d="M40 4 L42 9 L47 7 L44 12 L49 14 L44 15 L45 21 L40 18 L35 21 L36 15 L31 14 L36 12 L33 7 L38 9 Z" fill="#EF9F27" opacity="0.9"/><circle cx="40" cy="40" r="29" fill="rgba(29,158,117,0.08)"/><path d="M22 62 Q40 68 58 62 L56 72 Q40 76 24 72 Z" fill="#1D9E75" opacity="0.8"/><text x="40" y="71" text-anchor="middle" font-size="6" font-family="Arial" fill="white" font-weight="600" letter-spacing="1">CERTIFIED</text></svg>
@@ -370,11 +507,50 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--amber);outline-offs
       <div>
         <div class="score-label">amperillo Score™</div>
         <div class="score-certified">certified electric resale</div>
-        <div class="score-sublabel">Beispiel: Mercedes EQE · 2025 · 6.200 km</div>
+        <div class="score-sublabel">Beispiel: VW ID.4 · 2023 · 31.400 km</div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-cue" aria-hidden="true">
+    <span>Mehr entdecken</span>
+    <svg viewBox="0 0 18 18" fill="none"><path d="M4 7L9 12L14 7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </div>
+</section>
+
+<!-- B2C INSPEKTION -->
+<section class="inspektion-section fade-up" id="kaeufer">
+  <div class="section-inner">
+    <div class="section-eyebrow">Für Käufer · Bewerten · Zertifizieren · Vermitteln</div>
+    <h2 class="section-title">Unsere Produkte auf einen Blick.</h2>
+    <p class="section-body" style="max-width:720px">Jeder Check enthält den <strong>amperillo Score™</strong>: die datenbasierte Prüfung deines Fahrzeugs mit über 150 Faktoren, die physische Prüfung durch Sachverständige ist ein Teil davon. Das ganzheitliche Datenbild ist das Besondere.</p>
+    <p class="section-body" style="max-width:720px;margin-top:.9rem">Aktuell prüfen wir in den Pilotregionen <strong>Hamburg</strong> und <strong>Frankfurt/Rhein-Main</strong> samt Umland. Fahrzeug woanders? Frag trotzdem an, wir organisieren einen Sachverständigen und melden uns.</p>
+    <div class="pakete-grid">
+      <div class="paket-card fade-up">
+        <div class="paket-ort">📍 Bei dir vor Ort</div>
+        <div class="paket-name">amperillo Check</div>
+        <div class="paket-price">700 <span>€</span></div>
+        <p class="paket-leistung">Der volle amperillo Score™ + physische Prüfung durch Sachverständige, dort wo dein Fahrzeug steht. Wir reisen an, du bewegst nichts. Ohne Hebebühne. amperillo Score™ &amp; Zertifikat als PDF.</p>
+        <a href="#" class="paket-btn paket-btn-outline" onclick="openBooking('check'); return false;">Check buchen</a>
+      </div>
+      <div class="paket-card featured fade-up">
+        <div class="paket-badge">Beliebt</div>
+        <div class="paket-ort">🏭 In der Partner-Prüfstelle</div>
+        <div class="paket-name">amperillo Check Plus</div>
+        <div class="paket-price">800 <span>€</span></div>
+        <p class="paket-leistung">Alles aus dem Check, durchgeführt in der Prüfstelle mit Hebebühne: + Unterboden- und Fahrwerks-Tiefenprüfung. Für rundherum plus untenrum.</p>
+        <a href="#" class="paket-btn paket-btn-solid" onclick="openBooking('plus'); return false;">Check Plus buchen</a>
+      </div>
+      <div class="paket-card fade-up">
+        <div class="paket-ort">🔁 Mit Hol- &amp; Bringservice</div>
+        <div class="paket-name">amperillo Concierge</div>
+        <div class="paket-price">1.000 <span>€</span></div>
+        <p class="paket-leistung">Wie Check Plus + Abholung und Rücklieferung deines Fahrzeugs. Keine Anfahrt, kein Aufwand. Für diejenigen mit wenig Zeit.</p>
+        <a href="#" class="paket-btn paket-btn-outline" onclick="openBooking('concierge'); return false;">Concierge buchen</a>
       </div>
     </div>
   </div>
 </section>
+
 
 <!-- WUNSCHAUTO-AKTION (Kampagne) -->
 <section class="aktion-section fade-up" id="wunschauto">
@@ -422,41 +598,49 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--amber);outline-offs
   </div>
 </section>
 
-<!-- B2C INSPEKTION -->
-<section class="inspektion-section fade-up" id="inspektion">
+<!-- SCORE / APPROACH -->
+<section class="approach-section fade-up" id="score">
   <div class="section-inner">
-    <div class="section-eyebrow">Bewerten · Zertifizieren · Vermitteln</div>
-    <h2 class="section-title">Unsere Produkte auf einen Blick.</h2>
-    <div class="pakete-grid">
-      <div class="paket-card fade-up">
-        <div class="paket-name">amperillo Check</div>
-        <div class="paket-price"><span>€</span> 700</div>
-        <p class="paket-leistung">Unabhängige Premium-Prüfung bei dir vor Ort: Batterie, Karosserie, Technik, Fahrzeughistorie + amperillo-Score &amp; Zertifikat als PDF.</p>
-        <a href="#" class="paket-btn paket-btn-outline" onclick="openModal('inspektion'); return false;">Check anfragen</a>
+    <div class="approach-inner">
+      <div>
+        <div class="section-eyebrow">Unser Qualitätsversprechen</div>
+        <h2 class="section-title">Der amperillo Score™</h2>
+        <p class="section-body" style="margin-bottom:1.5rem">Warum du einem amperillo-geprüften Gebrauchten vertrauen kannst. Über 150 Faktoren, bewertet von unabhängigen Sachverständigen, kein Interessenkonflikt, kein Schönfärben.</p>
+        <ul class="approach-list">
+          <li><span class="check"><svg viewBox="0 0 11 11" fill="none"><path d="M2 5.5L4.5 8L9 3" stroke="#1D9E75" stroke-width="1.5" stroke-linecap="round"/></svg></span>Unabhängig und datenbasiert</li>
+          <li><span class="check"><svg viewBox="0 0 11 11" fill="none"><path d="M2 5.5L4.5 8L9 3" stroke="#1D9E75" stroke-width="1.5" stroke-linecap="round"/></svg></span>Ganzheitliche Betrachtung deines E-Autos</li>
+          <li><span class="check"><svg viewBox="0 0 11 11" fill="none"><path d="M2 5.5L4.5 8L9 3" stroke="#1D9E75" stroke-width="1.5" stroke-linecap="round"/></svg></span>Bewertung innerhalb 48 Stunden (ausgewählte Pilotmärkte)</li>
+          <li><span class="check"><svg viewBox="0 0 11 11" fill="none"><path d="M2 5.5L4.5 8L9 3" stroke="#1D9E75" stroke-width="1.5" stroke-linecap="round"/></svg></span>Prüfung durch handverlesene Sachverständige</li>
+        </ul>
       </div>
-      <div class="paket-card featured fade-up">
-        <div class="paket-badge">Beliebt</div>
-        <div class="paket-name">amperillo Check Plus</div>
-        <div class="paket-price"><span>€</span> 800</div>
-        <p class="paket-leistung">Wie Check + Hebebühnen-Tiefenprüfung (Unterboden, Fahrwerk, etc.). Für rundherum plus untenrum.</p>
-        <a href="#" class="paket-btn paket-btn-solid" onclick="openModal('inspektion'); return false;">Check Plus anfragen</a>
-      </div>
-      <div class="paket-card fade-up">
-        <div class="paket-name">amperillo Concierge</div>
-        <div class="paket-price"><span>€</span> 1.000</div>
-        <p class="paket-leistung">Wie Check Plus + Abholung und Rücklieferung. Keine Anfahrt nötig. Für diejenigen mit wenig Zeit.</p>
-        <a href="#" class="paket-btn paket-btn-outline" onclick="openModal('inspektion'); return false;">Concierge anfragen</a>
+      <div class="approach-score-viz">
+        <div style="display:flex;align-items:center;gap:14px;margin-bottom:.5rem">
+          <div style="position:relative;width:72px;height:72px;flex-shrink:0">
+            <svg viewBox="0 0 72 72" fill="none" style="position:absolute;inset:0;width:100%;height:100%"><circle cx="36" cy="36" r="33" stroke="#1D9E75" stroke-width="1.5" stroke-dasharray="4 2.5"/><circle cx="36" cy="36" r="27" stroke="#1D9E75" stroke-width="1" opacity="0.4"/><path d="M36 4 L37.8 8.5 L42 7 L39.5 11 L44 13 L39.5 14 L40.5 19 L36 16.5 L31.5 19 L32.5 14 L28 13 L32.5 11 L30 7 L34.2 8.5 Z" fill="#EF9F27" opacity="0.9"/><circle cx="36" cy="36" r="25" fill="rgba(29,158,117,0.08)"/><path d="M20 56 Q36 62 52 56 L50 64 Q36 68 22 64 Z" fill="#1D9E75" opacity="0.8"/><text x="36" y="63.5" text-anchor="middle" font-size="5.5" font-family="Arial" fill="white" font-weight="600" letter-spacing="1">CERTIFIED</text></svg>
+            <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center"><span style="font-family:'Playfair Display',Georgia,serif;font-size:22px;color:#1D9E75;line-height:1">87</span><span style="font-size:8px;color:#5DCAA5">/100</span></div>
+          </div>
+          <div><div style="font-size:11px;font-weight:500;letter-spacing:.12em;color:#5DCAA5;margin-bottom:2px">amperillo Score™</div><div style="font-size:11px;color:rgba(255,255,255,.35);letter-spacing:.08em;text-transform:uppercase">certified electric resale</div></div>
+        </div>
+        <div style="font-size:12px;color:rgba(255,255,255,.4);margin-bottom:1.5rem">Mercedes EQE · 2025 · Beispiel</div>
+        <div class="score-bars" id="scoreBars">
+          <div class="sbar" data-val="92"><span class="sbar-label">Batterie & Nutzung</span><div class="sbar-track"><div class="sbar-fill" style="width:0%"></div></div><span class="sbar-val">0</span></div>
+          <div class="sbar" data-val="88"><span class="sbar-label">Sicherheit</span><div class="sbar-track"><div class="sbar-fill" style="width:0%"></div></div><span class="sbar-val">0</span></div>
+          <div class="sbar" data-val="84"><span class="sbar-label">Verschleiß</span><div class="sbar-track"><div class="sbar-fill" style="width:0%"></div></div><span class="sbar-val">0</span></div>
+          <div class="sbar" data-val="90"><span class="sbar-label">Ausstattung</span><div class="sbar-track"><div class="sbar-fill" style="width:0%"></div></div><span class="sbar-val">0</span></div>
+          <div class="sbar" data-val="79"><span class="sbar-label">Markt & Umfeld</span><div class="sbar-track"><div class="sbar-fill" style="width:0%"></div></div><span class="sbar-val">0</span></div>
+          <div class="sbar" data-val="82"><span class="sbar-label">Historie & Doku</span><div class="sbar-track"><div class="sbar-fill" style="width:0%"></div></div><span class="sbar-val">0</span></div>
+        </div>
+        <div style="margin-top:1.25rem;padding-top:1.25rem;border-top:1px solid rgba(255,255,255,.08);font-size:11px;color:rgba(255,255,255,.3)">Beispielwerte · Pilot-Launch 2026</div>
       </div>
     </div>
   </div>
 </section>
 
-
 <!-- STEUER-HEBEL -->
-<section class="steuer-section fade-up" id="wie-funktioniert">
+<section class="steuer-section fade-up" id="firmenwagen">
   <div class="section-inner">
-    <div class="section-eyebrow">Der Steuervorteil</div>
-    <h2 class="section-title">Warum sich ein gebrauchtes E-Auto als Firmenwagen jetzt besonders lohnt</h2>
+    <div class="section-eyebrow">Für Selbstständige &amp; Unternehmer</div>
+    <h2 class="section-title">Firmenwagen &amp; Steuervorteil: warum jetzt</h2>
     <div class="steuer-grid">
       <div class="steuer-card fade-up">
         <span class="steuer-num">1</span>
@@ -473,38 +657,39 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--amber);outline-offs
       <div class="steuer-card fade-up">
         <span class="steuer-num">3</span>
         <h3>Der Preisverfall arbeitet für dich</h3>
-        <p>Ein 1 bis 3 Jahre altes Premium-EV hat den steilsten Wertverlust hinter sich. Du kaufst ein Premium-Produkt zum stark reduzierten Preis und schreibst es trotzdem voll ab.</p>
+        <p>Ein 1 bis 3 Jahre altes E-Auto hat den steilsten Wertverlust hinter sich. Du kaufst ein Premium-Produkt zum stark reduzierten Preis und schreibst es trotzdem voll ab.</p>
         <span class="law">Premium-Produkt · reduzierter Preis · volle AfA</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- DRINGLICHKEIT -->
-<section class="urgency-section">
-  <div class="urgency-inner">
-    <div class="urgency-text">
-      <h2>Das Steuerfenster schließt am 31. Dezember 2027.</h2>
-      <p>Die 75 %-Sofortabschreibung gilt für E-Fahrzeuge (Firmenwagen), die bis zum 31.12.2027 angeschafft werden. Wer den Vorteil nutzen will, sollte rechtzeitig das passende Fahrzeug finden. Wir helfen dabei.</p>
-    </div>
-    <div class="urgency-countdown" id="countdown">
-      <div class="count-box"><div class="count-num" id="cd-tage">0</div><div class="count-label">Tage</div></div>
-      <div class="count-box"><div class="count-num" id="cd-std">0</div><div class="count-label">Stunden</div></div>
-      <div class="count-box"><div class="count-num" id="cd-min">0</div><div class="count-label">Minuten</div></div>
-      <div class="count-box"><div class="count-num" id="cd-sek">0</div><div class="count-label">Sekunden</div></div>
-    </div>
-  </div>
-</section>
-
 <!-- EFFEKTIVPREIS-RECHNER -->
-<section class="rechner-section" id="rechner">
+<section class="rechner-section" id="rechner-modul">
   <div class="rechner-wrap">
     <h2 class="section-title" style="color:var(--white)">Firmenwagen-Rechner</h2>
     <p class="section-body" style="color:rgba(255,255,255,.6)">
-      Gib deine Werte ein und sieh sofort, was dich ein gebrauchtes Premium-E-Auto als Firmenwagen wirklich pro Monat kostet, nach allen Steuereffekten, im Vergleich zu Leasing.
+      Gib deine Werte ein und sieh sofort, was dich ein gebrauchtes E-Auto als Firmenwagen wirklich pro Monat kostet, nach allen Steuereffekten, im Vergleich zu Leasing.
     </p>
 
-    <div class="rechner-box">
+
+    <div class="cd-strip">
+      <div class="cd-strip-label">Das Steuerfenster schließt am 31.12.2027, die 75-%-Sofortabschreibung gilt für E-Firmenwagen bis dahin:</div>
+      <div class="urgency-countdown" id="countdown">
+        <div class="count-box"><div class="count-num" id="cd-tage">0</div><div class="count-label">Tage</div></div>
+        <div class="count-box"><div class="count-num" id="cd-std">0</div><div class="count-label">Stunden</div></div>
+        <div class="count-box"><div class="count-num" id="cd-min">0</div><div class="count-label">Minuten</div></div>
+        <div class="count-box"><div class="count-num" id="cd-sek">0</div><div class="count-label">Sekunden</div></div>
+      </div>
+    </div>
+
+    <button type="button" id="rechner-toggle" onclick="toggleRechner()" style="display:inline-flex;align-items:center;gap:10px;background:var(--amber);color:#3D2000;border:none;border-radius:var(--r-pill);padding:13px 28px;font-size:15px;font-weight:500;font-family:var(--ff-body);cursor:pointer;margin:1.25rem 0 0">
+      <span id="rechner-toggle-label">Rechner öffnen</span>
+      <svg id="rechner-toggle-icon" width="14" height="14" viewBox="0 0 14 14" fill="none" style="transition:transform .3s"><path d="M3 5.5L7 9.5L11 5.5" stroke="#3D2000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+
+    <div id="rechner-collapse" style="overflow:hidden;max-height:0;transition:max-height .5s ease;">
+    <div class="rechner-box" style="margin-top:1.5rem">
 
       <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);border-radius:var(--r-lg);padding:.9rem 1.1rem;margin-bottom:1.5rem;font-size:12.5px;color:rgba(255,255,255,.6);line-height:1.6;display:flex;gap:10px;align-items:flex-start">
         <span style="flex-shrink:0;margin-top:1px">ℹ️</span>
@@ -522,13 +707,13 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--amber);outline-offs
               <label for="r-kp">Kaufpreis (brutto)</label>
             </div>
             <div class="r-hybrid">
-              <input type="range" id="r-kp-slider" min="20000" max="100000" step="500" value="48850" oninput="syncFromSlider('kp')" aria-label="Kaufpreis Schieberegler">
+              <input type="range" id="r-kp-slider" min="10000" max="100000" step="500" value="48850" oninput="syncFromSlider('kp')" aria-label="Kaufpreis Schieberegler">
               <div class="r-num-box">
                 <input type="text" inputmode="numeric" id="r-kp" value="48.850" aria-describedby="r-kp-err" oninput="onInput('kp')" onkeydown="onKeydown(event,'kp')" onblur="validateField('kp')">
                 <span class="r-unit">€</span>
               </div>
             </div>
-            <div class="r-error-msg" id="r-kp-err">Bitte einen Wert zwischen 20.000 € und 100.000 € eingeben.</div>
+            <div class="r-error-msg" id="r-kp-err">Bitte einen Wert zwischen 10.000 € und 100.000 € eingeben.</div>
           </div>
 
           <div class="r-field">
@@ -536,7 +721,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--amber);outline-offs
               <label for="r-blp">Bruttolistenpreis neu</label>
             </div>
             <div class="r-hybrid">
-              <input type="range" id="r-blp-slider" min="20000" max="150000" step="500" value="81378" oninput="syncFromSlider('blp')" aria-label="Bruttolistenpreis Schieberegler">
+              <input type="range" id="r-blp-slider" min="15000" max="150000" step="500" value="81378" oninput="syncFromSlider('blp')" aria-label="Bruttolistenpreis Schieberegler">
               <div class="r-num-box">
                 <input type="text" inputmode="numeric" id="r-blp" value="81.378" aria-describedby="r-blp-err" oninput="onInput('blp')" onkeydown="onKeydown(event,'blp')" onblur="validateField('blp')">
                 <span class="r-unit">€</span>
@@ -685,44 +870,37 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--amber);outline-offs
       </div>
 
     </div>
+    </div><!-- /rechner-collapse -->
   </div>
 </section>
 
-<!-- SCORE / APPROACH -->
-<section class="approach-section fade-up" id="score">
-  <div class="section-inner">
-    <div class="approach-inner">
-      <div>
-        <div class="section-eyebrow">Unser Qualitätsversprechen</div>
-        <h2 class="section-title">Der amperillo Score™</h2>
-        <p class="section-body" style="margin-bottom:1.5rem">Warum du einem amperillo-geprüften Gebrauchten vertrauen kannst. Über 150 Faktoren, bewertet von unabhängigen Sachverständigen, kein Interessenkonflikt, kein Schönfärben.</p>
-        <ul class="approach-list">
-          <li><span class="check"><svg viewBox="0 0 11 11" fill="none"><path d="M2 5.5L4.5 8L9 3" stroke="#1D9E75" stroke-width="1.5" stroke-linecap="round"/></svg></span>Über 150 Faktoren, 0 bis 100 Punkte</li>
-          <li><span class="check"><svg viewBox="0 0 11 11" fill="none"><path d="M2 5.5L4.5 8L9 3" stroke="#1D9E75" stroke-width="1.5" stroke-linecap="round"/></svg></span>Unabhängig und datenbasiert</li>
-          <li><span class="check"><svg viewBox="0 0 11 11" fill="none"><path d="M2 5.5L4.5 8L9 3" stroke="#1D9E75" stroke-width="1.5" stroke-linecap="round"/></svg></span>Ganzheitliche Betrachtung deines E-Autos</li>
-          <li><span class="check"><svg viewBox="0 0 11 11" fill="none"><path d="M2 5.5L4.5 8L9 3" stroke="#1D9E75" stroke-width="1.5" stroke-linecap="round"/></svg></span>Bewertung innerhalb 48 Stunden (ausgewählte Pilotmärkte)</li>
-          <li><span class="check"><svg viewBox="0 0 11 11" fill="none"><path d="M2 5.5L4.5 8L9 3" stroke="#1D9E75" stroke-width="1.5" stroke-linecap="round"/></svg></span>Prüfung durch handverlesene Sachverständige</li>
-        </ul>
+<!-- WER WIR SIND / KONTAKT -->
+<section class="ueber-section fade-up" style="background:var(--white);padding:72px 5vw;border-top:1px solid var(--border)">
+  <div style="max-width:1040px;margin:0 auto;display:grid;grid-template-columns:1.2fr 1fr;gap:3.5rem;align-items:center" class="ueber-grid">
+    <div>
+      <div class="section-eyebrow">Wer hinter amperillo steht</div>
+      <h2 class="section-title" style="margin-bottom:1rem">Echte Menschen, erreichbar.</h2>
+      <p class="section-body" style="margin-bottom:1rem">Beim Kauf eines gebrauchten E-Autos gibt es niemanden, der unabhängig und datenbasiert sagt, was das Fahrzeug wirklich taugt. Jetzt gibt es amperillo, die genau das machen: mit handverlesenen Sachverständigen und einem Prüfstandard, auf den wir unseren Namen setzen.</p>
+      <p class="section-body" style="margin-bottom:1.75rem">Eine Prüfung für mehrere hundert Euro bucht man nicht bei einem anonymen Formular. Deshalb sind wir für dich erreichbar, bevor du buchst.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:1rem">
+        <a href="#" onclick="openModal('rueckruf'); return false;" style="display:inline-flex;align-items:center;gap:10px;background:var(--green);color:var(--white);border-radius:var(--r-pill);padding:12px 24px;font-size:14.5px;font-weight:500;text-decoration:none;cursor:pointer">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 2.5C3 2.5 2.5 2.5 2.5 3.5C2.5 8 8 13.5 12.5 13.5C13.5 13.5 13.5 13 13.5 13V10.8L10.8 9.8L9.8 11C8 10.2 5.8 8 5 6.2L6.2 5.2L5.2 2.5H3Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
+          Rückruf anfordern
+        </a>
+        <a href="mailto:hallo@amperillo.de" style="display:inline-flex;align-items:center;gap:10px;border:1.5px solid var(--green);color:var(--green);border-radius:var(--r-pill);padding:12px 24px;font-size:14.5px;font-weight:500;text-decoration:none">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="3.5" width="12" height="9" rx="1.5" stroke="currentColor" stroke-width="1.4"/><path d="M2.5 4.5L8 9L13.5 4.5" stroke="currentColor" stroke-width="1.4"/></svg>
+          hallo@amperillo.de
+        </a>
       </div>
-      <div class="approach-score-viz">
-        <div style="display:flex;align-items:center;gap:14px;margin-bottom:.5rem">
-          <div style="position:relative;width:72px;height:72px;flex-shrink:0">
-            <svg viewBox="0 0 72 72" fill="none" style="position:absolute;inset:0;width:100%;height:100%"><circle cx="36" cy="36" r="33" stroke="#1D9E75" stroke-width="1.5" stroke-dasharray="4 2.5"/><circle cx="36" cy="36" r="27" stroke="#1D9E75" stroke-width="1" opacity="0.4"/><path d="M36 4 L37.8 8.5 L42 7 L39.5 11 L44 13 L39.5 14 L40.5 19 L36 16.5 L31.5 19 L32.5 14 L28 13 L32.5 11 L30 7 L34.2 8.5 Z" fill="#EF9F27" opacity="0.9"/><circle cx="36" cy="36" r="25" fill="rgba(29,158,117,0.08)"/><path d="M20 56 Q36 62 52 56 L50 64 Q36 68 22 64 Z" fill="#1D9E75" opacity="0.8"/><text x="36" y="63.5" text-anchor="middle" font-size="5.5" font-family="Arial" fill="white" font-weight="600" letter-spacing="1">CERTIFIED</text></svg>
-            <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center"><span style="font-family:'Playfair Display',Georgia,serif;font-size:22px;color:#1D9E75;line-height:1">87</span><span style="font-size:8px;color:#5DCAA5">/100</span></div>
-          </div>
-          <div><div style="font-size:11px;font-weight:500;letter-spacing:.12em;color:#5DCAA5;margin-bottom:2px">amperillo Score™</div><div style="font-size:11px;color:rgba(255,255,255,.35);letter-spacing:.08em;text-transform:uppercase">certified electric resale</div></div>
-        </div>
-        <div style="font-size:12px;color:rgba(255,255,255,.4);margin-bottom:1.5rem">Mercedes EQE · 2025 · Beispiel</div>
-        <div class="score-bars" id="scoreBars">
-          <div class="sbar" data-val="92"><span class="sbar-label">Batterie & Nutzung</span><div class="sbar-track"><div class="sbar-fill" style="width:0%"></div></div><span class="sbar-val">0</span></div>
-          <div class="sbar" data-val="88"><span class="sbar-label">Sicherheit</span><div class="sbar-track"><div class="sbar-fill" style="width:0%"></div></div><span class="sbar-val">0</span></div>
-          <div class="sbar" data-val="84"><span class="sbar-label">Verschleiß</span><div class="sbar-track"><div class="sbar-fill" style="width:0%"></div></div><span class="sbar-val">0</span></div>
-          <div class="sbar" data-val="90"><span class="sbar-label">Ausstattung</span><div class="sbar-track"><div class="sbar-fill" style="width:0%"></div></div><span class="sbar-val">0</span></div>
-          <div class="sbar" data-val="79"><span class="sbar-label">Markt & Umfeld</span><div class="sbar-track"><div class="sbar-fill" style="width:0%"></div></div><span class="sbar-val">0</span></div>
-          <div class="sbar" data-val="82"><span class="sbar-label">Historie & Doku</span><div class="sbar-track"><div class="sbar-fill" style="width:0%"></div></div><span class="sbar-val">0</span></div>
-        </div>
-        <div style="margin-top:1.25rem;padding-top:1.25rem;border-top:1px solid rgba(255,255,255,.08);font-size:11px;color:rgba(255,255,255,.3)">Beispielwerte · Pilot-Launch 2026</div>
+      <div style="font-size:12.5px;color:var(--muted);margin-top:.9rem">Erreichbar Mo bis Fr, 9 bis 18 Uhr. Wir rufen innerhalb von 24 Stunden zurück oder antworten schriftlich.</div>
+    </div>
+    <div style="background:var(--offwhite);border:1px solid var(--border);border-radius:var(--r-xl);padding:2.25rem;text-align:center">
+      <div style="width:120px;height:120px;border-radius:50%;margin:0 auto 1.25rem;overflow:hidden;border:3px solid var(--white);box-shadow:0 4px 16px rgba(10,22,40,.15)">
+        <img src="data:image/jpeg;base64,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" alt="" style="width:100%;height:100%;object-fit:cover;display:block">
       </div>
+      <div style="font-size:17px;font-weight:600;color:var(--text)">Till Hohenberger</div>
+      <div style="font-size:13px;color:var(--green);font-weight:500;margin-bottom:.9rem">Gründer, amperillo</div>
+      <p style="font-size:13.5px;color:var(--muted);line-height:1.65;font-style:italic">„Vertrauen entsteht nicht aus Annahmen, sondern aus Daten. Und aus echten Menschen, die für dich auch telefonisch erreichbar sind."</p>
     </div>
   </div>
 </section>
@@ -738,7 +916,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--amber);outline-offs
         <div style="font-size:15px;font-weight:500;color:rgba(255,255,255,.5);margin-bottom:.5rem;text-decoration:line-through">carVertical & Co.</div>
         <div style="font-size:13px;color:rgba(255,255,255,.4);line-height:1.6;margin-bottom:1rem">Zeigt Unfälle, Vorbesitzer und Kilometerstände aus der Vergangenheit. Nützlich, aber nicht EV-spezifisch.</div>
         <div style="height:1px;background:rgba(255,255,255,.08);margin-bottom:1rem"></div>
-        <div style="font-size:15px;font-weight:500;color:var(--green);margin-bottom:.5rem">amperillo Score</div>
+        <div style="font-size:15px;font-weight:500;color:var(--green);margin-bottom:.5rem">amperillo Score™</div>
         <div style="font-size:13px;color:rgba(255,255,255,.65);line-height:1.6">Bewertet zusätzlich: Batteriezustand, Softwarestand, Wirtschaftlichkeit und über 150 weitere EV-spezifische Faktoren.</div>
       </div>
       <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:1.5rem">
@@ -746,13 +924,12 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--amber);outline-offs
         <div style="font-size:15px;font-weight:500;color:rgba(255,255,255,.5);margin-bottom:.5rem;text-decoration:line-through">Einzelne Batterieprüfung</div>
         <div style="font-size:13px;color:rgba(255,255,255,.4);line-height:1.6;margin-bottom:1rem">Prüft isoliert den Akkustand, eine wichtige, aber einzelne Kennzahl ohne Kontext.</div>
         <div style="height:1px;background:rgba(255,255,255,.08);margin-bottom:1rem"></div>
-        <div style="font-size:15px;font-weight:500;color:var(--green);margin-bottom:.5rem">amperillo Score</div>
+        <div style="font-size:15px;font-weight:500;color:var(--green);margin-bottom:.5rem">amperillo Score™</div>
         <div style="font-size:13px;color:rgba(255,255,255,.65);line-height:1.6">Batterie ist eine von mehreren Kategorien. Wir bewerten zusätzlich Sicherheit, Verschleiß, Ausstattung, Marktumfeld und mehr.</div>
       </div>
       <div style="background:rgba(29,158,117,.1);border:1px solid rgba(29,158,117,.3);border-radius:14px;padding:1.5rem">
         <div style="font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--green);margin-bottom:.75rem">amperillo</div>
         <div style="font-size:15px;font-weight:500;color:var(--white);margin-bottom:.5rem">Das Komplettpaket</div>
-        <div style="font-size:13px;color:rgba(255,255,255,.7);line-height:1.6;margin-bottom:1rem">Über 150 Faktoren. Score 0 bis 100. Unabhängig &amp; datenbasiert.</div>
         <div style="height:1px;background:rgba(29,158,117,.2);margin-bottom:1rem"></div>
         <div style="display:flex;flex-direction:column;gap:6px">
           <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:rgba(255,255,255,.75)"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7L5.5 10.5L12 4" stroke="#1D9E75" stroke-width="1.5" stroke-linecap="round"/></svg>EV-spezifisch, nicht generisch</div>
@@ -767,7 +944,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--amber);outline-offs
 </section>
 
 <!-- PARTNER: SACHVERSTÄNDIGE/WERKSTÄTTEN + HÄNDLER (symmetrisches Paar) -->
-<section class="partner-section" style="background:var(--gpale);padding:80px 5vw">
+<section class="partner-section" id="b2b" style="background:var(--gpale);padding:80px 5vw">
   <div style="max-width:1040px;margin:0 auto">
     <div class="section-eyebrow" style="color:var(--green);text-align:center">Partner werden</div>
     <h2 class="section-title fade-up" style="color:var(--text);text-align:center;margin-bottom:3rem">Gemeinsam mit amperillo wachsen.</h2>
@@ -792,7 +969,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--amber);outline-offs
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="3" y="8" width="18" height="11" rx="1.5" stroke="#1D9E75" stroke-width="1.5"/><path d="M3 11h18M8 8V6a2 2 0 012-2h4a2 2 0 012 2v2" stroke="#1D9E75" stroke-width="1.5"/></svg>
         </div>
         <h3>Für Händler</h3>
-        <p class="partner-card-lead">Aus Standzeit wird Umsatz. Premium-EVs stehen zu lange? Wir aktivieren Ihren Bestand.</p>
+        <p class="partner-card-lead">Aus Standzeit wird Umsatz. E-Autos stehen zu lange? Wir aktivieren Ihren Bestand.</p>
         <ul class="partner-list">
           <li>Vergünstigter amperillo Händler-Check inkl. Zertifikat</li>
           <li>B2B-Dashboard für die passende Preisermittlung</li>
@@ -805,6 +982,187 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--amber);outline-offs
 </section>
 
 
+
+<!-- ── BUCHUNGS-OVERLAY ─────────────────────────── -->
+<div class="bk-overlay" id="booking" role="dialog" aria-modal="true" aria-label="Fahrzeug-Check buchen">
+  <div class="bk-head">
+    <a href="#" class="bk-brand" onclick="closeBooking();window.scrollTo({top:0,behavior:'smooth'});return false;" style="text-decoration:none;cursor:pointer">amperillo<small>certified electric resale</small></a>
+    <div style="display:flex;align-items:center;gap:10px">
+      <button type="button" class="bk-close" onclick="closeBooking();window.scrollTo({top:0,behavior:'smooth'});" style="border-color:var(--green);color:var(--gdark)">← Zur Startseite</button>
+      <button type="button" class="bk-close" onclick="closeBooking()">Schließen ✕</button>
+    </div>
+  </div>
+
+  <div class="bk-progress">
+    <div class="bk-progress-top"><span>Schritt <b id="bk-step-num">1</b> von <b id="bk-step-total">4</b></span><span id="bk-step-name">Paket wählen</span></div>
+    <div class="bk-bar"><div class="bk-bar-fill" id="bk-bar" style="width:25%"></div></div>
+  </div>
+
+  <div class="bk-body">
+
+    <!-- SCHRITT 1: PAKET -->
+    <div class="bk-step active" id="bk-s1">
+      <div class="bk-title">Wähle deinen amperillo Check</div>
+      <p class="bk-sub">Jeder Check enthält den amperillo Score™: die datenbasierte Prüfung deines Fahrzeugs mit über 150 Faktoren, die physische Prüfung durch Sachverständige ist ein Teil davon. Alle Preise inkl. MwSt.</p>
+      <div class="bk-pakete">
+        <div class="bk-paket" id="bkp-check" onclick="pickPaket('check')" role="button" tabindex="0">
+          <span class="bp-ort">📍 Bei dir vor Ort</span>
+          <div class="bp-name">amperillo Check</div>
+          <div class="bp-price">700 € <small>inkl. MwSt.</small></div>
+          <p class="bp-desc">Wir kommen dorthin, wo dein Fahrzeug steht. Du bewegst nichts.</p>
+          <ul class="bp-feats">
+            <li>amperillo Score™: Datenprüfung mit über 150 Faktoren</li>
+            <li>Software-, Fehlerspeicher- &amp; Batteriedaten-Check</li>
+            <li>Physische Prüfung durch Sachverständige</li>
+            <li>amperillo Score™ + Zertifikat als PDF</li>
+            <li class="bp-na">Hebebühnen-Tiefenprüfung (vor Ort nicht möglich)</li>
+          </ul>
+          <button type="button" class="bp-pick">Auswählen</button>
+        </div>
+        <div class="bk-paket" id="bkp-plus" onclick="pickPaket('plus')" role="button" tabindex="0">
+          <span class="bp-badge">Beliebt</span>
+          <span class="bp-ort">🏭 In der Partner-Prüfstelle</span>
+          <div class="bp-name">amperillo Check Plus</div>
+          <div class="bp-price">800 € <small>inkl. MwSt.</small></div>
+          <p class="bp-desc">Alles aus dem Check, in der Prüfstelle mit Hebebühne.</p>
+          <ul class="bp-feats">
+            <li>Alles aus dem amperillo Check</li>
+            <li>Hebebühnen-Tiefenprüfung</li>
+            <li>Unterboden &amp; Fahrwerk im Detail</li>
+            <li>Für rundherum plus untenrum</li>
+          </ul>
+          <button type="button" class="bp-pick">Auswählen</button>
+        </div>
+        <div class="bk-paket" id="bkp-concierge" onclick="pickPaket('concierge')" role="button" tabindex="0">
+          <span class="bp-ort">🔁 Mit Hol- &amp; Bringservice</span>
+          <div class="bp-name">amperillo Concierge</div>
+          <div class="bp-price">1.000 € <small>inkl. MwSt.</small></div>
+          <p class="bp-desc">Wie Check Plus, wir holen und bringen dein Fahrzeug.</p>
+          <ul class="bp-feats">
+            <li>Alles aus dem Check Plus</li>
+            <li>Abholung &amp; Rücklieferung</li>
+            <li>Keine Anfahrt, kein Aufwand</li>
+            <li>Für diejenigen mit wenig Zeit</li>
+          </ul>
+          <button type="button" class="bp-pick">Auswählen</button>
+        </div>
+      </div>
+      <div class="bk-nav">
+        <span></span>
+        <button type="button" class="bk-next" id="bk-next1" onclick="bkGo(2)" disabled>Weiter zu Fahrzeug &amp; Kontakt →</button>
+      </div>
+    </div>
+
+    <!-- SCHRITT 2: FAHRZEUG & KONTAKT -->
+    <div class="bk-step" id="bk-s2">
+      <div class="bk-title">Fahrzeug &amp; Kontakt</div>
+      <div id="bk-s2-paket" style="display:none;align-items:center;justify-content:space-between;gap:12px;background:var(--gpale);border-radius:var(--r-lg);padding:11px 16px;margin-bottom:1.25rem">
+        <span style="font-size:13.5px;color:var(--gdark)"><strong>Gewähltes Paket:</strong> <span class="pl-t"></span></span>
+        <button type="button" onclick="bkChangePaket()" style="background:none;border:none;color:var(--green);font-size:13px;font-family:var(--ff-body);cursor:pointer;text-decoration:underline;text-underline-offset:2px;white-space:nowrap">ändern</button>
+      </div>
+      <p class="bk-sub">Nur das Nötige für Prüfung und Terminplanung. Reine Batterie-Elektrofahrzeuge (BEV), Fahrzeugwert ab ca. 15.000 €.</p>
+      <div class="bk-card">
+        <h3>🚗 Fahrzeugdaten</h3>
+        <div class="bk-grid2">
+          <div class="bk-field"><label for="bk-modell">Fahrzeugmodell *</label><input type="text" id="bk-modell" placeholder="z. B. VW ID.4 oder Mercedes EQE" required></div>
+          <div class="bk-field"><label for="bk-ez">Erstzulassung *</label><input type="text" id="bk-ez" placeholder="z. B. 2023" inputmode="numeric" required></div>
+          <div class="bk-field"><label for="bk-km">Kilometerstand *</label><input type="text" id="bk-km" placeholder="z. B. 31.400" inputmode="numeric" required></div>
+          <div class="bk-field"><label for="bk-ort">Standort des Fahrzeugs (PLZ oder Stadt) *</label><input type="text" id="bk-ort" placeholder="z. B. 20095 Hamburg" required></div>
+        </div>
+        <div class="bk-hint" style="margin-top:.75rem">Pilotregionen: Hamburg und Frankfurt/Rhein-Main samt Umland. Andere Regionen auf Anfrage, wir melden uns dazu.</div>
+      </div>
+      <div class="bk-card">
+        <h3>👤 Kontaktdaten</h3>
+        <div class="bk-grid2">
+          <div class="bk-field"><label for="bk-name">Name *</label><input type="text" id="bk-name" placeholder="Vor- und Nachname" required autocomplete="name"></div>
+          <div class="bk-field"><label for="bk-email">E-Mail *</label><input type="email" id="bk-email" placeholder="name@beispiel.de" required autocomplete="email"></div>
+          <div class="bk-field"><label for="bk-tel">Telefon *</label><input type="tel" id="bk-tel" placeholder="+49 151 12345678" required autocomplete="tel"></div>
+        </div>
+      </div>
+      <div class="bk-err" id="bk-err2">Bitte fülle alle Pflichtfelder aus (gültige E-Mail-Adresse erforderlich).</div>
+      <div class="bk-nav">
+        <button type="button" class="bk-back" onclick="bkChangePaket()">← Paket ändern</button>
+        <button type="button" class="bk-next" onclick="bkValidate2()">Weiter zum Wunschtermin →</button>
+      </div>
+    </div>
+
+    <!-- SCHRITT 3: WUNSCHTERMIN -->
+    <div class="bk-step" id="bk-s3">
+      <div class="bk-title">Wunschtermin wählen</div>
+      <p class="bk-sub">Wähle deinen Wunschtermin. Wir bestätigen ihn innerhalb von 24 Stunden, abhängig von der Verfügbarkeit unserer Sachverständigen in deiner Region.</p>
+      <div class="bk-card">
+        <h3>📅 Tag wählen</h3>
+        <div class="bk-days" id="bk-days"></div>
+        <h3 style="margin-top:.5rem">🕐 Zeitfenster wählen</h3>
+        <div class="bk-slots" id="bk-slots">
+          <button type="button" class="bk-slot" data-slot="Vormittag (8-12 Uhr)" onclick="pickSlot(this)">Vormittag · 8-12 Uhr</button>
+          <button type="button" class="bk-slot" data-slot="Mittag (11-14 Uhr)" onclick="pickSlot(this)">Mittag · 11-14 Uhr</button>
+          <button type="button" class="bk-slot" data-slot="Nachmittag (13-17 Uhr)" onclick="pickSlot(this)">Nachmittag · 13-17 Uhr</button>
+        </div>
+        <div class="bk-hint" style="margin-top:1rem">Hinweis: Dies ist ein Wunschtermin, keine feste Reservierung. Die verbindliche Bestätigung bekommst du per E-Mail.</div>
+      </div>
+      <div class="bk-err" id="bk-err3">Bitte wähle Tag und Zeitfenster.</div>
+      <div class="bk-nav">
+        <button type="button" class="bk-back" onclick="bkGo(2)">← Zurück</button>
+        <button type="button" class="bk-next" onclick="bkValidate3()">Weiter zur Übersicht →</button>
+      </div>
+    </div>
+
+    <!-- SCHRITT 4: ZUSAMMENFASSUNG -->
+    <div class="bk-step" id="bk-s4">
+      <div class="bk-title">Buchung prüfen &amp; absenden</div>
+      <p class="bk-sub">Prüfe deine Angaben. Mit dem Absenden beauftragst du die Prüfung. Verbindlich reserviert ist dein Termin mit Eingang der 50-%-Anzahlung nach unserer Terminbestätigung.</p>
+      <div class="bk-card">
+        <h3>📋 Deine Buchung</h3>
+        <div class="bk-sum-line"><span class="l">Paket</span><span class="v" id="bk-sum-paket"></span></div>
+        <div class="bk-sum-line"><span class="l">Durchführung</span><span class="v" id="bk-sum-ort-typ"></span></div>
+        <div class="bk-sum-line"><span class="l">Fahrzeug</span><span class="v" id="bk-sum-fzg"></span></div>
+        <div class="bk-sum-line"><span class="l">Standort</span><span class="v" id="bk-sum-standort"></span></div>
+        <div class="bk-sum-line"><span class="l">Wunschtermin</span><span class="v" id="bk-sum-termin"></span></div>
+        <div class="bk-sum-line"><span class="l">Kontakt</span><span class="v" id="bk-sum-kontakt"></span></div>
+        <div class="bk-total"><span class="tl">Gesamtbetrag</span><span class="tv" id="bk-sum-preis"><small>inkl. MwSt.</small></span></div>
+      </div>
+      <div class="bk-card">
+        <h3>💳 So läuft die Zahlung</h3>
+        <div class="bk-sum-line"><span class="l">Anzahlung (50 %), fällig nach Terminbestätigung</span><span class="v" id="bk-pay-anzahlung"></span></div>
+        <div class="bk-sum-line"><span class="l">Restbetrag (50 %), fällig nach der Prüfung</span><span class="v" id="bk-pay-rest"></span></div>
+        <div style="background:var(--gpale);border-radius:var(--r-lg);padding:13px 16px;margin-top:1rem;font-size:13px;color:var(--gdark);line-height:1.6">
+          <strong>So funktioniert es:</strong> Nach unserer Terminbestätigung erhältst du die Anzahlungsrechnung per E-Mail (Überweisung). Mit dem Zahlungseingang ist dein Termin verbindlich reserviert. Den Restbetrag zahlst du nach der Prüfung.
+        </div>
+        <div class="bk-hint" style="margin-top:.9rem">🔒 Heute wird nichts abgebucht. Kommt der Termin nicht zustande, erhältst du die Anzahlung vollständig zurück.</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;background:var(--gpale);border-radius:var(--r-lg);padding:12px 16px;margin-bottom:1.25rem;font-size:13.5px;color:var(--gdark)">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="flex-shrink:0"><path d="M3 2.5C3 2.5 2.5 2.5 2.5 3.5C2.5 8 8 13.5 12.5 13.5C13.5 13.5 13.5 13 13.5 13V10.8L10.8 9.8L9.8 11C8 10.2 5.8 8 5 6.2L6.2 5.2L5.2 2.5H3Z" stroke="#085041" stroke-width="1.4" stroke-linejoin="round"/></svg>
+        <span>Fragen vor der Buchung? <a href="#" onclick="closeBooking();openModal('rueckruf');return false;" style="color:var(--gdark);font-weight:600">Rückruf anfordern</a> oder <a href="mailto:hallo@amperillo.de" style="color:var(--gdark);font-weight:600">hallo@amperillo.de</a></span>
+      </div>
+      <div class="bk-card" style="padding:1.25rem 1.5rem">
+        <label style="display:flex;gap:12px;align-items:flex-start;cursor:pointer;font-size:13px;line-height:1.6;color:var(--text)">
+          <input type="checkbox" id="bk-agree" style="margin-top:3px;accent-color:var(--green);width:16px;height:16px;flex-shrink:0">
+          <span>Ich habe die <a href="/widerruf" target="_blank" rel="noopener" style="color:var(--green)">Widerrufsbelehrung und Stornobedingungen</a> zur Kenntnis genommen. Ich verlange ausdrücklich, dass mit der Dienstleistung vor Ablauf der Widerrufsfrist begonnen wird, und mir ist bekannt, dass mein Widerrufsrecht bei vollständiger Vertragserfüllung erlischt. *</span>
+        </label>
+      </div>
+      <div class="bk-err" id="bk-err4">Das Absenden hat nicht geklappt. Bitte versuche es erneut oder schreib uns an hallo@amperillo.de.</div>
+      <div class="bk-err" id="bk-err4b">Bitte bestätige die Widerrufsbelehrung und Stornobedingungen.</div>
+      <div class="bk-nav">
+        <button type="button" class="bk-back" onclick="bkGo(3)">← Zurück</button>
+        <button type="button" class="bk-next" id="bk-submit" onclick="bkSubmit()">Zahlungspflichtig buchen ✓</button>
+      </div>
+    </div>
+
+    <!-- SCHRITT 5: ERFOLG -->
+    <div class="bk-step" id="bk-s5">
+      <div class="bk-success">
+        <div class="ok-ring"><svg width="30" height="30" viewBox="0 0 30 30" fill="none"><path d="M7 15L13 21L24 9" stroke="#1D9E75" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>Buchung eingegangen!</h3>
+        <p>Danke <span id="bk-ok-name"></span>! Wir prüfen die Verfügbarkeit in deiner Region und bestätigen deinen Wunschtermin innerhalb von 24 Stunden per E-Mail.</p>
+        <p style="font-size:12.5px;color:#8B897F">Fragen vorab? Schreib uns an hallo@amperillo.de</p>
+        <button type="button" class="bk-next" style="margin-top:1.5rem" onclick="closeBooking()">Zurück zur Seite</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
 <!-- FOOTER -->
 <footer>
   <div class="footer-inner">
@@ -812,11 +1170,34 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--amber);outline-offs
     <div class="footer-links">
       <a href="/impressum">Impressum</a>
       <a href="/datenschutz">Datenschutz</a>
-      <a href="mailto:hallo@amperillo.de">Kontakt</a>
+      <a href="/widerruf">Widerruf &amp; Storno</a>
+      <a href="mailto:hallo@amperillo.de">hallo@amperillo.de</a>
+      <a href="https://www.linkedin.com/company/amperillo" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 01-2.07-2.07 2.07 2.07 0 112.07 2.07zm1.78 13.02H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+        LinkedIn
+      </a>
     </div>
-    <div class="footer-copy" style="margin-top:.75rem">© 2026 amperillo · certified electric resale</div>
+    <div class="footer-copy" style="margin-top:.75rem">© 2026 amperillo GmbH i.G. · certified electric resale</div>
   </div>
 </footer>
+
+<!-- MODAL: RÜCKRUF -->
+<div class="modal-overlay" id="modal-rueckruf" onclick="closeOnOverlay(event,'rueckruf')">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('rueckruf')">✕</button>
+    <div id="form-rueckruf">
+      <div class="modal-eyebrow">Persönlich &amp; unverbindlich</div>
+      <h2>Rückruf anfordern</h2>
+      <p class="modal-sub">Hinterlass uns deine Nummer, wir rufen innerhalb von 24 Stunden zurück (Mo bis Fr, 9 bis 18 Uhr). Kein Verkaufsdruck, einfach deine Fragen klären.</p>
+      <div class="form-group"><label>Name *</label><input type="text" id="r-rueck-name" placeholder="Vor- und Nachname" required></div>
+      <div class="form-group"><label>Telefon *</label><input type="tel" id="r-rueck-tel" placeholder="+49 151 12345678" required></div>
+      <div class="form-group"><label>Worum geht es? (optional)</label><input type="text" id="r-rueck-thema" placeholder="z. B. Frage zum Check oder Wunschauto"></div>
+      <div class="form-consent"><input type="checkbox" id="r-rueck-consent"><label for="r-rueck-consent">Ich stimme der Verarbeitung meiner Daten gemäß der <a href="/datenschutz">Datenschutzerklärung</a> zu. *</label></div>
+      <button class="form-submit" onclick="submitForm('rueckruf')">Rückruf anfordern →</button>
+    </div>
+    <div class="success-msg" id="success-rueckruf"><div class="check-big"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5 12L10 17L19 8" stroke="#1D9E75" stroke-width="2" stroke-linecap="round"/></svg></div><h3>Rückruf angefordert!</h3><p>Wir melden uns innerhalb von 24 Stunden bei dir. Du erreichst uns jederzeit auch unter hallo@amperillo.de.</p></div>
+  </div>
+</div>
 
 <!-- MODAL: KÄUFER / RECHNER LEAD -->
 <div class="modal-overlay" id="modal-kaefer" onclick="closeOnOverlay(event,'kaefer')">
@@ -828,8 +1209,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--amber);outline-offs
       <p class="modal-sub">Wir recherchieren passende Fahrzeugvorschläge, kostenlos und unverbindlich. Double-Opt-In per E-Mail folgt.</p>
       <div class="form-group"><label>Vorname *</label><input type="text" id="k-vorname" placeholder="Max" required></div>
       <div class="form-group"><label>E-Mail *</label><input type="email" id="k-email" placeholder="max@beispiel.de" required></div>
-      <div class="form-group"><label>Budget (Kaufpreis ca.)</label><input type="text" id="k-budget" placeholder="z. B. 45.000 – 55.000 €"></div>
-      <div class="form-group"><label>Fahrzeug-Wunsch (optional)</label><select id="k-fahrzeug"><option value="">Bitte wählen…</option><option>Tesla Model 3 / Y</option><option>Hyundai Ioniq 5 / 6</option><option>Kia EV6</option><option>Audi e-tron / Q4 e-tron</option><option>BMW iX / i4</option><option>Mercedes EQC / EQS</option><option>Porsche Taycan</option><option>Anderes Modell</option><option>Noch offen</option></select></div>
+      <div class="form-group"><label>Budget (Kaufpreis ca.)</label><input type="text" id="k-budget" placeholder="z. B. 25.000 bis 35.000 €"></div>
+      <div class="form-group"><label>Fahrzeug-Wunsch (optional)</label><select id="k-fahrzeug"><option value="">Bitte wählen…</option><option>VW ID.3 / ID.4 / ID.5</option><option>Cupra Born</option><option>Skoda Enyaq</option><option>Tesla Model 3 / Y</option><option>Hyundai Ioniq 5 / 6</option><option>Kia EV6</option><option>Polestar 2</option><option>Audi Q4 e-tron</option><option>Anderes Modell</option><option>Noch offen</option></select></div>
       <div class="form-consent"><input type="checkbox" id="k-consent"><label for="k-consent">Ich stimme der Verarbeitung meiner Daten gemäß der <a href="/datenschutz">Datenschutzerklärung</a> zu. Double-Opt-In per E-Mail folgt. *</label></div>
       <button class="form-submit" onclick="submitForm('kaefer')">Kostenlos anfragen →</button>
     </div>
@@ -899,25 +1280,6 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--amber);outline-offs
   </div>
 </div>
 
-<!-- MODAL: NEWSLETTER -->
-<div class="modal-overlay" id="modal-newsletter" onclick="closeOnOverlay(event,'newsletter')">
-  <div class="modal">
-    <button class="modal-close" onclick="closeModal('newsletter')">✕</button>
-    <div id="form-newsletter">
-      <div class="modal-eyebrow">Newsletter</div>
-      <h2>Kein Spam. Nur Substanz.</h2>
-      <p class="modal-sub" style="margin-bottom:1rem">Score-Insights, Steuer-Updates und Marktdaten rund um gebrauchte E-Autos. Double-Opt-In.</p>
-      <form id="sib-form" method="POST" action="https://bfb32ed2.sibforms.com/serve/MUIFAMmXXIqWcQRPUzoRgY-2GBSrAamwOQ5rcwCZGupg3FmKvr4hWSC4BxgDhULqALwtvKCJgFvjxHtv30Hxa_WaC3y3LODkub-sfkQXiT5wjgaczvgCcH2OK3Mu3BTDnnELSo905tRQzt9AHfBYCoTvy4KE1eu9h3KLLLrwUJD_cEsjebLcmHh2PIGFo-GznO_Ryz9SAHpvQQIyGQ==" data-type="subscription" style="width:100%">
-        <div class="form-group"><label style="font-size:12px;font-weight:500">E-Mail-Adresse *</label><input class="input" type="text" id="EMAIL" name="EMAIL" autocomplete="off" placeholder="max@beispiel.de" data-required="true" required style="width:100%;padding:10px 14px;border:1px solid var(--border);border-radius:8px;font-size:14px;font-family:var(--ff-body);outline:none"></div>
-        <input type="text" name="email_address_check" value="" style="display:none">
-        <input type="hidden" name="locale" value="de">
-        <p style="font-size:11px;color:var(--muted);margin-bottom:1rem">Double-Opt-In · Abmeldung jederzeit · <a href="/datenschutz" style="color:var(--green)">Datenschutz</a></p>
-        <button type="submit" class="form-submit sib-form-block__button">Abonnieren</button>
-      </form>
-    </div>
-  </div>
-</div>
-
 <!-- COOKIE BANNER -->
 <div class="cookie-banner" id="cookieBanner">
   <div class="cookie-text">🍪 Wir nutzen <strong>Google Analytics</strong> um zu verstehen wie Besucher unsere Seite nutzen. Deine Daten werden anonymisiert und nicht an Dritte verkauft. Mehr dazu in unserer <a href="/datenschutz">Datenschutzerklärung</a>.</div>
@@ -931,8 +1293,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--amber);outline-offs
 // ── RECHNER: STATE ───────────────────────────────
 let rNutzung = true;
 let rJahre = 3;
-const KP_MIN=20000, KP_MAX=100000;
-const BLP_MIN=20000, BLP_MAX=150000;
+const KP_MIN=10000, KP_MAX=100000;
+const BLP_MIN=15000, BLP_MAX=150000;
 
 function fmt(n){return Math.round(n).toLocaleString('de-DE');}
 function fmtE(n){return fmt(n) + ' €';}
@@ -1070,7 +1432,7 @@ function setJahre(j){
 // § 7 Abs. 2a EStG: gesetzliche Staffelsätze auf originale Netto-AK (Summe = 100% über 6 Jahre)
 const AFA_STAFFEL = [0.75, 0.10, 0.05, 0.05, 0.03, 0.02];
 // Geschätzter Restwert (% des Kaufpreises) nach weiterer Haltedauer.
-// Basis: DAT-Restwerte (~50% des Neupreises nach 3 J.), Premium-EVs verlieren schneller.
+// Basis: DAT-Restwerte (~50% des Neupreises nach 3 J.), E-Autos verlieren schneller.
 // Da hier vom bereits gebrauchten Kaufpreis gerechnet wird, ist der weitere Verlust flacher angesetzt.
 const RESTWERT_FAKTOR = [0.78, 0.62, 0.50, 0.40];
 
@@ -1162,6 +1524,175 @@ async function submitLead(){
   if(typeof gtag==='function'){gtag('event','email_im_rechner',{event_category:'conversion'});}
 }
 
+
+// ── BUCHUNGSSTRECKE ──────────────────────────────
+const BK_PAKETE={
+  check:{name:'amperillo Check',preis:'700 €',anzahlung:'350 €',rest:'350 €',ort:'Bei dir vor Ort (ohne Hebebühne)'},
+  plus:{name:'amperillo Check Plus',preis:'800 €',anzahlung:'400 €',rest:'400 €',ort:'In der Partner-Prüfstelle (mit Hebebühne)'},
+  concierge:{name:'amperillo Concierge',preis:'1.000 €',anzahlung:'500 €',rest:'500 €',ort:'Hol- & Bringservice, Prüfung in der Prüfstelle'}
+};
+let bkState={paket:null,day:null,slot:null};
+
+let bkSkipPaket=false;
+function openBooking(paket){
+  document.getElementById('booking').classList.add('open');
+  document.body.style.overflow='hidden';
+  bkSkipPaket=!!(paket&&BK_PAKETE[paket]);
+  if(bkSkipPaket){pickPaket(paket);}
+  bkGo(bkSkipPaket?2:1);
+  bkBuildDays();
+  if(typeof gtag==='function'){gtag('event','buchung_gestartet',{event_category:'conversion',paket:paket||'none'});}
+}
+function bkChangePaket(){bkSkipPaket=false;bkGo(1);}
+function closeBooking(){
+  document.getElementById('booking').classList.remove('open');
+  document.body.style.overflow='';
+}
+function pickPaket(p){
+  bkState.paket=p;
+  ['check','plus','concierge'].forEach(x=>document.getElementById('bkp-'+x).classList.toggle('selected',x===p));
+  document.getElementById('bk-next1').disabled=false;
+}
+const BK_STEP_NAMES={1:'Paket wählen',2:'Fahrzeug & Kontakt',3:'Wunschtermin',4:'Übersicht & Absenden',5:'Fertig'};
+function bkGo(n){
+  [1,2,3,4,5].forEach(i=>{const el=document.getElementById('bk-s'+i);if(el)el.classList.toggle('active',i===n);});
+  const total=bkSkipPaket?3:4;
+  const disp=bkSkipPaket?Math.max(1,Math.min(n,4)-1):Math.min(n,4);
+  document.getElementById('bk-step-num').textContent=disp;
+  document.getElementById('bk-step-total').textContent=total;
+  document.getElementById('bk-step-name').textContent=BK_STEP_NAMES[n]||'';
+  document.getElementById('bk-bar').style.width=(disp/total*100)+'%';
+  document.querySelector('.bk-overlay').scrollTo({top:0,behavior:'smooth'});
+  if(n===2)bkFillPaketLine();
+  if(n===4)bkFillSummary();
+}
+function bkFillPaketLine(){
+  const el=document.getElementById('bk-s2-paket');
+  const p=BK_PAKETE[bkState.paket];
+  if(el&&p){el.style.display='flex';el.querySelector('.pl-t').textContent=p.name+' · '+p.preis;}
+  else if(el){el.style.display='none';}
+}
+function bkBuildDays(){
+  const wrap=document.getElementById('bk-days');
+  if(wrap.childElementCount>0)return;
+  const wd=['So','Mo','Di','Mi','Do','Fr','Sa'];
+  const mon=['Jan','Feb','Mär','Apr','Mai','Jun','Jul','Aug','Sep','Okt','Nov','Dez'];
+  let d=new Date(); let added=0;
+  d.setDate(d.getDate()+2); // frühestens übermorgen
+  while(added<10){
+    if(d.getDay()!==0){ // Sonntag aus
+      const btn=document.createElement('button');
+      btn.type='button'; btn.className='bk-day';
+      const label=wd[d.getDay()]+', '+d.getDate()+'. '+mon[d.getMonth()];
+      btn.dataset.day=label;
+      btn.innerHTML='<div class="d-wd">'+wd[d.getDay()]+'</div><div class="d-num">'+d.getDate()+'. '+mon[d.getMonth()]+'</div>';
+      btn.onclick=function(){pickDay(this);};
+      wrap.appendChild(btn); added++;
+    }
+    d.setDate(d.getDate()+1);
+  }
+}
+function pickDay(el){
+  document.querySelectorAll('.bk-day').forEach(b=>b.classList.remove('selected'));
+  el.classList.add('selected'); bkState.day=el.dataset.day;
+  document.getElementById('bk-err3').classList.remove('show');
+}
+function pickSlot(el){
+  document.querySelectorAll('.bk-slot').forEach(b=>b.classList.remove('selected'));
+  el.classList.add('selected'); bkState.slot=el.dataset.slot;
+  document.getElementById('bk-err3').classList.remove('show');
+}
+function bkVal(id){return (document.getElementById(id).value||'').trim();}
+function bkValidate2(){
+  const ok=bkVal('bk-modell')&&bkVal('bk-ez')&&bkVal('bk-km')&&bkVal('bk-ort')&&bkVal('bk-name')&&bkVal('bk-tel')&&/.+@.+\..+/.test(bkVal('bk-email'));
+  document.getElementById('bk-err2').classList.toggle('show',!ok);
+  if(ok)bkGo(3);
+}
+function bkValidate3(){
+  const ok=bkState.day&&bkState.slot;
+  document.getElementById('bk-err3').classList.toggle('show',!ok);
+  if(ok)bkGo(4);
+}
+function bkFillSummary(){
+  const p=BK_PAKETE[bkState.paket]||{};
+  document.getElementById('bk-sum-paket').textContent=p.name||'';
+  document.getElementById('bk-sum-ort-typ').textContent=p.ort||'';
+  document.getElementById('bk-sum-fzg').textContent=bkVal('bk-modell')+' · EZ '+bkVal('bk-ez')+' · '+bkVal('bk-km')+' km';
+  document.getElementById('bk-sum-standort').textContent=bkVal('bk-ort');
+  document.getElementById('bk-sum-termin').textContent=(bkState.day||'')+' · '+(bkState.slot||'');
+  document.getElementById('bk-sum-kontakt').textContent=bkVal('bk-name')+' · '+bkVal('bk-email');
+  document.getElementById('bk-sum-preis').innerHTML=(p.preis||'')+' <small>inkl. MwSt.</small>';
+  document.getElementById('bk-pay-anzahlung').textContent=p.anzahlung||'';
+  document.getElementById('bk-pay-rest').textContent=p.rest||'';
+}
+function bkSubmit(){
+  const agree=document.getElementById('bk-agree');
+  document.getElementById('bk-err4b').classList.toggle('show',!agree.checked);
+  if(!agree.checked)return;
+  const btn=document.getElementById('bk-submit');
+  btn.disabled=true; btn.textContent='Wird gesendet…';
+  const p=BK_PAKETE[bkState.paket]||{};
+  const data={
+    _subject:'BUCHUNG: '+(p.name||'Check')+' · '+bkVal('bk-name'),
+    formular:'buchungsstrecke',
+    paket:p.name||'', preis:p.preis||'', durchfuehrung:p.ort||'',
+    fahrzeug:bkVal('bk-modell'), erstzulassung:bkVal('bk-ez'), kilometerstand:bkVal('bk-km'),
+    standort:bkVal('bk-ort'),
+    wunschtermin:(bkState.day||'')+' '+(bkState.slot||''),
+    zahlungsmodell:'50% Anzahlung ('+(p.anzahlung||'')+') nach Terminbestätigung, Rest ('+(p.rest||'')+') nach Prüfung',
+    name:bkVal('bk-name'), email:bkVal('bk-email'), telefon:bkVal('bk-tel'),
+    widerruf_zustimmung:'Ja: Belehrung zur Kenntnis genommen, vorzeitiger Leistungsbeginn verlangt'
+  };
+  fetch('https://formspree.io/f/xqewvjrr',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)})
+    .then(r=>{
+      if(r.ok){
+        document.getElementById('bk-ok-name').textContent=bkVal('bk-name').split(' ')[0];
+        bkGo(5);
+        if(typeof gtag==='function'){gtag('event','buchung_abgeschlossen',{event_category:'conversion',paket:bkState.paket});}
+      }else{throw new Error('send failed');}
+    })
+    .catch(()=>{document.getElementById('bk-err4').classList.add('show');})
+    .finally(()=>{btn.disabled=false;btn.textContent='Zahlungspflichtig buchen ✓';});
+}
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'&&document.getElementById('booking').classList.contains('open'))closeBooking();
+});
+
+// ── WEICHE ───────────────────────────────────────
+function weicheGo(e,zone){
+  e.preventDefault();
+  if(typeof gtag==='function'){gtag('event','weiche_'+zone,{event_category:'navigation'});}
+  if(zone==='firmenwagen'){toggleRechner(true);}
+  const el=document.getElementById(zone);
+  if(el)el.scrollIntoView({behavior:'smooth'});
+}
+
+// ── RECHNER COLLAPSE ─────────────────────────────
+let rechnerOpen=false;
+function toggleRechner(force){
+  const c=document.getElementById('rechner-collapse');
+  const label=document.getElementById('rechner-toggle-label');
+  const icon=document.getElementById('rechner-toggle-icon');
+  rechnerOpen=(typeof force==='boolean')?force:!rechnerOpen;
+  if(rechnerOpen){
+    c.style.maxHeight=c.scrollHeight+'px';
+    // nach Transition freigeben, damit innere Höhenänderungen (Warnungen etc.) nicht abgeschnitten werden
+    setTimeout(()=>{if(rechnerOpen)c.style.maxHeight='none';},520);
+    label.textContent='Rechner schließen';
+    icon.style.transform='rotate(180deg)';
+  }else{
+    c.style.maxHeight=c.scrollHeight+'px'; // von 'none' auf konkreten Wert für Transition
+    requestAnimationFrame(()=>{c.style.maxHeight='0';});
+    label.textContent='Rechner öffnen';
+    icon.style.transform='rotate(0deg)';
+  }
+}
+// Anker-Navigation (#rechner) öffnet den Rechner automatisch
+document.querySelectorAll('a[href="#rechner"], a[href="#firmenwagen"]').forEach(a=>{
+  a.addEventListener('click',()=>{if(!rechnerOpen)toggleRechner(true);});
+});
+if(location.hash==='#rechner'||location.hash==='#firmenwagen'){toggleRechner(true);}
+
 // ── COUNTDOWN ────────────────────────────────────
 (function(){
   function pad(n){return String(n).padStart(2,'0');}
@@ -1201,10 +1732,17 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')['kaefer','haendler'
 const FORM_ENDPOINT='https://formspree.io/f/xqewvjrr';
 
 async function submitForm(type){
-  const consentEl=document.getElementById(type[0]+'-consent');
+  const consentId = type==='rueckruf' ? 'r-rueck-consent' : type[0]+'-consent';
+  const consentEl=document.getElementById(consentId);
   if(consentEl&&!consentEl.checked){alert('Bitte stimme der Datenschutzerklärung zu.');return;}
   let data={};
-  if(type==='kaefer'){
+  if(type==='rueckruf'){
+    const n=document.getElementById('r-rueck-name').value.trim();
+    const t=document.getElementById('r-rueck-tel').value.trim();
+    if(!n||!t){alert('Bitte Name und Telefonnummer ausfüllen.');return;}
+    data={_type:'rueckruf_anfrage',_subject:'RÜCKRUF: '+n,name:n,telefon:t,thema:document.getElementById('r-rueck-thema').value};
+    if(typeof gtag==='function')gtag('event','rueckruf_anfrage',{event_category:'conversion'});
+  } else if(type==='kaefer'){
     const v=document.getElementById('k-vorname').value.trim();
     const e=document.getElementById('k-email').value.trim();
     if(!v||!e){alert('Bitte Vorname und E-Mail ausfüllen.');return;}
