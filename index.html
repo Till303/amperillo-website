@@ -532,6 +532,32 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--amber);outline-offs
   </div>
 </section>
 
+<!-- GLOBALER ZIELGRUPPEN-UMSCHALTER (amperillo) -->
+<section class="apt-switchbar" aria-label="Zielgruppe wählen">
+  <div class="apt-switch-inner">
+    <div class="apt-switch-text">Wen betrifft das? Preise und Leistungen passen sich an.</div>
+    <div class="apt-toggle" role="tablist" aria-label="Zielgruppe">
+      <button type="button" class="apt-tgl active" id="apt-btn-privat" role="tab" aria-selected="true" onclick="ampAudience('privat')">Privatperson</button>
+      <button type="button" class="apt-tgl" id="apt-btn-haendler" role="tab" aria-selected="false" onclick="ampAudience('haendler')">Händler &amp; Gewerbe</button>
+    </div>
+  </div>
+  <div class="apt-switch-hint" id="apt-haendler-hint">Händler-Ansicht: Der Endkundenpreis von 700 € gilt hier nicht. Ihr Preis startet ab 360 € je Fahrzeug.</div>
+</section>
+<style>
+  .apt-switchbar{background:var(--white);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:16px 5vw}
+  .apt-switch-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .apt-switch-text{font-family:var(--ff-body);font-size:15px;color:var(--text);font-weight:500}
+  .apt-toggle{display:inline-flex;gap:4px;background:var(--offwhite);border:1px solid var(--border);border-radius:var(--r-pill);padding:4px}
+  .apt-tgl{border:none;background:transparent;color:var(--muted);font-family:var(--ff-body);font-size:14px;font-weight:500;padding:9px 20px;border-radius:var(--r-pill);cursor:pointer;min-height:40px;transition:all .2s;white-space:nowrap}
+  .apt-tgl.active{background:var(--green);color:#fff}
+  .apt-tgl:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+  .apt-switch-hint{max-width:1100px;margin:12px auto 0;font-size:13px;color:var(--gdark);background:var(--gpale);border-radius:10px;padding:10px 14px;display:none}
+  /* Der produktinterne Toggle wird durch diesen globalen ersetzt */
+  .zielgruppe-toggle{display:none !important}
+  @media(max-width:600px){.apt-switch-inner{flex-direction:column;align-items:stretch}.apt-toggle{justify-content:center}.apt-tgl{flex:1}}
+</style>
+
+
 <!-- B2C INSPEKTION -->
 <section class="inspektion-section fade-up" id="kaeufer">
   <div class="section-inner">
@@ -581,7 +607,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--amber);outline-offs
           <div class="paket-ort">🏢 Für Händler &amp; Bestand</div>
           <div class="paket-name">amperillo Händler-Check</div>
           <div class="paket-price">ab 360 <span>€</span> <span style="font-size:15px;color:var(--muted)">je Fahrzeug</span></div>
-          <p class="paket-leistung">Schlanke Prüfung fürs Listing: kompakte Inspektion plus Aviloo-Batterietest, Zertifikat für Bestandsfahrzeuge, Vertrauens-Booster im Inserat, Einstieg in die Partnerschaft.</p>
+          <p class="paket-leistung">Schlanke Prüfung fürs Listing: kompakte Inspektion plus unabhängiger Batterie-Gesundheitstest, Zertifikat für Bestandsfahrzeuge, Vertrauens-Booster im Inserat, Einstieg in die Partnerschaft.</p>
           <a href="#" class="paket-btn paket-btn-solid" onclick="openModal('haendler'); return false;">Händler-Check anfragen</a>
         </div>
         <div class="haendler-partner">
@@ -594,6 +620,224 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--amber);outline-offs
     </div>
   </div>
 </section>
+
+
+<!-- WAS IM CHECK STECKT · Preis-Transparenz (umschaltbar Privat/Händler) -->
+<section class="apt-sec" id="was-steckt-drin">
+  <div class="apt-inner">
+
+    <!-- ===================== PRIVAT ===================== -->
+    <div id="apt-privat">
+      <div class="apt-eyebrow">Was in deinem Check steckt</div>
+      <h2 class="apt-h2 d">Woraus sich deine 700 € zusammensetzen.</h2>
+      <p class="apt-sub">Kein runder Preis aus dem Nichts. Dein amperillo Check bündelt neun Leistungen, die du einzeln teurer und ohne Gesamturteil bekommst. Manche gibt es einzeln gar nicht.</p>
+
+      <div class="apt-grid">
+        <div class="apt-card"><div class="apt-knum">01</div><h4>Prüfingenieur vor Ort</h4><p>Ein unabhängiger Sachverständiger prüft dein Auto persönlich, direkt dort, wo es steht.</p></div>
+        <div class="apt-card"><div class="apt-knum">02</div><h4>Batterie-Gesundheitscheck</h4><p>Unabhängiger Test des teuersten Bauteils: realer Zustand und verbleibende Kapazität der Batterie.</p></div>
+        <div class="apt-card"><div class="apt-knum">03</div><h4>Fahrzeug- und Fehlerspeicherdaten</h4><p>Auslesen der Steuergeräte und Softwarestände direkt am Fahrzeug, nicht aus der Ferne geschätzt.</p></div>
+        <div class="apt-card"><div class="apt-knum">04</div><h4>Lückenlose Fahrzeughistorie</h4><p>Abgleich über internationale Datenquellen: Vorschäden, Tachostand und Herkunft des Fahrzeugs.</p></div>
+        <div class="apt-card"><div class="apt-knum">05</div><h4>Rückruf-Abgleich</h4><p>Abgleich mit der offiziellen Rückruf-Datenbank des Kraftfahrt-Bundesamts (KBA), damit kein offener Rückruf übersehen wird.</p></div>
+        <div class="apt-card"><div class="apt-knum">06</div><h4>Modell-Wissen und Schwachstellen</h4><p>Unsere Wissensdatenbank kennt die typischen Schwachstellen genau deines Modells, gespeist aus Experten- und Community-Wissen.</p></div>
+        <div class="apt-card"><div class="apt-knum">07</div><h4>Prognose: Wert und Langlebigkeit</h4><p>Datenbasierte Einschätzung, wie sich Restwert und Lebensdauer deines Fahrzeugs voraussichtlich entwickeln.</p></div>
+        <div class="apt-card"><div class="apt-knum">08</div><h4>amperillo Score</h4><p>Über 150 Faktoren, verdichtet zu einer neutralen Zahl von 0 bis 100. Unabhängig und datenbasiert.</p></div>
+        <div class="apt-card"><div class="apt-knum">09</div><h4>Zertifikat und Kaufempfehlung</h4><p>Dein unterschriebenes PDF mit klarer Einordnung. Entscheidungssicher im Kaufmoment.</p></div>
+      </div>
+
+      <div class="apt-compare">
+        <div class="apt-cl">
+          <div class="apt-label">Einzeln zusammengekauft</div>
+          <div class="apt-big">450–750 €</div>
+          <div class="apt-note">Und du hast immer noch keinen Score, keine Prognose, kein Zertifikat und niemanden, der das Ergebnis für dich einordnet.</div>
+        </div>
+        <div>
+          <div class="apt-label">Dein amperillo Check</div>
+          <div class="apt-big apt-green">700 €</div>
+          <div class="apt-note">Alles aus einer Hand, ausgewertet und beurteilt. Ein Ansprechpartner, ein klares Ergebnis.</div>
+        </div>
+      </div>
+
+      <div class="apt-visualwrap">
+        <div class="apt-vcol" style="max-width:300px">
+          <!-- MUSTERZERTIFIKAT -->
+          <svg class="apt-svg" viewBox="0 0 300 410" width="100%" role="img" aria-label="Muster eines amperillo Zertifikats">
+            <rect x="1" y="1" width="298" height="408" rx="14" fill="#FFFFFF" stroke="#D8D6CE"/>
+            <text class="d" x="20" y="36" font-size="18" fill="#0A1628" font-weight="700">amperillo</text>
+            <text x="280" y="34" text-anchor="end" font-size="10" letter-spacing="2" fill="#6B6A65">ZERTIFIKAT</text>
+            <line x1="20" y1="50" x2="280" y2="50" stroke="#E8E6DF"/>
+            <text x="20" y="76" font-size="10" letter-spacing="1.5" fill="#1D9E75" font-weight="600">MUSTER-ELEKTROFAHRZEUG</text>
+            <text x="20" y="94" font-size="12" fill="#6B6A65">Kompaktklasse · Baujahr 2024</text>
+            <circle cx="150" cy="178" r="50" fill="none" stroke="#E1F5EE" stroke-width="10"/>
+            <circle cx="150" cy="178" r="50" fill="none" stroke="#1D9E75" stroke-width="10" stroke-linecap="round" stroke-dasharray="267 314" transform="rotate(-90 150 178)"/>
+            <text class="d" x="150" y="188" text-anchor="middle" font-size="42" fill="#0A1628" font-weight="700">85</text>
+            <text x="150" y="246" text-anchor="middle" font-size="11" fill="#6B6A65">amperillo Score · von 100</text>
+            <circle cx="112" cy="272" r="5" fill="#1D9E75"/>
+            <text x="124" y="276" font-size="14" fill="#0A1628" font-weight="600">Guter Kauf</text>
+            <line x1="20" y1="296" x2="280" y2="296" stroke="#E8E6DF"/>
+            <text x="20" y="320" font-size="12" fill="#6B6A65">Batteriezustand (SoH)</text><text x="280" y="320" text-anchor="end" font-size="12" fill="#0A1628" font-weight="600">92 %</text>
+            <text x="20" y="344" font-size="12" fill="#6B6A65">Preislage</text><text x="280" y="344" text-anchor="end" font-size="12" fill="#0A1628" font-weight="600">im Marktschnitt</text>
+            <text x="20" y="368" font-size="12" fill="#6B6A65">Zertifikat-Nr.</text><text x="280" y="368" text-anchor="end" font-size="12" fill="#0A1628" font-weight="600">AMP-MUSTER-0001</text>
+            <text x="20" y="396" font-size="10" fill="#9a978f" font-style="italic">Muster. Keine echten Fahrzeugdaten.</text>
+          </svg>
+          <div class="apt-vcap">So sieht dein Ergebnis aus: Score, Ampel und Zertifikat.</div>
+        </div>
+        <div class="apt-vcol" style="display:flex;align-items:center">
+          <div class="apt-banner" style="margin-top:0">Du musst dich um <b>nichts kümmern</b>, wir machen das für dich: prüfen, bewerten, einordnen. Das spart dir Zeit, Geld und Nerven, damit du die <b>richtige Kaufentscheidung</b> triffst. Für <b>700 €</b>.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== HÄNDLER ===================== -->
+    <div id="apt-haendler" style="display:none">
+      <div class="apt-eyebrow">Was Ihr Check im Verkauf leistet</div>
+      <h2 class="apt-h2 d">Ein geprüftes Fahrzeug verkauft sich schneller.</h2>
+      <p class="apt-sub">Der amperillo Check bündelt neun Leistungen zu einem neutralen Ergebnis, das Sie im Inserat, im Verkaufsgespräch und beim Kaufvertrag einsetzen. Mehr Vertrauen beim Käufer, weniger Rückfragen, sauber dokumentiert.</p>
+
+      <div class="apt-grid">
+        <div class="apt-card"><div class="apt-knum">01</div><h4>Prüfingenieur vor Ort</h4><p>Ein unabhängiger Sachverständiger prüft das Fahrzeug persönlich. Eine neutrale Dritt-Instanz überzeugt den Käufer mehr als jede Eigenauskunft.</p></div>
+        <div class="apt-card"><div class="apt-knum">02</div><h4>Batterie-Gesundheitscheck</h4><p>Der Zustand des teuersten Bauteils, unabhängig gemessen. Nimmt dem Käufer die größte Unsicherheit beim E-Auto und beschleunigt die Entscheidung.</p></div>
+        <div class="apt-card"><div class="apt-knum">03</div><h4>Fahrzeug- und Fehlerspeicherdaten</h4><p>Direkt am Fahrzeug ausgelesen, nicht aus der Ferne geschätzt. Dokumentierter Ist-Zustand, der Nachverhandlungen vorbeugt.</p></div>
+        <div class="apt-card"><div class="apt-knum">04</div><h4>Lückenlose Fahrzeughistorie</h4><p>Vorschäden, Laufleistung und Herkunft über internationale Datenquellen abgeglichen. Ein sauberer Nachweis, der den Preis stützt.</p></div>
+        <div class="apt-card"><div class="apt-knum">05</div><h4>Rückruf-Abgleich</h4><p>Abgleich mit der offiziellen Rückruf-Datenbank des Kraftfahrt-Bundesamts (KBA). Offene Rückrufe werden sichtbar, bevor sie zum Problem werden.</p></div>
+        <div class="apt-card"><div class="apt-knum">06</div><h4>Modell-Wissen und Schwachstellen</h4><p>Unsere Wissensdatenbank kennt die typischen Schwachstellen des jeweiligen Modells. Sie begegnen Einwänden vorbereitet.</p></div>
+        <div class="apt-card"><div class="apt-knum">07</div><h4>Prognose: Wert und Langlebigkeit</h4><p>Datenbasierte Einschätzung von Restwert und Lebensdauer. Ein belastbares Argument im Preisgespräch.</p></div>
+        <div class="apt-card"><div class="apt-knum">08</div><h4>amperillo Score</h4><p>Über 150 Faktoren, verdichtet zu einer neutralen Zahl von 0 bis 100 mit Ampel. Ein Blickfang im Inserat und ein schnelles Vertrauenssignal.</p></div>
+        <div class="apt-card"><div class="apt-knum">09</div><h4>Zertifikat und Kaufempfehlung</h4><p>Ein unterschriebenes Dokument als Verkaufsinstrument. Unabhängige Bewertung statt Verkäuferaussage.</p></div>
+        <div class="apt-card apt-span"><div class="apt-knum" style="color:var(--amber)">10 · nur für Händler</div><h4>Mängelregister</h4><p>Alle Befunde nummeriert, mit Foto und Einstufung, als Anlage zum Kaufvertrag. Bekannte Mängel sind offen dokumentiert. Das schafft Vertrauen beim Käufer und beugt Diskussionen nach dem Kauf vor.</p></div>
+      </div>
+
+      <div class="apt-wirk">
+        <div class="apt-wi"><h5>Kürzere Standzeit</h5><p>Ein geprüftes, transparent dokumentiertes Fahrzeug überzeugt schneller.</p></div>
+        <div class="apt-wi"><h5>Mehr Anfragen</h5><p>Score und Batteriezustand stehen schon im Inserat.</p></div>
+        <div class="apt-wi"><h5>Weniger Reklamation</h5><p>Bekannte Mängel sind vor dem Verkauf offen gelegt.</p></div>
+        <div class="apt-wi"><h5>Neutrale Instanz</h5><p>Eine unabhängige Bewertung, kein Verkäuferversprechen.</p></div>
+      </div>
+
+      <!-- HÄNDLER-SET: Inserat-Grafik, Zertifikat, Mängelregister -->
+      <div class="apt-set">
+        <div>
+          <!-- INSERAT-GRAFIK (mobile.de Asset) -->
+          <svg class="apt-svg" viewBox="0 0 300 225" width="100%" role="img" aria-label="Muster der Inserat-Grafik">
+            <rect x="0" y="0" width="300" height="225" rx="12" fill="#0A1628"/>
+            <circle cx="26" cy="26" r="7" fill="none" stroke="#5DCAA5" stroke-width="2"/><path d="M22 26l3 3 5-6" stroke="#5DCAA5" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <text x="40" y="30" font-size="12" fill="#FFFFFF" font-weight="600">amperillo geprüft</text>
+            <text class="d" x="24" y="120" font-size="60" fill="#FFFFFF" font-weight="700">85</text>
+            <text x="118" y="92" font-size="12" fill="rgba(255,255,255,.65)">amperillo Score</text>
+            <circle cx="124" cy="112" r="6" fill="#1D9E75"/><text x="136" y="117" font-size="15" fill="#FFFFFF" font-weight="600">Guter Kauf</text>
+            <rect x="24" y="150" width="252" height="1" fill="rgba(255,255,255,.14)"/>
+            <text x="24" y="178" font-size="12" fill="rgba(255,255,255,.65)">Batteriezustand</text><text x="24" y="198" font-size="18" fill="#5DCAA5" font-weight="700">92 %</text>
+            <text x="276" y="178" text-anchor="end" font-size="11" fill="rgba(255,255,255,.55)">Zertifikat</text><text x="276" y="196" text-anchor="end" font-size="12" fill="#FFFFFF" font-weight="600">AMP-MUSTER-0001</text>
+          </svg>
+          <div class="apt-vcap"><b>Im Inserat.</b> Score und Batterie sichtbar, bevor der Kunde anruft.</div>
+        </div>
+        <div>
+          <!-- ZERTIFIKAT (Booklet) -->
+          <svg class="apt-svg" viewBox="0 0 300 225" width="100%" role="img" aria-label="Muster des Zertifikats">
+            <rect x="1" y="1" width="298" height="223" rx="12" fill="#FFFFFF" stroke="#D8D6CE"/>
+            <text class="d" x="20" y="34" font-size="15" fill="#0A1628" font-weight="700">amperillo</text>
+            <text x="280" y="33" text-anchor="end" font-size="9" letter-spacing="2" fill="#6B6A65">ZERTIFIKAT</text>
+            <line x1="20" y1="46" x2="280" y2="46" stroke="#E8E6DF"/>
+            <circle cx="56" cy="104" r="30" fill="none" stroke="#E1F5EE" stroke-width="7"/>
+            <circle cx="56" cy="104" r="30" fill="none" stroke="#1D9E75" stroke-width="7" stroke-linecap="round" stroke-dasharray="160 189" transform="rotate(-90 56 104)"/>
+            <text class="d" x="56" y="113" text-anchor="middle" font-size="26" fill="#0A1628" font-weight="700">85</text>
+            <text x="104" y="92" font-size="12" fill="#6B6A65">amperillo Score</text>
+            <circle cx="110" cy="112" r="5" fill="#1D9E75"/><text x="122" y="116" font-size="14" fill="#0A1628" font-weight="600">Guter Kauf</text>
+            <line x1="20" y1="150" x2="280" y2="150" stroke="#E8E6DF"/>
+            <text x="20" y="174" font-size="11" fill="#6B6A65">SoH 92 % · Preis im Schnitt</text>
+            <text x="20" y="196" font-size="11" fill="#0A1628" font-weight="600">AMP-MUSTER-0001</text>
+          </svg>
+          <div class="apt-vcap"><b>Im Gespräch.</b> Unabhängige Bewertung statt Verkäuferaussage.</div>
+        </div>
+        <div>
+          <!-- MÄNGELREGISTER -->
+          <svg class="apt-svg" viewBox="0 0 300 225" width="100%" role="img" aria-label="Muster des Mängelregisters">
+            <rect x="1" y="1" width="298" height="223" rx="12" fill="#FFFFFF" stroke="#D8D6CE"/>
+            <text x="20" y="32" font-size="13" fill="#0A1628" font-weight="700">Mängelregister</text>
+            <rect x="222" y="18" width="58" height="18" rx="9" fill="#FBF0DC"/><text x="251" y="31" text-anchor="middle" font-size="9" fill="#8A6A10" font-weight="700" letter-spacing="1">MUSTER</text>
+            <line x1="20" y1="46" x2="280" y2="46" stroke="#E8E6DF"/>
+            <rect x="20" y="60" width="44" height="40" rx="6" fill="#EEEDE7"/><path d="M34 86l7-8 6 6 4-4 6 6" stroke="#B9B6AC" stroke-width="2" fill="none" stroke-linecap="round"/>
+            <text x="74" y="72" font-size="10" fill="#1D9E75" font-weight="700">M-01 · OPTIK</text>
+            <text x="74" y="88" font-size="11" fill="#0A1628">Kratzer am Stoßfänger</text>
+            <text x="74" y="102" font-size="10" fill="#6B6A65">Empfehlung: Beobachten</text>
+            <rect x="20" y="118" width="44" height="40" rx="6" fill="#EEEDE7"/><path d="M34 144l7-8 6 6 4-4 6 6" stroke="#B9B6AC" stroke-width="2" fill="none" stroke-linecap="round"/>
+            <text x="74" y="130" font-size="10" fill="#1D9E75" font-weight="700">M-02 · TECHNIK</text>
+            <text x="74" y="146" font-size="11" fill="#0A1628">Bremsscheiben leichte Korrosion</text>
+            <text x="74" y="160" font-size="10" fill="#6B6A65">Empfehlung: Vor Verkauf prüfen</text>
+            <line x1="20" y1="176" x2="280" y2="176" stroke="#E8E6DF"/>
+            <text x="20" y="198" font-size="10" fill="#9a978f" font-style="italic">Befunde mit Foto, Einstufung und Empfehlung. Muster.</text>
+          </svg>
+          <div class="apt-vcap"><b>Beim Kaufvertrag.</b> Als Anlage, bekannte Mängel offen dokumentiert.</div>
+        </div>
+      </div>
+
+      <div class="apt-price">
+        <span class="apt-badge">Händlerpreis</span>
+        <span class="apt-pt"><b>700 € ist der Endkundenpreis, nicht Ihrer.</b> Als Händler prüfen Sie ab <b>360 € je Fahrzeug</b>. Volumen- und Abo-Konditionen auf Anfrage.</span>
+      </div>
+
+      <div class="apt-banner">Ein Fahrzeug, drei Verkaufsinstrumente: <b>Inserat-Grafik, Zertifikat und Mängelregister.</b> Sie verkaufen schneller, sauber dokumentiert, mit einem neutralen Ergebnis an Ihrer Seite. Ab 360 € je Fahrzeug.</div>
+    </div>
+
+  </div>
+</section>
+<style>
+  .apt-sec{background:var(--offwhite);padding:72px 5vw}
+  .apt-sec .apt-inner{max-width:1100px;margin:0 auto}
+  .apt-sec svg text{font-family:var(--ff-body),sans-serif}
+  .apt-sec svg .d,.apt-sec .d{font-family:var(--ff-display),serif}
+  .apt-eyebrow{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--green);margin-bottom:.6rem}
+  .apt-h2{font-size:30px;line-height:1.15;color:var(--volt);margin:0 0 .8rem;font-weight:700}
+  .apt-sub{font-size:16px;color:var(--muted);line-height:1.6;max-width:720px}
+  .apt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:2.2rem}
+  .apt-card{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:18px 18px 20px;position:relative;overflow:hidden}
+  .apt-card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--green)}
+  .apt-card h4{font-family:var(--ff-body);font-size:15px;font-weight:600;color:var(--volt);margin:8px 0 6px}
+  .apt-card p{font-size:13.5px;color:var(--muted);line-height:1.5;margin:0}
+  .apt-knum{font-family:var(--ff-mono,monospace);font-size:12px;font-weight:600;color:var(--glight)}
+  .apt-card.apt-span{grid-column:1 / -1;border-color:var(--amber);background:#fffdf7}
+  .apt-card.apt-span::before{background:var(--amber)}
+  .apt-compare{display:grid;grid-template-columns:1fr 1fr;background:var(--volt);border-radius:16px;overflow:hidden;margin-top:2.2rem}
+  .apt-compare>div{padding:26px 28px}
+  .apt-compare .apt-cl{border-right:1px solid rgba(255,255,255,.12)}
+  .apt-label{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:10px}
+  .apt-big{font-size:30px;color:#fff;margin-bottom:10px;font-weight:700}
+  .apt-big.apt-green{color:var(--glight)}
+  .apt-note{font-size:13px;color:rgba(255,255,255,.75);line-height:1.5}
+  .apt-wirk{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;background:var(--volt);border-radius:16px;padding:26px 28px;margin-top:2.2rem}
+  .apt-wi h5{font-family:var(--ff-body);font-size:15px;color:var(--glight);margin:0 0 5px;font-weight:600}
+  .apt-wi p{font-size:12.5px;color:rgba(255,255,255,.75);line-height:1.45;margin:0}
+  .apt-price{display:flex;align-items:center;gap:16px;flex-wrap:wrap;background:var(--white);border:1px solid var(--border);border-radius:14px;padding:20px 24px;margin-top:1.6rem}
+  .apt-badge{background:var(--amber);color:#3D2000;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:6px 12px;border-radius:var(--r-pill);white-space:nowrap}
+  .apt-pt{font-size:15px;color:var(--text);line-height:1.5}
+  .apt-pt b{color:var(--volt)}
+  .apt-banner{background:var(--gpale);border-radius:16px;padding:24px 28px;margin-top:2.2rem;font-size:16px;color:var(--gdark);line-height:1.6}
+  .apt-banner b{color:var(--volt)}
+  .apt-visualwrap{display:flex;gap:24px;align-items:stretch;margin-top:2.2rem;flex-wrap:wrap}
+  .apt-vcol{flex:1;min-width:240px}
+  .apt-vcap{font-size:12px;color:var(--muted);margin-top:8px;line-height:1.45}
+  .apt-set{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:2rem}
+  @media(max-width:768px){
+    .apt-grid{grid-template-columns:1fr}
+    .apt-compare{grid-template-columns:1fr}
+    .apt-compare .apt-cl{border-right:none;border-bottom:1px solid rgba(255,255,255,.12)}
+    .apt-wirk{grid-template-columns:1fr 1fr}
+    .apt-set{grid-template-columns:1fr}
+    .apt-h2{font-size:25px}
+  }
+</style>
+<script>
+  function ampAudience(zg){
+    var isP = zg==='privat';
+    var p=document.getElementById('apt-privat'), h=document.getElementById('apt-haendler');
+    if(p) p.style.display=isP?'block':'none';
+    if(h) h.style.display=isP?'none':'block';
+    var bp=document.getElementById('apt-btn-privat'), bh=document.getElementById('apt-btn-haendler');
+    if(bp){bp.classList.toggle('active',isP);bp.setAttribute('aria-selected',isP);}
+    if(bh){bh.classList.toggle('active',!isP);bh.setAttribute('aria-selected',!isP);}
+    var hint=document.getElementById('apt-haendler-hint'); if(hint) hint.style.display=isP?'none':'block';
+    if(typeof switchZielgruppe==='function'){ try{ switchZielgruppe(zg); }catch(e){} }
+  }
+</script>
 
 
 <!-- WUNSCHAUTO-AKTION (Kampagne) -->
@@ -1056,7 +1300,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--amber);outline-offs
           <p class="bp-desc">Wir kommen dorthin, wo dein Fahrzeug steht. Du bewegst nichts.</p>
           <ul class="bp-feats">
             <li>amperillo Score™: Datenprüfung mit über 150 Faktoren</li>
-            <li>Software-, Fehlerspeicher- &amp; Batteriedaten-Check</li>
+            <li>Software-, Fehlerspeicher- &amp; Batterie-Gesundheitscheck</li>
             <li>Physische Prüfung durch Sachverständige</li>
             <li>amperillo Score™ + Zertifikat als PDF</li>
             <li class="bp-na">Hebebühnen-Tiefenprüfung (vor Ort nicht möglich)</li>
